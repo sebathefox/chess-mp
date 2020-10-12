@@ -8,6 +8,7 @@ namespace Chess_MP
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private AssetManager _assetManager;
 
         public Game1()
         {
@@ -19,6 +20,7 @@ namespace Chess_MP
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            _assetManager = new AssetManager(this);
 
             base.Initialize();
         }
@@ -26,6 +28,8 @@ namespace Chess_MP
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            
+            _assetManager.LoadTexture("board", "board");
 
             // TODO: use this.Content to load your game content here
         }
@@ -45,6 +49,12 @@ namespace Chess_MP
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            _spriteBatch.Begin();
+            
+            _spriteBatch.Draw(_assetManager.GetTexture("board"), Vector2.One, Color.White);
+            
+            _spriteBatch.End();
+            
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
