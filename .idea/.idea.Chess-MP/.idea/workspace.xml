@@ -8,13 +8,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Initial Commit.">
-      <change afterPath="$PROJECT_DIR$/Chess-MP/GameColor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess-MP/Pieces/IPiece.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Added Textures.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Chess-MP.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Chess-MP.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/Content.mgcb" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Content/Content.mgcb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess-MP/Board/Field.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Board/Field.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +25,7 @@
       <list>
         <option value="$PROJECT_DIR$/Chess-MP/GameColor.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/IPiece.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Board/Field.cs" />
       </list>
     </option>
   </component>
@@ -71,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602493661637</updated>
-      <workItem from="1602493672479" duration="3189000" />
+      <workItem from="1602493672479" duration="5436000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit.">
       <created>1602497096820</created>
@@ -80,7 +77,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602497096820</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added GameColor.cs, Piece interface and Field.cs.">
+      <created>1602500273755</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602500273755</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added Textures.">
+      <created>1602500287296</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602500287296</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
@@ -99,16 +110,19 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Initial Commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit." />
+    <MESSAGE value="Added GameColor.cs, Piece interface and Field.cs." />
+    <MESSAGE value="Added Textures." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Textures." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2446" y="406" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602497485906">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="2446" y="406" key="#com.intellij.fileTypes.FileTypeChooser/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602497485906" />
-    <state x="2320" y="340" key="Vcs.Push.Dialog.v2" timestamp="1602497110287">
-      <screen x="1920" y="180" width="1600" height="900" />
+    <state x="480" y="184" key="Vcs.Push.Dialog.v2" timestamp="1602500295709">
+      <screen x="0" y="0" width="1920" height="1035" />
     </state>
+    <state x="480" y="184" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1602500295709" />
     <state x="2320" y="340" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602497110287" />
     <state x="2529" y="516" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602497104380">
       <screen x="1920" y="180" width="1600" height="900" />
