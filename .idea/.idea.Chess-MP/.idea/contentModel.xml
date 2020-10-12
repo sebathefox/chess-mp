@@ -117,7 +117,7 @@
         <e p="Icon.ico" t="Include" />
         <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
         <e p="Pieces" t="Include">
-          <e p="IPiece.cs" t="Include" />
+          <e p="Piece.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="app.manifest" t="Include" />

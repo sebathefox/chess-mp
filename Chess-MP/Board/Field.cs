@@ -9,7 +9,7 @@ namespace Chess_MP.Board
      */
     public class Field
     {
-        private IPiece _piece;
+        private Piece _piece;
 
         public Field()
         {
@@ -21,6 +21,6 @@ namespace Chess_MP.Board
          * @author Sebastian Davaris
          * @date 12-10-2020
          */
-        public IPiece Piece => _piece;
+        public Piece Piece => _piece;
     }
 }
