@@ -5,21 +5,70 @@
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_Chess-MP.-980647492.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Chess-MP" t="IncludeRecursive">
+        <e p="Board" t="Include">
+          <e p="Field.cs" t="Include" />
+        </e>
         <e p="Chess-MP.csproj" t="IncludeRecursive" />
         <e p="Content" t="Include">
           <e p="Content.mgcb" t="Include" />
+          <e p="bin" t="Include">
+            <e p="DesktopGL" t="Include">
+              <e p="bishop-black.xnb" t="Include" />
+              <e p="bishop-white.xnb" t="Include" />
+              <e p="king-black.xnb" t="Include" />
+              <e p="king-white.xnb" t="Include" />
+              <e p="knight-black.xnb" t="Include" />
+              <e p="knight-white.xnb" t="Include" />
+              <e p="pawn-black.xnb" t="Include" />
+              <e p="pawn-white.xnb" t="Include" />
+              <e p="queen-black.xnb" t="Include" />
+              <e p="queen-white.xnb" t="Include" />
+              <e p="rook-black.xnb" t="Include" />
+              <e p="rook-white.xnb" t="Include" />
+            </e>
+          </e>
+          <e p="bishop-black.png" t="Include" />
+          <e p="bishop-white.png" t="Include" />
+          <e p="king-black.png" t="Include" />
+          <e p="king-white.png" t="Include" />
+          <e p="knight-black.png" t="Include" />
+          <e p="knight-white.png" t="Include" />
           <e p="obj" t="Include">
             <e p="DesktopGL" t="Include">
+              <e p=".mgcontent" t="Include" />
+              <e p=".mgstats" t="Include" />
               <e p="Content" t="Include">
                 <e p=".mgstats" t="Include" />
               </e>
+              <e p="bishop-black.mgcontent" t="Include" />
+              <e p="bishop-white.mgcontent" t="Include" />
+              <e p="king-black.mgcontent" t="Include" />
+              <e p="king-white.mgcontent" t="Include" />
+              <e p="knight-black.mgcontent" t="Include" />
+              <e p="knight-white.mgcontent" t="Include" />
+              <e p="pawn-black.mgcontent" t="Include" />
+              <e p="pawn-white.mgcontent" t="Include" />
+              <e p="queen-black.mgcontent" t="Include" />
+              <e p="queen-white.mgcontent" t="Include" />
+              <e p="rook-black.mgcontent" t="Include" />
+              <e p="rook-white.mgcontent" t="Include" />
             </e>
           </e>
+          <e p="pawn-black.png" t="Include" />
+          <e p="pawn-white.png" t="Include" />
+          <e p="queen-black.png" t="Include" />
+          <e p="queen-white.png" t="Include" />
+          <e p="rook-black.png" t="Include" />
+          <e p="rook-white.png" t="Include" />
         </e>
         <e p="Game1.cs" t="Include" />
+        <e p="GameColor.cs" t="Include" />
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
         <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
+        <e p="Pieces" t="Include">
+          <e p="IPiece.cs" t="Include" />
+        </e>
         <e p="Program.cs" t="Include" />
         <e p="app.manifest" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
