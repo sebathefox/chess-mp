@@ -106,11 +106,13 @@
         <e p="Icon.ico" t="Include" />
         <e p="Image.cs" t="Include" />
         <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
+        <e p="MouseStateMachine.cs" t="Include" />
         <e p="Pieces" t="Include">
           <e p="Piece.cs" t="Include" />
         </e>
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
+        <e p="TestPiece.cs" t="Include" />
         <e p="app.manifest" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">

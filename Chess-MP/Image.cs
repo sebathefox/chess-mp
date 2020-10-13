@@ -58,6 +58,8 @@ namespace Chess_MP
         
         public Vector2 Position => _targetPosition;
         
+        public Rectangle Rectangle => new Rectangle(_targetPosition.ToPoint(), _texture.Bounds.Size);
+        
         private void Draw(object sender, SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();

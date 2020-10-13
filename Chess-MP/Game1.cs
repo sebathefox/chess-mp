@@ -11,7 +11,7 @@ namespace Chess_MP
         private SpriteBatch _spriteBatch;
         private AssetManager _assetManager;
 
-        private Image _image;
+        private TestPiece _piece;
 
         public event EventHandler<SpriteBatch> OnDraw;
 
@@ -39,7 +39,7 @@ namespace Chess_MP
             _assetManager.LoadTexture("board", "board");
             _assetManager.LoadTexture("white-queen", "white_queen");
 
-            _image = new Image(this, _assetManager.GetTexture("white-queen"), Vector2.One);
+            _piece = new TestPiece(this, _assetManager.GetTexture("white-queen"), Vector2.One);
             
             // TODO: use this.Content to load your game content here
         }
@@ -53,17 +53,7 @@ namespace Chess_MP
             OnUpdate?.Invoke(this, gameTime);
 
             KeyboardState state = Keyboard.GetState();
-            
-            if(state.IsKeyDown(Keys.W))
-                _image.SetPosition(new Vector2(_image.Position.X, _image.Position.Y - 1));
-            if(state.IsKeyDown(Keys.S))
-                _image.SetPosition(new Vector2(_image.Position.X, _image.Position.Y + 1));
-            if(state.IsKeyDown(Keys.A))
-                _image.SetPosition(new Vector2(_image.Position.X - 1, _image.Position.Y));
-            if(state.IsKeyDown(Keys.D))
-                _image.SetPosition(new Vector2(_image.Position.X + 1, _image.Position.Y));
-            
-            
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
