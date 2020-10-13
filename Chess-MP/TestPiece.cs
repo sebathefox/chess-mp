@@ -9,7 +9,7 @@ namespace Chess_MP
     public class TestPiece : Piece
     {
         /// <inheritdoc />
-        public TestPiece(Game1 game, Texture2D texture, Vector2 position) : base(game, texture, position)
+        public TestPiece(Game1 game, Player player, Texture2D texture, Vector2 position) : base(game, player, texture, position)
         {
         }
 

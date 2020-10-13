@@ -11,8 +11,10 @@ namespace Chess_MP
         private SpriteBatch _spriteBatch;
         private AssetManager _assetManager;
 
-        // private TestPiece _piece;
+        private Board.Board _board;
 
+        private Player _player;
+        
         public event EventHandler<SpriteBatch> OnDraw;
 
         public event EventHandler<GameTime> OnUpdate; 
@@ -36,10 +38,28 @@ namespace Chess_MP
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             
+            // Misc
             _assetManager.LoadTexture("board", "board");
+            
+            // White
+            _assetManager.LoadTexture("white-pawn", "white_pawn");
+            _assetManager.LoadTexture("white-knight", "white_knight");
+            _assetManager.LoadTexture("white-rook", "white_castle");
+            _assetManager.LoadTexture("white-bishop", "white_bishop");
+            _assetManager.LoadTexture("white-king", "white_king");
             _assetManager.LoadTexture("white-queen", "white_queen");
 
-            // _piece = new TestPiece(this, _assetManager.GetTexture("white-queen"), Vector2.One);
+            // Black
+            _assetManager.LoadTexture("black-pawn", "black_pawn");
+            _assetManager.LoadTexture("black-knight", "black_knight");
+            _assetManager.LoadTexture("black-rook", "black_castle");
+            _assetManager.LoadTexture("black-bishop", "black_bishop");
+            _assetManager.LoadTexture("black-king", "black_king");
+            _assetManager.LoadTexture("black-queen", "black_queen");
+            
+            _board = new Board.Board(this, _assetManager.GetTexture("board"));
+            
+            _player = new Player(this, 1, "Sebastian", GameColor.White);
             
             // TODO: use this.Content to load your game content here
         }
@@ -76,5 +96,7 @@ namespace Chess_MP
 
             base.Draw(gameTime);
         }
+
+        public AssetManager AssetManager => _assetManager;
     }
 }

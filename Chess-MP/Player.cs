@@ -23,7 +23,7 @@ namespace Chess_MP
             _id = id;
             _name = name;
             _color = color;
-            _pieces = new List<Piece>(LayoutManager.Generate(color));
+            _pieces = new List<Piece>(LayoutManager.Generate(_game, this));
         }
 
         /**
