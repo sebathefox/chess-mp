@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,6 +10,8 @@ namespace Chess_MP
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private AssetManager _assetManager;
+
+        public event EventHandler<SpriteBatch> OnDraw; 
 
         public Game1()
         {
@@ -30,6 +33,7 @@ namespace Chess_MP
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             
             _assetManager.LoadTexture("board", "board");
+            _assetManager.LoadTexture("white-queen", "white_queen");
 
             // TODO: use this.Content to load your game content here
         }
@@ -48,12 +52,15 @@ namespace Chess_MP
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            
             _spriteBatch.Begin();
             
             _spriteBatch.Draw(_assetManager.GetTexture("board"), Vector2.One, Color.White);
             
             _spriteBatch.End();
+            
+            OnDraw?.Invoke(this, _spriteBatch);
+
             
             // TODO: Add your drawing code here
 

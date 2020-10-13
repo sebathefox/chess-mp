@@ -46,8 +46,6 @@
               <e p="white_queen.xnb" t="Include" />
             </e>
           </e>
-          <e p="bishop-black.png" t="Include" />
-          <e p="bishop-white.png" t="Include" />
           <e p="black_bishop.png" t="Include" />
           <e p="black_castle.png" t="Include" />
           <e p="black_king.png" t="Include" />
@@ -56,10 +54,6 @@
           <e p="black_queen.png" t="Include" />
           <e p="board.png" t="Include" />
           <e p="hover_field.png" t="Include" />
-          <e p="king-black.png" t="Include" />
-          <e p="king-white.png" t="Include" />
-          <e p="knight-black.png" t="Include" />
-          <e p="knight-white.png" t="Include" />
           <e p="obj" t="Include">
             <e p="DesktopGL" t="Include">
               <e p=".mgcontent" t="Include" />
@@ -98,12 +92,6 @@
               <e p="white_queen.mgcontent" t="Include" />
             </e>
           </e>
-          <e p="pawn-black.png" t="Include" />
-          <e p="pawn-white.png" t="Include" />
-          <e p="queen-black.png" t="Include" />
-          <e p="queen-white.png" t="Include" />
-          <e p="rook-black.png" t="Include" />
-          <e p="rook-white.png" t="Include" />
           <e p="white_bishop.png" t="Include" />
           <e p="white_castle.png" t="Include" />
           <e p="white_king.png" t="Include" />
@@ -115,10 +103,12 @@
         <e p="GameColor.cs" t="Include" />
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
+        <e p="Image.cs" t="Include" />
         <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
         <e p="Pieces" t="Include">
           <e p="Piece.cs" t="Include" />
         </e>
+        <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="app.manifest" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
