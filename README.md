@@ -6,7 +6,7 @@
 
 ## Maintainers
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
  <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -16,6 +16,7 @@
   <tr>
     <td align="center"><a href="https://sebathefox.dk"><img src="https://avatars3.githubusercontent.com/u/31686237?v=4" width="100px;" alt=""/><br /><sub><b>Sebastian D.</b></sub></a></td>
     <td align="center"><a href="https://github.com/epicunicornrider"><img src="https://avatars3.githubusercontent.com/u/33825924?v=4" width="100px;" alt=""/><br /><sub><b>epicunicornrider</b></sub></a></td>
+    <td align="center"><a href="https://github.com/nkyokoo"><img src="https://avatars0.githubusercontent.com/u/26278374?v=4" width="100px;" alt=""/><br /><sub><b>nkyoko</b></sub></a></td>
   </tr>
 </table>
 
