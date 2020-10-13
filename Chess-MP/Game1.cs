@@ -116,10 +116,28 @@ namespace Chess_MP
             base.Draw(gameTime);
         }
 
+        /**
+         * Gets the AssetManager.
+         * @returns The AssetManager.
+         * @author Sebastian Davaris
+         * @date 13-10-2020
+         */
         public AssetManager AssetManager => _assetManager;
 
+        /**
+         * Gets the field in the specific position.
+         * @returns The specified Piece.
+         * @author Sebastian Davaris
+         * @date 13-10-2020
+         */
         public Field this[Vector2 position] => _fields.First(field => field.Id == position);
         
+        /**
+         * Returns the list of Fields as readonly.
+         * @returns The Fields.
+         * @author Sebastian Davaris
+         * @date 13-10-2020
+         */
         public List<Field> Fields => _fields;
     }
 }
