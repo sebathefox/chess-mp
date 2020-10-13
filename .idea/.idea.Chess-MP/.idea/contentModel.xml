@@ -105,6 +105,7 @@
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
         <e p="Image.cs" t="Include" />
+        <e p="LayoutManager.cs" t="Include" />
         <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
         <e p="MouseStateMachine.cs" t="Include" />
         <e p="Pieces" t="Include">

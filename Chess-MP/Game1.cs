@@ -11,7 +11,7 @@ namespace Chess_MP
         private SpriteBatch _spriteBatch;
         private AssetManager _assetManager;
 
-        private TestPiece _piece;
+        // private TestPiece _piece;
 
         public event EventHandler<SpriteBatch> OnDraw;
 
@@ -39,7 +39,7 @@ namespace Chess_MP
             _assetManager.LoadTexture("board", "board");
             _assetManager.LoadTexture("white-queen", "white_queen");
 
-            _piece = new TestPiece(this, _assetManager.GetTexture("white-queen"), Vector2.One);
+            // _piece = new TestPiece(this, _assetManager.GetTexture("white-queen"), Vector2.One);
             
             // TODO: use this.Content to load your game content here
         }

@@ -17,14 +17,15 @@ namespace Chess_MP
 
         private List<Piece> _pieces;
 
-        public Player(Game1 game, uint id, string name)
+        public Player(Game1 game, uint id, string name, GameColor color)
         {
             _game = game;
             _id = id;
             _name = name;
-            _pieces = new List<Piece>();
+            _color = color;
+            _pieces = new List<Piece>(LayoutManager.Generate(color));
         }
-        
+
         /**
          * Gets the player's ID.
          * @author Sebastian Davaris

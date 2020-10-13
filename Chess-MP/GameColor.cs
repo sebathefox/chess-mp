@@ -10,4 +10,10 @@ namespace Chess_MP
         White = 0b0000_0001,
         Black = 0b0000_0010
     }
+
+    public enum Direction
+    {
+        Up,
+        Down
+    }
 }
