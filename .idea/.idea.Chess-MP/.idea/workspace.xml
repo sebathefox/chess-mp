@@ -8,29 +8,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Fixed Piece.cs.">
-      <change afterPath="$PROJECT_DIR$/Chess-MP/Image.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess-MP/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/bishop-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/bishop-white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/king-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/king-white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/knight-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/knight-white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/pawn-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/pawn-white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/queen-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/queen-white.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/rook-black.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Content/rook-white.png" beforeDir="false" />
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Removed redundant images.">
       <change beforePath="$PROJECT_DIR$/Chess-MP/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Game1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602493661637</updated>
       <workItem from="1602493672479" duration="7851000" />
-      <workItem from="1602570691177" duration="2661000" />
+      <workItem from="1602570691177" duration="3297000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit.">
       <created>1602497096820</created>
@@ -135,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602508528495</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Removed redundant images.">
+      <created>1602573977112</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1602573977112</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -160,7 +154,8 @@
     <MESSAGE value="Added Field." />
     <MESSAGE value="Updated graphics." />
     <MESSAGE value="Fixed Piece.cs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Piece.cs." />
+    <MESSAGE value="Removed redundant images." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed redundant images." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2506" y="180" width="427" height="855" key="#Code_Folding" timestamp="1602571087579">
@@ -251,11 +246,11 @@
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state width="1554" height="200" key="GridCell.Tab.4.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602573802855" />
-    <state x="2320" y="340" key="Vcs.Push.Dialog.v2" timestamp="1602508537122">
+    <state x="2320" y="340" key="Vcs.Push.Dialog.v2" timestamp="1602573991379">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="480" y="184" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1602500295709" />
-    <state x="2320" y="340" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602508537122" />
+    <state x="2320" y="340" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602573991379" />
     <state x="2529" y="516" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602497104380">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
