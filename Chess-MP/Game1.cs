@@ -13,7 +13,9 @@ namespace Chess_MP
 
         private Image _image;
 
-        public event EventHandler<SpriteBatch> OnDraw; 
+        public event EventHandler<SpriteBatch> OnDraw;
+
+        public event EventHandler<GameTime> OnUpdate; 
 
         public Game1()
         {
@@ -47,6 +49,8 @@ namespace Chess_MP
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
                 Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+            
+            OnUpdate?.Invoke(this, gameTime);
 
             KeyboardState state = Keyboard.GetState();
             
