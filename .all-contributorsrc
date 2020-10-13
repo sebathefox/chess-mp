@@ -36,6 +36,15 @@
         "security",
         "design"
       ]
+    },
+    {
+      "login": "nkyokoo",
+      "name": "nkyoko",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/26278374?v=4",
+      "profile": "https://github.com/nkyokoo",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "projectName": "chess-mp",
