@@ -1,6 +1,8 @@
+using System;
 using Chess_MP.Pieces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Chess_MP.Board
 {
@@ -16,31 +18,46 @@ namespace Chess_MP.Board
         private readonly Vector2 _id;
         private Piece _piece;
         private readonly Rectangle _rect;
+        private MouseStateMachine _mouse;
 
         /**
          * Contains the values a field requires
-         * @author Kasper Grøn
+         * @author Kasper Grï¿½n
          * @date 13-10-2020
          */
 
-        public Field(Game1 game, Vector2 id, Point rectOffset)
+        public Field(Game1 game, Vector2 id)
         {
             _game = game;
             _id = id;
             _piece = null;
-            _rect = new Rectangle(rectOffset, new Point(64, 64));
+            _rect = new Rectangle(new Point((int) (id.X * 64), (int) (id.Y * 64)), new Point(64, 64));
 
+            _mouse = new MouseStateMachine(Mouse.GetState());
+            
             _game.OnUpdate += Update;
         }
 
         private void Update(object sender, GameTime gameTime)
         {
+            _mouse.Update(Mouse.GetState());
 
+            if (_mouse.LeftClicked())
+            {
+                Point position = _mouse.GetPosition();
+
+                if (_rect.Contains(position))
+                {
+                    Console.WriteLine("CLICKED: " + _id.ToString());
+                }
+            }
+            
+            _mouse.Swap();
         }
 
         /**
          * Gets the ID of the field.
-         * @author Kasper Grøn
+         * @author Kasper Grï¿½n
          * @date 13-10-2020
          */
         public Vector2 Id => _id;

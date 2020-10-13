@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Chess_MP.Board;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -11,10 +14,12 @@ namespace Chess_MP
         private SpriteBatch _spriteBatch;
         private AssetManager _assetManager;
 
-        private Board.Board _board;
+        private Image _board;
 
         private Player _player;
         private Hover _hover;
+
+        private List<Field> _fields;
         
         public event EventHandler<SpriteBatch> OnDraw;
 
@@ -58,12 +63,22 @@ namespace Chess_MP
             _assetManager.LoadTexture("black-bishop", "black_bishop");
             _assetManager.LoadTexture("black-king", "black_king");
             _assetManager.LoadTexture("black-queen", "black_queen");
-            
-            _board = new Board.Board(this, _assetManager.GetTexture("board"));
-            
+
             _player = new Player(this, 1, "Sebastian", GameColor.White);
             
             _hover = new Hover(this, new Vector2(2, 3));
+            
+            _board = new Image(this, _assetManager.GetTexture("board"), Vector2.Zero);
+            
+            _fields = new List<Field>();
+
+            for (int xIndex = 0; xIndex < 8; xIndex++)
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    _fields.Add(new Field(this, new Vector2(xIndex, y)));
+                }
+            }
             
             // TODO: use this.Content to load your game content here
         }
@@ -102,5 +117,9 @@ namespace Chess_MP
         }
 
         public AssetManager AssetManager => _assetManager;
+
+        public Field this[Vector2 position] => _fields.First(field => field.Id == position);
+        
+        public List<Field> Fields => _fields;
     }
 }
