@@ -53,5 +53,7 @@ namespace Chess_MP
          * @date 13-10-2020
          */
         public List<Piece> Pieces => _pieces;
+
+        public GameColor Color => _color;
     }
 }

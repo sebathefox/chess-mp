@@ -8,10 +8,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Added more to Piece.cs.">
-      <change afterPath="$PROJECT_DIR$/Chess-MP/LayoutManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Game1.cs" afterDir="false" />
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Added LayoutManager.cs for creating the pieces.">
+      <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess-MP/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,17 +26,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Chess-MP/GameColor.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/IPiece.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/AssetManager.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Board/Field.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/MouseStateMachine.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Image.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/TestPiece.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Game1.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Player.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/GameColor.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/LayoutManager.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Player.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" />
       </list>
     </option>
   </component>
@@ -84,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1602493661637</updated>
       <workItem from="1602493672479" duration="7851000" />
-      <workItem from="1602570691177" duration="8765000" />
+      <workItem from="1602570691177" duration="9116000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit.">
       <created>1602497096820</created>
@@ -170,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602580232217</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added LayoutManager.cs for creating the pieces.">
+      <created>1602584356022</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602584356022</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -200,7 +205,8 @@
     <MESSAGE value="Added Doxyfile." />
     <MESSAGE value="Worked on abstract Piece.cs." />
     <MESSAGE value="Added more to Piece.cs." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added more to Piece.cs." />
+    <MESSAGE value="Added LayoutManager.cs for creating the pieces." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added LayoutManager.cs for creating the pieces." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2506" y="180" width="427" height="855" key="#Code_Folding" timestamp="1602571087579">

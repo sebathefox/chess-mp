@@ -15,12 +15,15 @@ namespace Chess_MP.Pieces
     public abstract class Piece
     {
         private Game1 _game;
+        private readonly Player _player;
         private Image _image;
         private MouseStateMachine _mouse;
         
-        protected Piece(Game1 game, Texture2D texture, Vector2 position)
+        protected Piece(Game1 game, Player player, Texture2D texture, Vector2 position)
         {
             _game = game;
+            _player = player;
+
             // TODO: Get a pixel offset and send to image.
             _image = new Image(game, texture, position);
 
@@ -67,13 +70,18 @@ namespace Chess_MP.Pieces
                 _image.SetPosition(new Vector2(_image.Position.X + 1, _image.Position.Y));
         }
 
-        public int Id { get; protected set; }
+        public bool IsEnemy(Piece other)
+        {
+            return this.Color != other.Color;
+        }
         
+        public int Id { get; protected set; }
+
         /**
          * Returns the piece's colour
          * @author Sebastian Davaris
          * @date 12-10-2020
          */
-        public GameColor Color { get; protected set; }
+        public GameColor Color => _player.Color;
     }
 }
