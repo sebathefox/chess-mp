@@ -5,6 +5,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Chess_MP
 {
+    /**
+     * The class that contains the hovering logic.
+     * @author Sebastian Davaris
+     * @date 13-10-2020
+     */
     public class Hover
     {
         private Game1 _game;
@@ -12,6 +17,13 @@ namespace Chess_MP
         private Image _image;
         private MouseStateMachine _mouse;
 
+        /**
+         * Constructor
+         * @param game The game reference.
+         * @param position The position of the hover in normalized coordinates.
+         * @author Sebastian Davaris
+         * @date 13-10-2020
+         */
         public Hover(Game1 game, Vector2 position)
         {
             _game = game;
@@ -22,6 +34,13 @@ namespace Chess_MP
             _game.OnUpdate += Update;
         }
 
+        /**
+         * Runs on every game 'tick'.
+         * @param sender The sender of the event.
+         * @param gameTime The currently elapsed gametime.
+         * @author Sebastian Davaris
+         * @date 13-10-2020
+         */
         private void Update(object sender, GameTime gameTime)
         {
             _mouse.Update(Mouse.GetState());
