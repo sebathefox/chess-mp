@@ -1,5 +1,7 @@
 {
-  "files": ["README.md"],
+  "files": [
+    "README.md"
+  ],
   "imageSize": 100,
   "contributorsPerLine": 7,
   "contributorsSortAlphabetically": false,
@@ -12,6 +14,20 @@
       "link": "[<%= symbol %>](<%= url %> \"<%= description %>\"),"
     }
   },
-  "skipCi": "true",
-  "contributors": []
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "sebathefox",
+      "name": "Sebastian D.",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/31686237?v=4",
+      "profile": "https://sebathefox.dk",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "projectName": "chess-mp",
+  "projectOwner": "sebathefox",
+  "repoType": "github",
+  "repoHost": "https://github.com"
 }
