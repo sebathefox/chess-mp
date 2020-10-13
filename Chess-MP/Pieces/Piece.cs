@@ -59,7 +59,7 @@ namespace Chess_MP.Pieces
             _mouse.Swap();
 
             KeyboardState state = Keyboard.GetState();
-            
+            /*
             if(state.IsKeyDown(Keys.W))
                 _image.SetPosition(new Vector2(_image.Position.X, _image.Position.Y - 1));
             if(state.IsKeyDown(Keys.S))
@@ -68,6 +68,7 @@ namespace Chess_MP.Pieces
                 _image.SetPosition(new Vector2(_image.Position.X - 1, _image.Position.Y));
             if(state.IsKeyDown(Keys.D))
                 _image.SetPosition(new Vector2(_image.Position.X + 1, _image.Position.Y));
+            */
         }
 
         public bool IsEnemy(Piece other)
