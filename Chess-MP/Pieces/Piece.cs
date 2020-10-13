@@ -38,7 +38,7 @@ namespace Chess_MP.Pieces
          * @date 12-10-2020
          * @returns The possible moves.
          */
-        protected abstract IEnumerable<Field> GetPossibleFields();
+        protected abstract IEnumerable<Hover> GetPossibleFields();
 
         protected virtual void Update(object sender, GameTime gameTime)
         {

@@ -14,6 +14,7 @@ namespace Chess_MP
         private Board.Board _board;
 
         private Player _player;
+        private Hover _hover;
         
         public event EventHandler<SpriteBatch> OnDraw;
 
@@ -40,6 +41,7 @@ namespace Chess_MP
             
             // Misc
             _assetManager.LoadTexture("board", "board");
+            _assetManager.LoadTexture("hover", "hover_field");
             
             // White
             _assetManager.LoadTexture("white-pawn", "white_pawn");
@@ -60,6 +62,8 @@ namespace Chess_MP
             _board = new Board.Board(this, _assetManager.GetTexture("board"));
             
             _player = new Player(this, 1, "Sebastian", GameColor.White);
+            
+            _hover = new Hover(this, new Vector2(2, 3));
             
             // TODO: use this.Content to load your game content here
         }
