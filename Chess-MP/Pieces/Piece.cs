@@ -217,5 +217,8 @@ namespace Chess_MP.Pieces
          * @date 12-10-2020
          */
         public GameColor Color => _player.Color;
+
+
+        public Vector2 Position => position;
     }
 }

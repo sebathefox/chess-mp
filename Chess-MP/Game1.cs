@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Chess_MP.Board;
+using Chess_MP.Pieces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,7 +17,7 @@ namespace Chess_MP
 
         // private Image _board;
 
-        private Player _player;
+        private Player[] _players;
         // private Hover _hover;
 
         private List<Field> _fields;
@@ -64,12 +65,12 @@ namespace Chess_MP
             _assetManager.LoadTexture("black-king", "black_king");
             _assetManager.LoadTexture("black-queen", "black_queen");
 
-            _player = new Player(this, 1, "Sebastian", GameColor.Black);
-            
-            // _hover = new Hover(this, new Vector2(2, 3));
-            
-            // _board = new Image(this, _assetManager.GetTexture("board"), Vector2.Zero);
-            
+            _players = new Player[]
+            {
+                new Player(this, 1, "Sebastian", GameColor.Black),
+                new Player(this, 1, "Grøn", GameColor.White)
+            };
+
             _fields = new List<Field>();
 
             for (int xIndex = 0; xIndex < 8; xIndex++)
@@ -79,8 +80,14 @@ namespace Chess_MP
                     _fields.Add(new Field(this, new Vector2(xIndex, y)));
                 }
             }
-            
-            // TODO: use this.Content to load your game content here
+
+            foreach (Player player in _players)
+            {
+                foreach (Piece piece in player.Pieces)
+                {
+                    this[piece.Position].SetPiece(piece);
+                }
+            }
         }
 
         protected override void Update(GameTime gameTime)
@@ -140,5 +147,7 @@ namespace Chess_MP
          * @date 13-10-2020
          */
         public List<Field> Fields => _fields;
+
+        public Player[] Players => _players;
     }
 }

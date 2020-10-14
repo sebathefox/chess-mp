@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -39,16 +40,19 @@ namespace Chess_MP.Pieces
                 }
             }
 
-            if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && game[left].Piece != null && IsEnemy(game[left].Piece))
+
+            foreach (Piece piece in game.Players.Where(player => player.Color != Color).First().Pieces)
             {
-                hovers.Add(new Hover(game, left));
+                if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && piece.Position == left)
+                {
+                    hovers.Add(new Hover(game, left));
+                }
+                else if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && piece.Position == right)
+                {
+                    hovers.Add(new Hover(game, left));
+                }
             }
-            
-            if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && game[right].Piece != null && IsEnemy(game[right].Piece))
-            {
-                hovers.Add(new Hover(game, right));
-            }
-            
+
             return hovers;
         }
 

@@ -55,6 +55,11 @@ namespace Chess_MP.Board
             _mouse.Swap();
         }
 
+        public void SetPiece(Piece piece)
+        {
+            
+        }
+
         /**
          * Gets the ID of the field.
          * @author Kasper Gr�n
