@@ -8,8 +8,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Documented Hover.cs">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Updated Piece.cs.">
+      <change afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +38,10 @@
         <option value="$PROJECT_DIR$/Chess-MP/TestPiece.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/LayoutManager.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Board/Field.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Game1.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Hover.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Game1.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" />
       </list>
     </option>
   </component>
@@ -86,7 +88,7 @@
       <updated>1602493661637</updated>
       <workItem from="1602493672479" duration="7851000" />
       <workItem from="1602570691177" duration="14975000" />
-      <workItem from="1602653941289" duration="635000" />
+      <workItem from="1602653941289" duration="1976000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit.">
       <created>1602497096820</created>
@@ -221,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602589862883</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Updated Piece.cs.">
+      <created>1602655446230</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1602655446230</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -258,7 +267,8 @@
     <MESSAGE value="Added Board functionality (Thanks to Grøn)." />
     <MESSAGE value="Documented Game1.cs" />
     <MESSAGE value="Documented Hover.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documented Hover.cs" />
+    <MESSAGE value="Updated Piece.cs." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Piece.cs." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2506" y="180" width="427" height="855" key="#Code_Folding" timestamp="1602571087579">
@@ -353,15 +363,15 @@
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state width="1554" height="200" key="GridCell.Tab.4.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602595526430" />
-    <state x="2492" y="300" key="RiderGenerateDialog" timestamp="1602578546669">
+    <state x="2492" y="300" key="RiderGenerateDialog" timestamp="1602655544958">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state x="2492" y="300" key="RiderGenerateDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602578546669" />
-    <state x="2320" y="340" key="Vcs.Push.Dialog.v2" timestamp="1602589484567">
+    <state x="2492" y="300" key="RiderGenerateDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602655544958" />
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602655453243">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="480" y="184" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1602500295709" />
-    <state x="2320" y="340" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602589484567" />
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602655453243" />
     <state x="2529" y="516" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602497104380">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>

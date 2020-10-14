@@ -14,10 +14,13 @@ namespace Chess_MP.Pieces
      */
     public abstract class Piece
     {
-        private Game1 _game;
+        protected Game1 game;
         private readonly Player _player;
         private Image _image;
         private MouseStateMachine _mouse;
+        protected Vector2 position;
+        protected Direction direction;
+
         
         /**
          * Constructor
@@ -30,15 +33,22 @@ namespace Chess_MP.Pieces
          */
         protected Piece(Game1 game, Player player, Texture2D texture, Vector2 position)
         {
-            _game = game;
+            game = game;
             _player = player;
 
+            this.position = position;
+
+            if (Color == GameColor.White)
+                direction = Direction.Up;
+            else if (Color == GameColor.Black)
+                direction = Direction.Down;
+            
             // TODO: Get a pixel offset and send to image.
             _image = new Image(game, texture, position);
 
             _mouse = new MouseStateMachine(Mouse.GetState());
             
-            _game.OnUpdate += Update;
+            game.OnUpdate += Update;
         }
         
         /**
@@ -83,6 +93,33 @@ namespace Chess_MP.Pieces
         public bool IsEnemy(Piece other)
         {
             return this.Color != other.Color;
+        }
+        
+        protected Vector2 OneFront(Vector2 @base)
+        {
+            switch (direction)
+            {
+                case Direction.Down:
+                    return new Vector2(@base.X, @base.Y + 1);
+                default:
+                    return new Vector2(@base.X, @base.Y - 1);
+            }
+        }
+
+        protected Vector2 OneLeft(Vector2 @base)
+        {
+            if (@base.X < 1)
+                return @base;
+            
+            return new Vector2(@base.X - 1, @base.Y);
+        }
+        
+        protected Vector2 OneRight(Vector2 @base)
+        {
+            if (@base.X >= 7)
+                return @base;
+            
+            return new Vector2(@base.X + 1, @base.Y);
         }
         
         public int Id { get; protected set; }
