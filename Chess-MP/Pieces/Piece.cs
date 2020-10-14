@@ -20,6 +20,7 @@ namespace Chess_MP.Pieces
         private MouseStateMachine _mouse;
         protected Vector2 position;
         protected Direction direction;
+        protected List<Hover> hovers;
 
         
         /**
@@ -33,18 +34,18 @@ namespace Chess_MP.Pieces
          */
         protected Piece(Game1 game, Player player, Texture2D texture, Vector2 position)
         {
-            game = game;
+            this.game = game;
             _player = player;
 
             this.position = position;
 
-            if (Color == GameColor.White)
+            if (player.Color == GameColor.White)
                 direction = Direction.Up;
-            else if (Color == GameColor.Black)
+            else if (player.Color == GameColor.Black)
                 direction = Direction.Down;
             
             // TODO: Get a pixel offset and send to image.
-            _image = new Image(game, texture, position);
+            _image = new Image(game, texture, new Vector2(position.X * 64, position.Y * 64));
 
             _mouse = new MouseStateMachine(Mouse.GetState());
             
@@ -70,7 +71,11 @@ namespace Chess_MP.Pieces
 
                 if (_image.Rectangle.Contains(position))
                 {
-                    throw new Exception("YEET");
+                    hovers = new List<Hover>(GetPossibleFields());
+                    foreach (Hover hover in hovers)
+                    {
+                        hover.OnClicked += OnHoverClicked;
+                    }
                 }
             }
             
@@ -120,6 +125,30 @@ namespace Chess_MP.Pieces
                 return @base;
             
             return new Vector2(@base.X + 1, @base.Y);
+        }
+
+        protected bool IsOnLeft()
+        {
+            return position.X <= 0;
+        }
+        
+        protected bool IsOnRight()
+        {
+            return position.X >= 7;
+        }
+        
+        private void OnHoverClicked(object sender, Vector2 position)
+        {
+            this.position = position;
+            
+            this._image.SetPosition(new Vector2(position.X * 64, position.Y * 64));
+
+            foreach (Hover hover in hovers)
+            {
+                hover.OnClicked -= OnHoverClicked;
+                hover.Disable();
+            }
+            this.hovers.Clear();
         }
         
         public int Id { get; protected set; }

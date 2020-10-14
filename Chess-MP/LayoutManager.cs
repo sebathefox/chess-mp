@@ -10,6 +10,8 @@ namespace Chess_MP
         {
             List<Piece> pieces = new List<Piece>();
             // pieces.Add(new TestPiece(game, player, game.AssetManager.GetTexture("white-rook"), Vector2.One));
+            
+            pieces.Add(new Pawn(game, player, new Vector2(0, 1)));
 
             return pieces;
         }

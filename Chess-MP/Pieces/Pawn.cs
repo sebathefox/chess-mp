@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -24,6 +25,8 @@ namespace Chess_MP.Pieces
             Vector2 left = OneLeft(front);
             Vector2 right = OneRight(front);
 
+            Console.WriteLine(front.ToString());
+
             if (game[front].Piece == null)
             {
                 hovers.Add(new Hover(game, front));
@@ -36,12 +39,12 @@ namespace Chess_MP.Pieces
                 }
             }
 
-            if (game[left].Piece != null && IsEnemy(game[left].Piece))
+            if (!IsOnLeft() && game[left].Piece != null && IsEnemy(game[left].Piece))
             {
                 hovers.Add(new Hover(game, left));
             }
             
-            if (game[right].Piece != null && IsEnemy(game[right].Piece))
+            if (!IsOnRight() && game[right].Piece != null && IsEnemy(game[right].Piece))
             {
                 hovers.Add(new Hover(game, right));
             }

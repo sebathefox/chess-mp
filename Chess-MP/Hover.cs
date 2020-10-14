@@ -16,6 +16,9 @@ namespace Chess_MP
         private Vector2 _position;
         private Image _image;
         private MouseStateMachine _mouse;
+        private bool _shouldUpdate;
+
+        public event EventHandler<Vector2> OnClicked; 
 
         /**
          * Constructor
@@ -31,6 +34,8 @@ namespace Chess_MP
             _image = new Image(game, game.AssetManager.GetTexture("hover"), new Vector2(position.X * 64, position.Y * 64));
             _mouse = new MouseStateMachine(Mouse.GetState());
 
+            _shouldUpdate = true;
+            
             _game.OnUpdate += Update;
         }
 
@@ -43,6 +48,9 @@ namespace Chess_MP
          */
         private void Update(object sender, GameTime gameTime)
         {
+            if(!_shouldUpdate)
+                return;
+            
             _mouse.Update(Mouse.GetState());
 
             if (_mouse.LeftClicked())
@@ -52,10 +60,17 @@ namespace Chess_MP
                 if (_image.Rectangle.Contains(position))
                 {
                     Console.WriteLine("CLICKED: " + _position.ToString());
+                    OnClicked?.Invoke(this, _position);
                 }
             }
             
             _mouse.Swap();
+        }
+
+        public void Disable()
+        {
+            _image.Disable();
+            _shouldUpdate = false;
         }
     }
 }

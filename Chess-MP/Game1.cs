@@ -14,10 +14,10 @@ namespace Chess_MP
         private SpriteBatch _spriteBatch;
         private AssetManager _assetManager;
 
-        private Image _board;
+        // private Image _board;
 
         private Player _player;
-        private Hover _hover;
+        // private Hover _hover;
 
         private List<Field> _fields;
         
@@ -64,11 +64,11 @@ namespace Chess_MP
             _assetManager.LoadTexture("black-king", "black_king");
             _assetManager.LoadTexture("black-queen", "black_queen");
 
-            _player = new Player(this, 1, "Sebastian", GameColor.White);
+            _player = new Player(this, 1, "Sebastian", GameColor.Black);
             
-            _hover = new Hover(this, new Vector2(2, 3));
+            // _hover = new Hover(this, new Vector2(2, 3));
             
-            _board = new Image(this, _assetManager.GetTexture("board"), Vector2.Zero);
+            // _board = new Image(this, _assetManager.GetTexture("board"), Vector2.Zero);
             
             _fields = new List<Field>();
 

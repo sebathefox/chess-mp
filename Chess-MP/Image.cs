@@ -13,6 +13,7 @@ namespace Chess_MP
         private Game1 _game;
         private Texture2D _texture;
         private Vector2 _targetPosition;
+        private bool _enabled;
 
         /**
          * Constructor
@@ -27,10 +28,16 @@ namespace Chess_MP
             _game = game;
             _texture = texture;
             _targetPosition = position;
+            _enabled = true;
 
             _game.OnDraw += Draw;
         }
 
+        public void Disable()
+        {
+            _enabled = false;
+        }
+        
         public void SetPosition(Vector2 position)
         {
             _targetPosition = position;
@@ -62,6 +69,9 @@ namespace Chess_MP
         
         private void Draw(object sender, SpriteBatch spriteBatch)
         {
+            if(!_enabled)
+                return;
+            
             spriteBatch.Begin();
             spriteBatch.Draw(_texture, _targetPosition, Color.White);
             spriteBatch.End();
