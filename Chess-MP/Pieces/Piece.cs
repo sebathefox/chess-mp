@@ -129,7 +129,7 @@ namespace Chess_MP.Pieces
 
         protected Vector2 OneUp(Vector2 @base)
         {
-            if (@base.Y < 0)
+            if (@base.Y < 1)
                 return @base;
 
             return new Vector2(@base.X, @base.Y - 1);
@@ -145,7 +145,7 @@ namespace Chess_MP.Pieces
 
         protected Vector2 OneUpLeft(Vector2 @base)
         {
-            if (@base.Y < 0 || @base.X < 0)
+            if (@base.Y < 1 || @base.X < 1)
                 return @base;
 
             return new Vector2(@base.X - 1, @base.Y - 1);
@@ -153,7 +153,7 @@ namespace Chess_MP.Pieces
 
         protected Vector2 OneUpRight(Vector2 @base)
         {
-            if (@base.Y < 0 || @base.X >= 7)
+            if (@base.Y < 1 || @base.X >= 7)
                 return @base;
 
             return new Vector2(@base.X + 1, @base.Y - 1);
@@ -161,7 +161,7 @@ namespace Chess_MP.Pieces
 
         protected Vector2 OneDownLeft(Vector2 @base)
         {
-            if (@base.Y >= 7 || @base.X < 0)
+            if (@base.Y >= 7 || @base.X < 1)
                 return @base;
 
             return new Vector2(@base.X - 1, @base.Y + 1);
