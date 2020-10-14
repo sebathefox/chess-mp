@@ -19,6 +19,15 @@ namespace Chess_MP.Pieces
         private Image _image;
         private MouseStateMachine _mouse;
         
+        /**
+         * Constructor
+         * @param game The Game reference.
+         * @param player The reference to this piece's owner.
+         * @param texture The texture of this Piece.
+         * @param position The position of this Piece in normalized coordinates.
+         * @author Sebastian Davaris
+         * @date 13-10-2020
+         */
         protected Piece(Game1 game, Player player, Texture2D texture, Vector2 position)
         {
             _game = game;
