@@ -136,6 +136,16 @@ namespace Chess_MP.Pieces
         {
             return position.X >= 7;
         }
+
+        protected bool IsOnTop()
+        {
+            return position.Y <= 0;
+        }
+
+        protected bool IsOnBottom()
+        {
+            return position.Y >= 7;
+        }
         
         protected virtual void OnHoverClicked(object sender, Vector2 position)
         {

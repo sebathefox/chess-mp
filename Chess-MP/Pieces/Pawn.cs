@@ -27,24 +27,24 @@ namespace Chess_MP.Pieces
 
             Console.WriteLine(front.ToString());
 
-            if (game[front].Piece == null)
+            if (!(IsOnBottom() || IsOnTop()) && game[front].Piece == null)
             {
                 hovers.Add(new Hover(game, front));
 
                 front = OneFront(front);
 
-                if (game[front].Piece == null && !_hasMoved)
+                if (!_hasMoved && game[front].Piece == null)
                 {
                     hovers.Add(new Hover(game, front));
                 }
             }
 
-            if (!IsOnLeft() && game[left].Piece != null && IsEnemy(game[left].Piece))
+            if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && game[left].Piece != null && IsEnemy(game[left].Piece))
             {
                 hovers.Add(new Hover(game, left));
             }
             
-            if (!IsOnRight() && game[right].Piece != null && IsEnemy(game[right].Piece))
+            if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && game[right].Piece != null && IsEnemy(game[right].Piece))
             {
                 hovers.Add(new Hover(game, right));
             }
