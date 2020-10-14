@@ -127,6 +127,54 @@ namespace Chess_MP.Pieces
             return new Vector2(@base.X + 1, @base.Y);
         }
 
+        protected Vector2 OneUp(Vector2 @base)
+        {
+            if (@base.Y < 0)
+                return @base;
+
+            return new Vector2(@base.X, @base.Y - 1);
+        }
+
+        protected Vector2 OneDown(Vector2 @base)
+        {
+            if (@base.Y >= 7)
+                return @base;
+
+            return new Vector2(@base.X, @base.Y + 1);
+        }
+
+        protected Vector2 OneUpLeft(Vector2 @base)
+        {
+            if (@base.Y < 0 || @base.X < 0)
+                return @base;
+
+            return new Vector2(@base.X - 1, @base.Y - 1);
+        }
+
+        protected Vector2 OneUpRight(Vector2 @base)
+        {
+            if (@base.Y < 0 || @base.X >= 7)
+                return @base;
+
+            return new Vector2(@base.X + 1, @base.Y - 1);
+        }
+
+        protected Vector2 OneDownLeft(Vector2 @base)
+        {
+            if (@base.Y >= 7 || @base.X < 0)
+                return @base;
+
+            return new Vector2(@base.X - 1, @base.Y + 1);
+        }
+
+        protected Vector2 OneDownRight(Vector2 @base)
+        {
+            if (@base.Y >= 7 || @base.X >= 7)
+                return @base;
+
+            return new Vector2(@base.X + 1, @base.Y + 1);
+        }
+
         protected bool IsOnLeft()
         {
             return position.X <= 0;
