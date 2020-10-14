@@ -31,7 +31,7 @@ namespace Chess_MP.Pieces
             {
                 hovers.Add(new Hover(game, front));
 
-                front = OneFront(position);
+                front = OneFront(front);
 
                 if (game[front].Piece == null && !_hasMoved)
                 {
@@ -50,6 +50,13 @@ namespace Chess_MP.Pieces
             }
             
             return hovers;
+        }
+
+        /// <inheritdoc />
+        protected override void OnHoverClicked(object sender, Vector2 position)
+        {
+            base.OnHoverClicked(sender, position);
+            _hasMoved = true;
         }
     }
 }

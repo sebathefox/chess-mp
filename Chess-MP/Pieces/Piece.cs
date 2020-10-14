@@ -137,7 +137,7 @@ namespace Chess_MP.Pieces
             return position.X >= 7;
         }
         
-        private void OnHoverClicked(object sender, Vector2 position)
+        protected virtual void OnHoverClicked(object sender, Vector2 position)
         {
             this.position = position;
             
