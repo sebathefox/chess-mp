@@ -40,19 +40,21 @@ namespace Chess_MP.Pieces
                 }
             }
 
-
-            foreach (Piece piece in game.Players.Where(player => player.Color != Color).First().Pieces)
+            
+            
+            
+            if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && game[left].Piece != null && IsEnemy(game[left].Piece))
             {
-                if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && piece.Position == left)
-                {
-                    hovers.Add(new Hover(game, left));
-                }
-                else if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && piece.Position == right)
-                {
-                    hovers.Add(new Hover(game, left));
-                }
+                
+                
+                hovers.Add(new Hover(game, left));
             }
-
+            
+            if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && game[right].Piece != null && IsEnemy(game[right].Piece))
+            {
+                hovers.Add(new Hover(game, right));
+            }
+            
             return hovers;
         }
 

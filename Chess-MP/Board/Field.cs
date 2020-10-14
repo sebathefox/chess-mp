@@ -57,7 +57,7 @@ namespace Chess_MP.Board
 
         public void SetPiece(Piece piece)
         {
-            
+            _piece = piece;
         }
 
         /**

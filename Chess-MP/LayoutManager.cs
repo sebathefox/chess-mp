@@ -18,7 +18,7 @@ namespace Chess_MP
                 for (int i = 0; i < 8; i++)
                 {
                     pieces.Add(new Pawn(game, player, new Vector2(i, 1)));
-                    // game[new Vector2(i, 1)].SetPiece(pieces.Last());
+                    game[new Vector2(i, 1)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(i, 1)));
                 }
             }
             // Start at bottom
@@ -27,7 +27,7 @@ namespace Chess_MP
                 for (int i = 0; i < 8; i++)
                 {
                     pieces.Add(new Pawn(game, player, new Vector2(i, 6)));
-                    // game[new Vector2(i, 6)].SetPiece(pieces.Last());
+                    game[new Vector2(i, 6)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(i, 6)));
 
                 }
             }

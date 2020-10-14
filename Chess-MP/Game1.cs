@@ -65,11 +65,7 @@ namespace Chess_MP
             _assetManager.LoadTexture("black-king", "black_king");
             _assetManager.LoadTexture("black-queen", "black_queen");
 
-            _players = new Player[]
-            {
-                new Player(this, 1, "Sebastian", GameColor.Black),
-                new Player(this, 1, "Grøn", GameColor.White)
-            };
+            
 
             _fields = new List<Field>();
 
@@ -81,13 +77,11 @@ namespace Chess_MP
                 }
             }
 
-            foreach (Player player in _players)
+            _players = new Player[]
             {
-                foreach (Piece piece in player.Pieces)
-                {
-                    this[piece.Position].SetPiece(piece);
-                }
-            }
+                new Player(this, 1, "Sebastian", GameColor.Black),
+                new Player(this, 1, "Grøn", GameColor.White)
+            };
         }
 
         protected override void Update(GameTime gameTime)
