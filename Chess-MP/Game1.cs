@@ -110,7 +110,8 @@ namespace Chess_MP
             
             OnDraw?.Invoke(this, _spriteBatch);
 
-            
+            Window.AllowUserResizing = true;
+
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
