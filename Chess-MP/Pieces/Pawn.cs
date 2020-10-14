@@ -33,7 +33,7 @@ namespace Chess_MP.Pieces
 
                 front = OneFront(front);
 
-                if (game[front].Piece == null && !_hasMoved)
+                if (!_hasMoved  && game[front].Piece == null)
                 {
                     hovers.Add(new Hover(game, front));
                 }
