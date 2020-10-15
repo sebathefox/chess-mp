@@ -117,6 +117,9 @@
         </e>
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
+        <e p="States" t="Include">
+          <e p="State.cs" t="Include" />
+        </e>
         <e p="TestPiece.cs" t="Include" />
         <e p="app.manifest" t="Include" />
         <e p="bin" t="ExcludeRecursive" />

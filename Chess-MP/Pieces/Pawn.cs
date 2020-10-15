@@ -26,7 +26,7 @@ namespace Chess_MP.Pieces
             Vector2 left = OneLeft(front);
             Vector2 right = OneRight(front);
 
-            Console.WriteLine(front.ToString());
+            // Console.WriteLine(front.ToString());
 
             if (!(IsOnBottom() || IsOnTop()) && game[front].Piece == null)
             {
@@ -40,16 +40,12 @@ namespace Chess_MP.Pieces
                 }
             }
 
-            
-            
-            
             if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && game[left].Piece != null && IsEnemy(game[left].Piece))
             {
-                
-                
                 hovers.Add(new Hover(game, left));
             }
-            
+
+            Console.WriteLine(game[right].Piece);
             if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && game[right].Piece != null && IsEnemy(game[right].Piece))
             {
                 hovers.Add(new Hover(game, right));

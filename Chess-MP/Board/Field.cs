@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Chess_MP.Pieces;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -57,7 +58,13 @@ namespace Chess_MP.Board
 
         public void SetPiece(Piece piece)
         {
+            if (_piece != null)
+            {
+                _game.Players.First(player => player.Color == _piece.Color).KillPiece(_piece);
+            }
+            
             _piece = piece;
+
         }
 
         /**

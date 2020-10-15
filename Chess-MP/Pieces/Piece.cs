@@ -95,9 +95,18 @@ namespace Chess_MP.Pieces
             */
         }
 
+        /**
+         * Validates if the other piece is a enemy.
+         * @param other The other Piece.
+         * @author Sebastian Davaris
+         * @date 15-10-2020
+         */
         public bool IsEnemy(Piece other)
         {
-            return this.Color != other.Color;
+            if (other == null)
+                return false;
+            
+            return Color != other.Color;
         }
         
         protected Vector2 OneFront(Vector2 @base)
@@ -197,6 +206,8 @@ namespace Chess_MP.Pieces
         
         protected virtual void OnHoverClicked(object sender, Vector2 position)
         {
+            this.game[this.position].SetPiece(null);
+            
             this.position = position;
             
             this._image.SetPosition(new Vector2(position.X * 64, position.Y * 64));
@@ -207,6 +218,8 @@ namespace Chess_MP.Pieces
                 hover.Disable();
             }
             this.hovers.Clear();
+            
+            this.game[position].SetPiece(this);
         }
         
         public int Id { get; protected set; }

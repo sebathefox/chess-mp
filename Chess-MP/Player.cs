@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Chess_MP.Pieces;
 
@@ -24,6 +25,13 @@ namespace Chess_MP
             _name = name;
             _color = color;
             _pieces = new List<Piece>(LayoutManager.Generate(_game, this));
+        }
+
+        public void KillPiece(Piece piece)
+        {
+            Console.WriteLine("Killed Piece: " + piece);
+            
+            _pieces.Remove(piece);
         }
 
         /**
