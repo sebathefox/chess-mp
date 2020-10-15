@@ -26,7 +26,6 @@ namespace Chess_MP.Board
          * @author Kasper Gr�n
          * @date 13-10-2020
          */
-
         public Field(GameController gameController, Vector2 id)
         {
             _gameController = gameController;
@@ -49,7 +48,7 @@ namespace Chess_MP.Board
 
                 if (_rect.Contains(position))
                 {
-                    Console.WriteLine("CLICKED: " + _id.ToString());
+                    Console.WriteLine("CLICKED: " + _id);
                 }
             }
             
@@ -60,7 +59,7 @@ namespace Chess_MP.Board
         {
             if (_piece != null)
             {
-                _piece.Player.KillPiece(_piece);
+                // _piece.Player.KillPiece(_piece);
             }
             
             _piece = piece;

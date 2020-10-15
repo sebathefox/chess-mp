@@ -34,6 +34,8 @@ namespace Chess_MP
             _image = new Image(game, game.AssetManager.GetTexture("hover"), new Vector2(position.X * 64, position.Y * 64));
             _mouse = new MouseStateMachine(Mouse.GetState());
 
+            Console.WriteLine("HOVER: " + position);
+            
             _shouldUpdate = true;
             
             _game.OnUpdate += Update;

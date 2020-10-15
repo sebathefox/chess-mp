@@ -29,5 +29,7 @@ namespace Chess_MP.States
          * @date 15-10-2020
          */
         public abstract void ExitState();
+
+        
     }
 }

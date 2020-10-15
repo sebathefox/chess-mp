@@ -111,6 +111,7 @@
         <e p="LayoutManager.cs" t="Include" />
         <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
         <e p="MouseStateMachine.cs" t="Include" />
+        <e p="PieceManager.cs" t="Include" />
         <e p="Pieces" t="Include">
           <e p="King.cs" t="Include" />
           <e p="Pawn.cs" t="Include" />

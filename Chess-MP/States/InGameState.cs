@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Chess_MP.Board;
@@ -9,6 +10,7 @@ namespace Chess_MP.States
     {
         private Player[] _players;
         private List<Field> _fields;
+        private PieceManager _pieceManager;
         
         /// <inheritdoc />
         public InGameState(GameController gameController) : base(gameController)
@@ -33,6 +35,10 @@ namespace Chess_MP.States
                 new Player(_gameController, 1, "Sebastian", GameColor.Black),
                 new Player(_gameController, 1, "Grøn", GameColor.White)
             };
+            
+            _pieceManager = new PieceManager(_gameController);
+
+            Console.WriteLine("TEST");
         }
 
         /// <inheritdoc />
@@ -58,5 +64,7 @@ namespace Chess_MP.States
         public List<Field> Fields => _fields;
 
         public Player[] Players => _players;
+
+        public PieceManager PieceManager => _pieceManager;
     }
 }
