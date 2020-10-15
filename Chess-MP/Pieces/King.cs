@@ -93,7 +93,7 @@ namespace Chess_MP.Pieces
                 hovers.Add(new Hover(game, OneUpLeft(position)));
                 hovers.Add(new Hover(game, OneUpRight(position)));
                 hovers.Add(new Hover(game, OneDownRight(position)));
-                hovers.Add(new Hover(game, OneDownLeft(position)));
+                hovers.Add(new Hover(game, OneDownLeft(position))) ;
             }
 
             return hovers;
