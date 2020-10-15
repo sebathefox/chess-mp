@@ -15,6 +15,8 @@ namespace Chess_MP
             // Start at top.
             if (player.Color == GameColor.Black)
             {
+                pieces.Add(new King(game, player, new Vector2(4, 0)));
+
                 for (int i = 0; i < 8; i++)
                 {
                     pieces.Add(new Pawn(game, player, new Vector2(i, 1)));
@@ -24,6 +26,8 @@ namespace Chess_MP
             // Start at bottom
             else if (player.Color == GameColor.White)
             {
+                pieces.Add(new King(game, player, new Vector2(4, 7)));
+
                 for (int i = 0; i < 8; i++)
                 {
                     pieces.Add(new Pawn(game, player, new Vector2(i, 6)));

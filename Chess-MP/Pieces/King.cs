@@ -22,38 +22,46 @@ namespace Chess_MP.Pieces
 
             if (IsOnTop() && IsOnRight())
             {
-                Vector2 down = OneDown(position);
-                Vector2 left = OneLeft(position);
-                Vector2 downLeft = OneDownLeft(position);
+                
+                hovers.Add(new Hover(game, OneDown(position)));
+                hovers.Add(new Hover(game, OneDownLeft(position)));
+                hovers.Add(new Hover(game, OneLeft(position)));
+
+                
             }
             else if (IsOnTop() && IsOnLeft())
             {
-                Vector2 down = OneDown(position);
-                Vector2 right = OneRight(position);
-                Vector2 downRight = OneDownRight(position);
+                hovers.Add(new Hover(game, OneDown(position)));
+                hovers.Add(new Hover(game, OneDownRight(position)));
+                hovers.Add(new Hover(game, OneRight(position)));
             }
             else if (IsOnBottom() && IsOnRight())
             {
-                Vector2 up = OneUp(position);
-                Vector2 left = OneLeft(position);
-                Vector2 upLeft = OneUpLeft(position);
+                hovers.Add(new Hover(game, OneUpLeft(position)));
+                hovers.Add(new Hover(game, OneLeft(position)));
+                hovers.Add(new Hover(game, OneUp(position)));
             }
             else if (IsOnBottom() && IsOnLeft())
             {
-                Vector2 up = OneUp(position);
-                Vector2 right = OneRight(position);
-                Vector2 upRight = OneDownRight(position);
+                hovers.Add(new Hover(game, OneUp(position)));
+                hovers.Add(new Hover(game, OneRight(position)));
+                hovers.Add(new Hover(game, OneUpRight(position)));
             }
             else if (IsOnRight())
             {
-                Vector2 up = OneUp(position);
-                Vector2 left = OneLeft(position);
-                Vector2 downLeft = OneDownLeft(position);
-                Vector2 upLeft = OneUpLeft(position);
-                Vector2 down = OneDown(position);
+                hovers.Add(new Hover(game, OneUp(position)));
+                hovers.Add(new Hover(game, OneLeft(position)));
+                hovers.Add(new Hover(game, OneDownLeft(position)));
+                hovers.Add(new Hover(game, OneUpLeft(position)));
+                hovers.Add(new Hover(game, OneDown(position)));
             }
             else if (IsOnLeft())
             {
+                hovers.Add(new Hover(game, OneUp(position)));
+                hovers.Add(new Hover(game, OneRight(position)));
+                hovers.Add(new Hover(game, OneDownRight(position)));
+                hovers.Add(new Hover(game, OneUpRight(position)));
+                hovers.Add(new Hover(game, OneDown(position)));
                 Vector2 up = OneUp(position);
                 Vector2 right = OneRight(position);
                 Vector2 downRight = OneDownRight(position);
@@ -62,30 +70,30 @@ namespace Chess_MP.Pieces
             }
             else if (IsOnTop())
             {
-                Vector2 downRight = OneDownRight(position);
-                Vector2 left = OneLeft(position);
-                Vector2 downLeft = OneDownLeft(position);
-                Vector2 right = OneRight(position);
-                Vector2 down = OneDown(position);
+                hovers.Add(new Hover(game, OneDownRight(position)));
+                hovers.Add(new Hover(game, OneLeft(position)));
+                hovers.Add(new Hover(game, OneDownLeft(position)));
+                hovers.Add(new Hover(game, OneRight(position)));
+                hovers.Add(new Hover(game, OneDown(position)));
             }
             else if (IsOnBottom())
             {
-                Vector2 UpRight = OneUpRight(position);
-                Vector2 left = OneLeft(position);
-                Vector2 downLeft = OneDownLeft(position);
-                Vector2 right = OneRight(position);
-                Vector2 up = OneUp(position);
+                hovers.Add(new Hover(game, OneUpRight(position)));
+                hovers.Add(new Hover(game, OneLeft(position)));
+                hovers.Add(new Hover(game, OneDownLeft(position)));
+                hovers.Add(new Hover(game, OneUpLeft(position)));
+                hovers.Add(new Hover(game, OneUp(position)));
             }
             else
             {
-                Vector2 up = OneUp(position);
-                Vector2 down = OneDown(position);
-                Vector2 left = OneLeft(position);
-                Vector2 right = OneRight(position);
-                Vector2 upLeft = OneUpLeft(position);
-                Vector2 upRight = OneUpRight(position);
-                Vector2 downLeft = OneDownLeft(position);
-                Vector2 downRight = OneDownRight(position);
+                hovers.Add(new Hover(game, OneDown(position)));
+                hovers.Add(new Hover(game, OneLeft(position)));
+                hovers.Add(new Hover(game, OneUp(position)));
+                hovers.Add(new Hover(game, OneRight(position)));
+                hovers.Add(new Hover(game, OneUpLeft(position)));
+                hovers.Add(new Hover(game, OneUpRight(position)));
+                hovers.Add(new Hover(game, OneDownRight(position)));
+                hovers.Add(new Hover(game, OneDownLeft(position)));
             }
 
             return hovers;
