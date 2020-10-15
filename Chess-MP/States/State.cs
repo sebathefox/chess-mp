@@ -7,6 +7,15 @@ namespace Chess_MP.States
      */
     public abstract class State
     {
+        protected GameController _gameController;
+
+        
+        
+        public State(GameController gameController)
+        {
+            _gameController = gameController;
+        }
+        
         /**
          * Called when the parent enters this state.
          * @author Sebastian Davaris

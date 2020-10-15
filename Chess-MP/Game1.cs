@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Chess_MP.Board;
 using Chess_MP.Pieces;
+using Chess_MP.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -15,12 +16,7 @@ namespace Chess_MP
         private SpriteBatch _spriteBatch;
         private AssetManager _assetManager;
 
-        // private Image _board;
-
-        private Player[] _players;
-        // private Hover _hover;
-
-        private List<Field> _fields;
+        private GameController _gameController;
         
         public event EventHandler<SpriteBatch> OnDraw;
 
@@ -66,22 +62,8 @@ namespace Chess_MP
             _assetManager.LoadTexture("black-queen", "black_queen");
 
             
-
-            _fields = new List<Field>();
-
-            for (int xIndex = 0; xIndex < 8; xIndex++)
-            {
-                for (int y = 0; y < 8; y++)
-                {
-                    _fields.Add(new Field(this, new Vector2(xIndex, y)));
-                }
-            }
-
-            _players = new Player[]
-            {
-                new Player(this, 1, "Sebastian", GameColor.Black),
-                new Player(this, 1, "Grøn", GameColor.White)
-            };
+            _gameController = new GameController(this);
+            
         }
 
         protected override void Update(GameTime gameTime)
@@ -93,8 +75,6 @@ namespace Chess_MP
             OnUpdate?.Invoke(this, gameTime);
 
             KeyboardState state = Keyboard.GetState();
-
-            // TODO: Add your update logic here
 
             base.Update(gameTime);
         }
@@ -113,8 +93,6 @@ namespace Chess_MP
 
             Window.AllowUserResizing = true;
 
-            // TODO: Add your drawing code here
-
             base.Draw(gameTime);
         }
 
@@ -125,23 +103,5 @@ namespace Chess_MP
          * @date 13-10-2020
          */
         public AssetManager AssetManager => _assetManager;
-
-        /**
-         * Gets the field in the specific position.
-         * @returns The specified Piece.
-         * @author Sebastian Davaris
-         * @date 13-10-2020
-         */
-        public Field this[Vector2 position] => _fields.First(field => field.Id == position);
-        
-        /**
-         * Returns the list of Fields as readonly.
-         * @returns The Fields.
-         * @author Sebastian Davaris
-         * @date 13-10-2020
-         */
-        public List<Field> Fields => _fields;
-
-        public Player[] Players => _players;
     }
 }

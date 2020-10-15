@@ -103,6 +103,7 @@
         <e p="Doxyfile" t="Include" />
         <e p="Game1.cs" t="Include" />
         <e p="GameColor.cs" t="Include" />
+        <e p="GameController.cs" t="Include" />
         <e p="Hover.cs" t="Include" />
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
@@ -118,6 +119,8 @@
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="States" t="Include">
+          <e p="InGameState.cs" t="Include" />
+          <e p="PreGameState.cs" t="Include" />
           <e p="State.cs" t="Include" />
         </e>
         <e p="TestPiece.cs" t="Include" />

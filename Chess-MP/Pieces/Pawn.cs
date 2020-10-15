@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Chess_MP.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -11,7 +12,7 @@ namespace Chess_MP.Pieces
         private bool _hasMoved;
         
         /// <inheritdoc />
-        public Pawn(Game1 game, Player player, Vector2 position) : base(game, player, game.AssetManager.GetTexture(player.Color.ToString().ToLower() + "-pawn"), position)
+        public Pawn(GameController game, Player player, Vector2 position) : base(game, player, game.Game.AssetManager.GetTexture(player.Color.ToString().ToLower() + "-pawn"), position)
         {
             _hasMoved = false;
         }
@@ -20,6 +21,13 @@ namespace Chess_MP.Pieces
         protected override IEnumerable<Hover> GetPossibleFields()
         {
             List<Hover> hovers = new List<Hover>();
+            
+            if (!game.IsInGame())
+            {
+                return hovers;
+            }
+
+            InGameState state = game.State as InGameState;
 
             Vector2 front = OneFront(position);
 
@@ -28,27 +36,27 @@ namespace Chess_MP.Pieces
 
             // Console.WriteLine(front.ToString());
 
-            if (!(IsOnBottom() || IsOnTop()) && game[front].Piece == null)
+            if (!(IsOnBottom() || IsOnTop()) && state[front].Piece == null)
             {
-                hovers.Add(new Hover(game, front));
+                hovers.Add(new Hover(game.Game, front));
 
                 front = OneFront(front);
 
-                if (!_hasMoved  && game[front].Piece == null)
+                if (!_hasMoved  && state[front].Piece == null)
                 {
-                    hovers.Add(new Hover(game, front));
+                    hovers.Add(new Hover(game.Game, front));
                 }
             }
 
-            if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && game[left].Piece != null && IsEnemy(game[left].Piece))
+            if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && state[left].Piece != null && IsEnemy(state[left].Piece))
             {
-                hovers.Add(new Hover(game, left));
+                hovers.Add(new Hover(game.Game, left));
             }
 
-            Console.WriteLine(game[right].Piece);
-            if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && game[right].Piece != null && IsEnemy(game[right].Piece))
+            Console.WriteLine(state[right].Piece);
+            if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && state[right].Piece != null && IsEnemy(state[right].Piece))
             {
-                hovers.Add(new Hover(game, right));
+                hovers.Add(new Hover(game.Game, right));
             }
             
             return hovers;

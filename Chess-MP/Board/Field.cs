@@ -15,7 +15,7 @@ namespace Chess_MP.Board
     public class Field
     {
 
-        private readonly Game1 _game;
+        private readonly GameController _gameController;
         private readonly Vector2 _id;
         private Piece _piece;
         private readonly Rectangle _rect;
@@ -27,16 +27,16 @@ namespace Chess_MP.Board
          * @date 13-10-2020
          */
 
-        public Field(Game1 game, Vector2 id)
+        public Field(GameController gameController, Vector2 id)
         {
-            _game = game;
+            _gameController = gameController;
             _id = id;
             _piece = null;
             _rect = new Rectangle(new Point((int) (id.X * 64), (int) (id.Y * 64)), new Point(64, 64));
 
             _mouse = new MouseStateMachine(Mouse.GetState());
             
-            _game.OnUpdate += Update;
+            _gameController.Game.OnUpdate += Update;
         }
 
         private void Update(object sender, GameTime gameTime)
@@ -60,7 +60,7 @@ namespace Chess_MP.Board
         {
             if (_piece != null)
             {
-                _game.Players.First(player => player.Color == _piece.Color).KillPiece(_piece);
+                _piece.Player.KillPiece(_piece);
             }
             
             _piece = piece;

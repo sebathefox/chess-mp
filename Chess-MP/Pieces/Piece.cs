@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Chess_MP.Board;
+using Chess_MP.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -14,7 +15,7 @@ namespace Chess_MP.Pieces
      */
     public abstract class Piece
     {
-        protected Game1 game;
+        protected GameController game;
         private readonly Player _player;
         private Image _image;
         private MouseStateMachine _mouse;
@@ -32,7 +33,7 @@ namespace Chess_MP.Pieces
          * @author Sebastian Davaris
          * @date 13-10-2020
          */
-        protected Piece(Game1 game, Player player, Texture2D texture, Vector2 position)
+        protected Piece(GameController game, Player player, Texture2D texture, Vector2 position)
         {
             this.game = game;
             _player = player;
@@ -44,12 +45,11 @@ namespace Chess_MP.Pieces
             else if (player.Color == GameColor.Black)
                 direction = Direction.Down;
             
-            // TODO: Get a pixel offset and send to image.
-            _image = new Image(game, texture, new Vector2(position.X * 64, position.Y * 64));
+            _image = new Image(game.Game, texture, new Vector2(position.X * 64, position.Y * 64));
 
             _mouse = new MouseStateMachine(Mouse.GetState());
             
-            game.OnUpdate += Update;
+            game.Game.OnUpdate += Update;
         }
         
         /**
@@ -206,7 +206,14 @@ namespace Chess_MP.Pieces
         
         protected virtual void OnHoverClicked(object sender, Vector2 position)
         {
-            this.game[this.position].SetPiece(null);
+            if (!game.IsInGame())
+            {
+                return;
+            }
+
+            InGameState state = this.game.State as InGameState;
+            
+            state[this.position].SetPiece(null);
             
             this.position = position;
             
@@ -218,8 +225,8 @@ namespace Chess_MP.Pieces
                 hover.Disable();
             }
             this.hovers.Clear();
-            
-            this.game[position].SetPiece(this);
+
+            state[position].SetPiece(this);
         }
         
         public int Id { get; protected set; }
@@ -230,6 +237,8 @@ namespace Chess_MP.Pieces
          * @date 12-10-2020
          */
         public GameColor Color => _player.Color;
+
+        public Player Player => _player;
 
 
         public Vector2 Position => position;
