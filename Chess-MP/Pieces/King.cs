@@ -23,45 +23,45 @@ namespace Chess_MP.Pieces
             if (IsOnTop() && IsOnRight())
             {
                 
-                hovers.Add(new Hover(game, OneDown(position)));
-                hovers.Add(new Hover(game, OneDownLeft(position)));
-                hovers.Add(new Hover(game, OneLeft(position)));
+                hovers.Add(new Hover(game.Game, OneDown(position)));
+                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
+                hovers.Add(new Hover(game.Game, OneLeft(position)));
 
                 
             }
             else if (IsOnTop() && IsOnLeft())
             {
-                hovers.Add(new Hover(game, OneDown(position)));
-                hovers.Add(new Hover(game, OneDownRight(position)));
-                hovers.Add(new Hover(game, OneRight(position)));
+                hovers.Add(new Hover(game.Game, OneDown(position)));
+                hovers.Add(new Hover(game.Game, OneDownRight(position)));
+                hovers.Add(new Hover(game.Game, OneRight(position)));
             }
             else if (IsOnBottom() && IsOnRight())
             {
-                hovers.Add(new Hover(game, OneUpLeft(position)));
-                hovers.Add(new Hover(game, OneLeft(position)));
-                hovers.Add(new Hover(game, OneUp(position)));
+                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
+                hovers.Add(new Hover(game.Game, OneLeft(position)));
+                hovers.Add(new Hover(game.Game, OneUp(position)));
             }
             else if (IsOnBottom() && IsOnLeft())
             {
-                hovers.Add(new Hover(game, OneUp(position)));
-                hovers.Add(new Hover(game, OneRight(position)));
-                hovers.Add(new Hover(game, OneUpRight(position)));
+                hovers.Add(new Hover(game.Game, OneUp(position)));
+                hovers.Add(new Hover(game.Game, OneRight(position)));
+                hovers.Add(new Hover(game.Game, OneUpRight(position)));
             }
             else if (IsOnRight())
             {
-                hovers.Add(new Hover(game, OneUp(position)));
-                hovers.Add(new Hover(game, OneLeft(position)));
-                hovers.Add(new Hover(game, OneDownLeft(position)));
-                hovers.Add(new Hover(game, OneUpLeft(position)));
-                hovers.Add(new Hover(game, OneDown(position)));
+                hovers.Add(new Hover(game.Game, OneUp(position)));
+                hovers.Add(new Hover(game.Game, OneLeft(position)));
+                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
+                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
+                hovers.Add(new Hover(game.Game, OneDown(position)));
             }
             else if (IsOnLeft())
             {
-                hovers.Add(new Hover(game, OneUp(position)));
-                hovers.Add(new Hover(game, OneRight(position)));
-                hovers.Add(new Hover(game, OneDownRight(position)));
-                hovers.Add(new Hover(game, OneUpRight(position)));
-                hovers.Add(new Hover(game, OneDown(position)));
+                hovers.Add(new Hover(game.Game, OneUp(position)));
+                hovers.Add(new Hover(game.Game, OneRight(position)));
+                hovers.Add(new Hover(game.Game, OneDownRight(position)));
+                hovers.Add(new Hover(game.Game, OneUpRight(position)));
+                hovers.Add(new Hover(game.Game, OneDown(position)));
                 Vector2 up = OneUp(position);
                 Vector2 right = OneRight(position);
                 Vector2 downRight = OneDownRight(position);
@@ -70,30 +70,30 @@ namespace Chess_MP.Pieces
             }
             else if (IsOnTop())
             {
-                hovers.Add(new Hover(game, OneDownRight(position)));
-                hovers.Add(new Hover(game, OneLeft(position)));
-                hovers.Add(new Hover(game, OneDownLeft(position)));
-                hovers.Add(new Hover(game, OneRight(position)));
-                hovers.Add(new Hover(game, OneDown(position)));
+                hovers.Add(new Hover(game.Game, OneDownRight(position)));
+                hovers.Add(new Hover(game.Game, OneLeft(position)));
+                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
+                hovers.Add(new Hover(game.Game, OneRight(position)));
+                hovers.Add(new Hover(game.Game, OneDown(position)));
             }
             else if (IsOnBottom())
             {
-                hovers.Add(new Hover(game, OneUpRight(position)));
-                hovers.Add(new Hover(game, OneLeft(position)));
-                hovers.Add(new Hover(game, OneDownLeft(position)));
-                hovers.Add(new Hover(game, OneUpLeft(position)));
-                hovers.Add(new Hover(game, OneUp(position)));
+                hovers.Add(new Hover(game.Game, OneUpRight(position)));
+                hovers.Add(new Hover(game.Game, OneLeft(position)));
+                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
+                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
+                hovers.Add(new Hover(game.Game, OneUp(position)));
             }
             else
             {
-                hovers.Add(new Hover(game, OneDown(position)));
-                hovers.Add(new Hover(game, OneLeft(position)));
-                hovers.Add(new Hover(game, OneUp(position)));
-                hovers.Add(new Hover(game, OneRight(position)));
-                hovers.Add(new Hover(game, OneUpLeft(position)));
-                hovers.Add(new Hover(game, OneUpRight(position)));
-                hovers.Add(new Hover(game, OneDownRight(position)));
-                hovers.Add(new Hover(game, OneDownLeft(position)));
+                hovers.Add(new Hover(game.Game, OneDown(position)));
+                hovers.Add(new Hover(game.Game, OneLeft(position)));
+                hovers.Add(new Hover(game.Game, OneUp(position)));
+                hovers.Add(new Hover(game.Game, OneRight(position)));
+                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
+                hovers.Add(new Hover(game.Game, OneUpRight(position)));
+                hovers.Add(new Hover(game.Game, OneDownRight(position)));
+                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
             }
 
             return hovers;
