@@ -10,7 +10,7 @@ namespace Chess_MP.Pieces
 
         private bool _hasMoved;
 
-        public King(Game1 game, Player player, Vector2 position) : base(game, player, game.AssetManager.GetTexture(player.Color.ToString().ToLower() + "-king"), position)
+        public King(GameController game, Player player, Vector2 position) : base(game, player, game.Game.AssetManager.GetTexture(player.Color.ToString().ToLower() + "-king"), position)
         {
             _hasMoved = false;
         }

@@ -11,14 +11,14 @@ namespace Chess_MP
      */
     public class Player
     {
-        private Game1 _game;
+        private GameController _game;
         private readonly uint _id;
         private readonly string _name;
         private readonly GameColor _color;
 
         private List<Piece> _pieces;
 
-        public Player(Game1 game, uint id, string name, GameColor color)
+        public Player(GameController game, uint id, string name, GameColor color)
         {
             _game = game;
             _id = id;

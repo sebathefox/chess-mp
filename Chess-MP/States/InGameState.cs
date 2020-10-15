@@ -30,8 +30,8 @@ namespace Chess_MP.States
 
             _players = new Player[]
             {
-                new Player(_gameController.Game, 1, "Sebastian", GameColor.Black),
-                new Player(_gameController.Game, 1, "Grøn", GameColor.White)
+                new Player(_gameController, 1, "Sebastian", GameColor.Black),
+                new Player(_gameController, 1, "Grøn", GameColor.White)
             };
         }
 
