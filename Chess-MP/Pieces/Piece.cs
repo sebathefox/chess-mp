@@ -129,115 +129,6 @@ namespace Chess_MP.Pieces
             _mouse.Swap();
         }
 
-        /**
-         * Validates if the other piece is a enemy.
-         * @param other The other Piece.
-         * @author Sebastian Davaris
-         * @date 15-10-2020
-         */
-        // public bool IsEnemy(Piece other)
-        // {
-        //     if (other == null)
-        //         return false;
-        //     
-        //     // return Color != other.Color;
-        // }
-        //
-        // protected Vector2 OneFront(Vector2 @base)
-        // {
-        //     switch (direction)
-        //     {
-        //         case Direction.Down:
-        //             return new Vector2(@base.X, @base.Y + 1);
-        //         default:
-        //             return new Vector2(@base.X, @base.Y - 1);
-        //     }
-        // }
-        //
-        // protected Vector2 OneLeft(Vector2 @base)
-        // {
-        //     if (@base.X < 1)
-        //         return @base;
-        //     
-        //     return new Vector2(@base.X - 1, @base.Y);
-        // }
-        //
-        // protected Vector2 OneRight(Vector2 @base)
-        // {
-        //     if (@base.X >= 7)
-        //         return @base;
-        //     
-        //     return new Vector2(@base.X + 1, @base.Y);
-        // }
-        //
-        // protected Vector2 OneUp(Vector2 @base)
-        // {
-        //     if (@base.Y < 1)
-        //         return @base;
-        //
-        //     return new Vector2(@base.X, @base.Y - 1);
-        // }
-        //
-        // protected Vector2 OneDown(Vector2 @base)
-        // {
-        //     if (@base.Y >= 7)
-        //         return @base;
-        //
-        //     return new Vector2(@base.X, @base.Y + 1);
-        // }
-        //
-        // protected Vector2 OneUpLeft(Vector2 @base)
-        // {
-        //     if (@base.Y < 1 || @base.X < 1)
-        //         return @base;
-        //
-        //     return new Vector2(@base.X - 1, @base.Y - 1);
-        // }
-        //
-        // protected Vector2 OneUpRight(Vector2 @base)
-        // {
-        //     if (@base.Y < 1 || @base.X >= 7)
-        //         return @base;
-        //
-        //     return new Vector2(@base.X + 1, @base.Y - 1);
-        // }
-        //
-        // protected Vector2 OneDownLeft(Vector2 @base)
-        // {
-        //     if (@base.Y >= 7 || @base.X < 1)
-        //         return @base;
-        //
-        //     return new Vector2(@base.X - 1, @base.Y + 1);
-        // }
-        //
-        // protected Vector2 OneDownRight(Vector2 @base)
-        // {
-        //     if (@base.Y >= 7 || @base.X >= 7)
-        //         return @base;
-        //
-        //     return new Vector2(@base.X + 1, @base.Y + 1);
-        // }
-        //
-        // protected bool IsOnLeft()
-        // {
-        //     return position.X <= 0;
-        // }
-        //
-        // protected bool IsOnRight()
-        // {
-        //     return position.X >= 7;
-        // }
-        //
-        // protected bool IsOnTop()
-        // {
-        //     return position.Y <= 0;
-        // }
-        //
-        // protected bool IsOnBottom()
-        // {
-        //     return position.Y >= 7;
-        // }
-        
         protected virtual void OnHoverClicked(object sender, Vector2 pos)
         {
             if (!GameController.IsInState<InGameState>())
@@ -255,31 +146,33 @@ namespace Chess_MP.Pieces
             }
 
             state.PieceManager.MovePiece(this, pos);
-            
-            // state[this.position].SetPiece(null);
-            
-            this.position = pos;
+            position = pos;
             
             _image.SetPosition(new Vector2(pos.X * 64, pos.Y * 64));
 
             Hover obj = sender as Hover;
             
+            // Removes this hover.
             obj.Disable();
             
-            foreach (Hover hover in hovers)
-            {
-                hover.OnClicked -= OnHoverClicked;
-                hover.Disable();
-            }
-            this.hovers.Clear();
-
-            // state[pos].SetPiece(this);
+            // Removes all hovers / Resets the state.
+            ClearHovers();
         }
 
         public void Disable()
         {
             _shouldUpdate = false;
             _image.Disable();
+        }
+
+        public void ClearHovers()
+        {
+            foreach (Hover hover in hovers)
+            {
+                hover.OnClicked -= OnHoverClicked;
+                hover.Disable();
+            }
+            this.hovers.Clear();
         }
         
         public int Id { get; protected set; }

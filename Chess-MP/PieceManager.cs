@@ -50,6 +50,7 @@ namespace Chess_MP
             InGameState state = _gameController.State as InGameState;
 
             _playerPieces[piece.Color].Remove(piece);
+            piece.ClearHovers();
             piece.Disable();
             
             state[piece.Position].SetPiece(null);
