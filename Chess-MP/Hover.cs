@@ -34,6 +34,8 @@ namespace Chess_MP
             _image = new Image(game, game.AssetManager.GetTexture("hover"), new Vector2(position.X * 64, position.Y * 64));
             _mouse = new MouseStateMachine(Mouse.GetState());
 
+            Console.WriteLine("HOVER: " + position);
+            
             _shouldUpdate = true;
             
             _game.OnUpdate += Update;
@@ -59,7 +61,7 @@ namespace Chess_MP
 
                 if (_image.Rectangle.Contains(position))
                 {
-                    Console.WriteLine("CLICKED: " + _position.ToString());
+                    // Console.WriteLine("CLICKED: " + _position.ToString());
                     OnClicked?.Invoke(this, _position);
                 }
             }
@@ -72,5 +74,7 @@ namespace Chess_MP
             _image.Disable();
             _shouldUpdate = false;
         }
+
+        public Rectangle Rect => _image.Rectangle;
     }
 }

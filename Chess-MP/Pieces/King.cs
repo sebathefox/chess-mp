@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Chess_MP.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,7 +11,7 @@ namespace Chess_MP.Pieces
 
         private bool _hasMoved;
 
-        public King(GameController game, Player player, Vector2 position) : base(game, player, game.Game.AssetManager.GetTexture(player.Color.ToString().ToLower() + "-king"), position)
+        public King(GameController gameController, GameColor color, Vector2 position) : base(gameController, color, gameController.Game.AssetManager.GetTexture(color.ToString().ToLower() + "-king"), position)
         {
             _hasMoved = false;
         }
@@ -18,90 +19,92 @@ namespace Chess_MP.Pieces
 
         protected override IEnumerable<Hover> GetPossibleFields()
         {
+            if (!GameController.IsInGame())
+            {
+                throw new NotSupportedException("You MUST be in the correct state to move a piece!");
+            }
+            
+            InGameState state = GameController.State as InGameState;
+            
             List<Hover> hovers = new List<Hover>();
 
-            if (IsOnTop() && IsOnRight())
+            if (state.PieceManager.IsOnTop(this.position) && state.PieceManager.IsOnRight(this.position))
             {
                 
-                hovers.Add(new Hover(game.Game, OneDown(position)));
-                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
-                hovers.Add(new Hover(game.Game, OneLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
 
                 
             }
-            else if (IsOnTop() && IsOnLeft())
+            else if (state.PieceManager.IsOnTop(position) && state.PieceManager.IsOnLeft(position))
             {
-                hovers.Add(new Hover(game.Game, OneDown(position)));
-                hovers.Add(new Hover(game.Game, OneDownRight(position)));
-                hovers.Add(new Hover(game.Game, OneRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
             }
-            else if (IsOnBottom() && IsOnRight())
+            else if (state.PieceManager.IsOnBottom(position) && state.PieceManager.IsOnRight(position))
             {
-                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
-                hovers.Add(new Hover(game.Game, OneLeft(position)));
-                hovers.Add(new Hover(game.Game, OneUp(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
             }
-            else if (IsOnBottom() && IsOnLeft())
+            else if (state.PieceManager.IsOnBottom(position) && state.PieceManager.IsOnLeft(position))
             {
-                hovers.Add(new Hover(game.Game, OneUp(position)));
-                hovers.Add(new Hover(game.Game, OneRight(position)));
-                hovers.Add(new Hover(game.Game, OneUpRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
             }
-            else if (IsOnRight())
+            else if (state.PieceManager.IsOnRight(position))
             {
-                hovers.Add(new Hover(game.Game, OneUp(position)));
-                hovers.Add(new Hover(game.Game, OneLeft(position)));
-                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
-                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
-                hovers.Add(new Hover(game.Game, OneDown(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
             }
-            else if (IsOnLeft())
+            else if (state.PieceManager.IsOnLeft(position))
             {
-                hovers.Add(new Hover(game.Game, OneUp(position)));
-                hovers.Add(new Hover(game.Game, OneRight(position)));
-                hovers.Add(new Hover(game.Game, OneDownRight(position)));
-                hovers.Add(new Hover(game.Game, OneUpRight(position)));
-                hovers.Add(new Hover(game.Game, OneDown(position)));
-                Vector2 up = OneUp(position);
-                Vector2 right = OneRight(position);
-                Vector2 downRight = OneDownRight(position);
-                Vector2 upRight = OneUpRight(position);
-                Vector2 down = OneDown(position);
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
             }
-            else if (IsOnTop())
+            else if (state.PieceManager.IsOnTop(position))
             {
-                hovers.Add(new Hover(game.Game, OneDownRight(position)));
-                hovers.Add(new Hover(game.Game, OneLeft(position)));
-                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
-                hovers.Add(new Hover(game.Game, OneRight(position)));
-                hovers.Add(new Hover(game.Game, OneDown(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
             }
-            else if (IsOnBottom())
+            else if (state.PieceManager.IsOnBottom(position))
             {
-                hovers.Add(new Hover(game.Game, OneUpRight(position)));
-                hovers.Add(new Hover(game.Game, OneLeft(position)));
-                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
-                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
-                hovers.Add(new Hover(game.Game, OneUp(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
             }
             else
             {
-                hovers.Add(new Hover(game.Game, OneDown(position)));
-                hovers.Add(new Hover(game.Game, OneLeft(position)));
-                hovers.Add(new Hover(game.Game, OneUp(position)));
-                hovers.Add(new Hover(game.Game, OneRight(position)));
-                hovers.Add(new Hover(game.Game, OneUpLeft(position)));
-                hovers.Add(new Hover(game.Game, OneUpRight(position)));
-                hovers.Add(new Hover(game.Game, OneDownRight(position)));
-                hovers.Add(new Hover(game.Game, OneDownLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
+                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
             }
 
             return hovers;
         }
 
-        protected override void OnHoverClicked(object sender, Vector2 position)
+        protected override void OnHoverClicked(object sender, Vector2 pos)
         {
-            base.OnHoverClicked(sender, position);
+            base.OnHoverClicked(sender, pos);
             _hasMoved = true;
         }
     }

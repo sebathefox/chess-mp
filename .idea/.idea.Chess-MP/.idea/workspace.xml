@@ -8,17 +8,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Added abstract State.cs class.">
-      <change afterPath="$PROJECT_DIR$/Chess-MP/GameController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess-MP/States/PreGameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Added PieceManager.cs and migrated more of the code.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Board/Field.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Board/Field.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Game1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Game1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess-MP/Hover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Hover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess-MP/LayoutManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/LayoutManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/States/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/States/State.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +24,11 @@
     <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -46,17 +46,19 @@
         <option value="$PROJECT_DIR$/Chess-MP/Board/Board.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/TestPiece.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Image.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/States/PreGameState.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Game1.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/States/State.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Player.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Board/Field.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Pieces/King.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/GameController.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Hover.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/LayoutManager.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Player.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/States/State.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/States/PreGameState.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Board/Field.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Game1.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/GameController.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/PieceManager.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" />
       </list>
     </option>
   </component>
@@ -67,8 +69,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34996718" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.30006567" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.4432042" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3801707" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
@@ -104,7 +106,8 @@
       <workItem from="1602493672479" duration="7851000" />
       <workItem from="1602570691177" duration="14975000" />
       <workItem from="1602653941289" duration="10486000" />
-      <workItem from="1602741619739" duration="5769000" />
+      <workItem from="1602741619739" duration="13978000" />
+      <workItem from="1602828350868" duration="1537000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit.">
       <created>1602497096820</created>
@@ -302,7 +305,35 @@
       <option name="project" value="LOCAL" />
       <updated>1602745772453</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added InGameState.cs.">
+      <created>1602750096507</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1602750096507</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Finished rewrite about states.">
+      <created>1602750290860</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1602750290860</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Updated King.cs to use the states.">
+      <created>1602750377637</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1602750377637</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Added PieceManager.cs and migrated more of the code.">
+      <created>1602766977984</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1602766977984</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -321,10 +352,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Textures." />
-    <MESSAGE value="Added Field." />
-    <MESSAGE value="Updated graphics." />
-    <MESSAGE value="Fixed Piece.cs." />
     <MESSAGE value="Removed redundant images." />
     <MESSAGE value="Added dummy image." />
     <MESSAGE value="Added Doxyfile." />
@@ -346,7 +373,11 @@
     <MESSAGE value="Fixed LayoutManager.cs." />
     <MESSAGE value="New Push." />
     <MESSAGE value="Added abstract State.cs class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added abstract State.cs class." />
+    <MESSAGE value="Added InGameState.cs." />
+    <MESSAGE value="Finished rewrite about states." />
+    <MESSAGE value="Updated King.cs to use the states." />
+    <MESSAGE value="Added PieceManager.cs and migrated more of the code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added PieceManager.cs and migrated more of the code." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2506" y="180" width="427" height="855" key="#Code_Folding" timestamp="1602571087579">
@@ -365,111 +396,111 @@
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="2458" y="527" width="616" height="161" key="GitCloneDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602586944520" />
-    <state width="1554" height="173" key="GridCell.Tab.0.bottom" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.0.bottom" timestamp="1602830015850">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.0.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.0.center" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.0.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015850" />
+    <state width="1554" height="155" key="GridCell.Tab.0.center" timestamp="1602830015850">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.0.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.0.left" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.0.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015850" />
+    <state width="1554" height="155" key="GridCell.Tab.0.left" timestamp="1602830015850">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.0.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.0.right" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.0.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015850" />
+    <state width="1554" height="155" key="GridCell.Tab.0.right" timestamp="1602830015850">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.0.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.1.bottom" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.0.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015850" />
+    <state width="1554" height="155" key="GridCell.Tab.1.bottom" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.1.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.1.center" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.1.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.1.center" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.1.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.1.left" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.1.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.1.left" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.1.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.1.right" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.1.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.1.right" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.1.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.2.bottom" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.1.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.2.bottom" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.2.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.2.center" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.2.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.2.center" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.2.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.2.left" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.2.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.2.left" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.2.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.2.right" timestamp="1602746173288">
+    <state width="1554" height="155" key="GridCell.Tab.2.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.2.right" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.2.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173288" />
-    <state width="1554" height="173" key="GridCell.Tab.3.bottom" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.2.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.3.bottom" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.3.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.3.center" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.3.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.3.center" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.3.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.3.left" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.3.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.3.left" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.3.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.3.right" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.3.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.3.right" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.3.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.4.bottom" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.3.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.4.bottom" timestamp="1602830015705">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.4.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.4.center" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.4.bottom/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015705" />
+    <state width="1554" height="155" key="GridCell.Tab.4.center" timestamp="1602830015705">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.4.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.4.left" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.4.center/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015705" />
+    <state width="1554" height="155" key="GridCell.Tab.4.left" timestamp="1602830015704">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.4.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state width="1554" height="173" key="GridCell.Tab.4.right" timestamp="1602746173289">
+    <state width="1554" height="155" key="GridCell.Tab.4.left/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015704" />
+    <state width="1554" height="155" key="GridCell.Tab.4.right" timestamp="1602830015705">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state width="1554" height="173" key="GridCell.Tab.4.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746173289" />
-    <state x="2080" y="229" key="MergeDialog" timestamp="1602664356558">
+    <state width="1554" height="155" key="GridCell.Tab.4.right/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830015705" />
+    <state x="2080" y="229" key="MergeDialog" timestamp="1602750406921">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state x="2080" y="229" key="MergeDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602664356558" />
-    <state x="2362" y="366" key="MultipleFileMergeDialog" timestamp="1602664356575">
+    <state x="2080" y="229" key="MergeDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602750406921" />
+    <state x="2362" y="366" key="MultipleFileMergeDialog" timestamp="1602750406928">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
-    <state x="2362" y="366" key="MultipleFileMergeDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602664356575" />
+    <state x="2362" y="366" key="MultipleFileMergeDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602750406928" />
     <state x="2492" y="300" key="RiderGenerateDialog" timestamp="1602746622073">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="2492" y="300" key="RiderGenerateDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746622073" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602672224792">
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602766984679">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="480" y="184" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1602500295709" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602672224792" />
-    <state x="331" y="0" width="1246" height="811" maximized="true" key="dock-window-1" timestamp="1602658681727">
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602766984679" />
+    <state x="411" y="310" width="1228" height="640" key="dock-window-1" timestamp="1602830068633">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="331" y="0" width="1246" height="811" maximized="true" key="dock-window-1/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602658681727" />
-    <state x="348" y="0" width="1246" height="692" maximized="true" key="dock-window-2" timestamp="1602746902702">
+    <state x="411" y="310" width="1228" height="640" key="dock-window-1/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602830068633" />
+    <state x="243" y="0" width="1237" height="640" maximized="true" key="dock-window-2" timestamp="1602760517669">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
-    <state x="348" y="0" width="1246" height="692" maximized="true" key="dock-window-2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746902702" />
+    <state x="243" y="0" width="1237" height="640" maximized="true" key="dock-window-2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602760517669" />
     <state x="2529" y="516" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1602497104380">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>

@@ -12,7 +12,7 @@ namespace Chess_MP.Pieces
         private bool _hasMoved;
         
         /// <inheritdoc />
-        public Pawn(GameController game, Player player, Vector2 position) : base(game, player, game.Game.AssetManager.GetTexture(player.Color.ToString().ToLower() + "-pawn"), position)
+        public Pawn(GameController gameController, GameColor color, Vector2 position) : base(gameController, color, gameController.Game.AssetManager.GetTexture(color.ToString().ToLower() + "-pawn"), position)
         {
             _hasMoved = false;
         }
@@ -22,50 +22,70 @@ namespace Chess_MP.Pieces
         {
             List<Hover> hovers = new List<Hover>();
             
-            if (!game.IsInGame())
+            if (!GameController.IsInGame())
             {
-                return hovers;
+                throw new NotSupportedException("You MUST be in the correct state to move a piece!");
+            }
+            
+            InGameState state = GameController.State as InGameState;
+
+            // Vector2 front = state.PieceManager.OneFront(position);
+
+            Vector2 front = position;
+
+            switch (Color)
+            {
+                case GameColor.Black:
+                    front = new Vector2(position.X, position.Y + 1);
+                    break;
+                case GameColor.White:
+                    front = new Vector2(position.X, position.Y - 1);
+                    break;
             }
 
-            InGameState state = game.State as InGameState;
-
-            Vector2 front = OneFront(position);
-
-            Vector2 left = OneLeft(front);
-            Vector2 right = OneRight(front);
+            Vector2 left = state.PieceManager.OneLeft(front);
+            Vector2 right = state.PieceManager.OneRight(front);
 
             // Console.WriteLine(front.ToString());
 
-            if (!(IsOnBottom() || IsOnTop()) && state[front].Piece == null)
+            if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && state[front].Piece == null)
             {
-                hovers.Add(new Hover(game.Game, front));
+                hovers.Add(new Hover(GameController.Game, front));
 
-                front = OneFront(front);
+                switch (Color)
+                {
+                    case GameColor.Black:
+                        front = new Vector2(front.X, front.Y + 1);
+                        break;
+                    case GameColor.White:
+                        front = new Vector2(front.X, front.Y - 1);
+                        break;
+                }
 
                 if (!_hasMoved  && state[front].Piece == null)
                 {
-                    hovers.Add(new Hover(game.Game, front));
+                    hovers.Add(new Hover(GameController.Game, front));
                 }
             }
 
-            if (!(IsOnBottom() || IsOnTop()) && !IsOnLeft() && state[left].Piece != null && IsEnemy(state[left].Piece))
+            if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnLeft(this.position) && state[left].Piece != null && state.PieceManager.IsEnemies(this, state[left].Piece))
             {
-                hovers.Add(new Hover(game.Game, left));
+                hovers.Add(new Hover(GameController.Game, left));
             }
 
             Console.WriteLine(state[right].Piece);
-            if (!(IsOnBottom() || IsOnTop()) && !IsOnRight() && state[right].Piece != null && IsEnemy(state[right].Piece))
+            if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnRight(this.position) && state[right].Piece != null && state.PieceManager.IsEnemies(this, state[right].Piece))
             {
-                hovers.Add(new Hover(game.Game, right));
+                hovers.Add(new Hover(GameController.Game, right));
             }
             
             return hovers;
         }
 
         /// <inheritdoc />
-        protected override void OnHoverClicked(object sender, Vector2 position)
+        protected override void OnHoverClicked(object sender, Vector2 pos)
         {
-            base.OnHoverClicked(sender, position);
+            base.OnHoverClicked(sender, pos);
             _hasMoved = true;
         }
     }
