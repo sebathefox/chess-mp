@@ -174,26 +174,91 @@ namespace Chess_MP
             return new Vector2(@base.X + 1, @base.Y + 1);
         }
         
-        public bool IsOnLeft(Vector2 position)
+        public bool IsOnLeft(Vector2 position, int offset = 0)
         {
-            return position.X <= 0;
+            return position.X - offset <= 0;
         }
         
-        public bool IsOnRight(Vector2 position)
+        public bool IsOnRight(Vector2 position, int offset = 0)
         {
-            return position.X >= 7;
+            return position.X + offset >= 7;
         }
         
-        public bool IsOnTop(Vector2 position)
+        public bool IsOnTop(Vector2 position, int offset = 0)
         {
-            return position.Y <= 0;
+            return position.Y - offset <= 0;
         }
         
-        public bool IsOnBottom(Vector2 position)
+        public bool IsOnBottom(Vector2 position, int offset = 0)
         {
-            return position.Y >= 7;
+            return position.Y + offset >= 7;
         }
-        
+
+        public Vector2 KnUpLeft(Vector2 @base)
+        {
+            if (@base.Y < 2 || @base.X < 1)
+                return @base;
+
+            return new Vector2(@base.X - 1, @base.Y - 2);
+        }
+
+        public Vector2 KnUpRight(Vector2 @base)
+        {
+            if (@base.Y < 2 || @base.X >= 7)
+                return @base;
+
+            return new Vector2(@base.X + 1, @base.Y - 2);
+        }
+
+        public Vector2 KnDownRight(Vector2 @base)
+        {
+            if (@base.Y >= 6 || @base.X >= 7)
+                return @base;
+
+            return new Vector2(@base.X + 1, @base.Y + 2);
+        }
+
+        public Vector2 KnDownLeft(Vector2 @base)
+        {
+            if (@base.Y >= 6 || @base.X < 1)
+                return @base;
+
+            return new Vector2(@base.X - 1, @base.Y + 2);
+        }
+
+        public Vector2 KnLeftDown(Vector2 @base)
+        {
+            if (@base.Y >= 7 || @base.X < 2)
+                return @base;
+
+            return new Vector2(@base.X - 2, @base.Y + 1);
+        }
+
+        public Vector2 KnLeftUp(Vector2 @base)
+        {
+            if (@base.Y < 1 || @base.X < 2)
+                return @base;
+
+            return new Vector2(@base.X - 2, @base.Y - 1);
+        }
+
+
+        public Vector2 KnRightUp(Vector2 @base)
+        {
+            if (@base.Y < 1 || @base.X >= 6)
+                return @base;
+
+            return new Vector2(@base.X + 2, @base.Y - 1);
+        }
+
+        public Vector2 KnRightDown(Vector2 @base)
+        {
+            if (@base.Y >= 7 || @base.X >= 6)
+                return @base;
+
+            return new Vector2(@base.X + 2, @base.Y + 1);
+        }
+
         #endregion
     }
 }
