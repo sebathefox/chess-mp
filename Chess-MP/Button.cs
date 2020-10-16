@@ -2,35 +2,86 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-namespace Chess-MP
+namespace Chess_MP
 {
-    class Button
+    public class Button
     {
-        int buttonX, buttonY;
+        private GameController _gameController;
+        
+        private string _text;
+        private Texture2D _texture;
+        private Rectangle _rectangle;
 
-        public int ButtonX
+        private MouseStateMachine _mouse;
+
+        private bool _enabled;
+
+        public event EventHandler OnClick;
+        
+        public Button(GameController gamecontroller, string text, Texture2D texture, Rectangle rectangle)
         {
-            get
-            {
-                return buttonX;
-            }
+            _gameController = gamecontroller;
+            _text = text;
+            _texture = texture;
+            _rectangle = rectangle;
+
+            _enabled = true;
+
+            _mouse = new MouseStateMachine(Mouse.GetState());
+            
+            // Register events
+            _gameController.Game.OnUpdate += Update;
+            _gameController.Game.OnDraw += Draw;
         }
 
-        public int ButtonY
+        protected virtual void Update(object sender, GameTime gameTime)
         {
-            get
+            _mouse.Update(Mouse.GetState());
+
+            Point pos = _mouse.GetPosition();
+            
+            if (_rectangle.Contains(pos))
             {
-                return buttonY;
+                if (_mouse.LeftClicked())
+                {
+                    OnClick?.Invoke(this, EventArgs.Empty);
+                }
             }
+                
+            _mouse.Swap();
         }
 
-        public Button(string name, Texture2D texture, int buttonX, int buttonY)
+        protected virtual void Draw(object sender, SpriteBatch spriteBatch)
         {
-            this.Name = name;
-            this.Texture = texture;
-            this.buttonX = buttonX;
-            this.buttonY = buttonY;
+            spriteBatch.Begin();
+            
+            spriteBatch.Draw(_texture, _rectangle, Color.White);
+            
+            spriteBatch.DrawString(_gameController.Game.Font, _text, _rectangle.Location.ToVector2(), Color.Black);
+            
+            spriteBatch.End();
+        }
+
+        public void Disable()
+        {
+            _gameController.Game.OnDraw -= Draw;
+            _gameController.Game.OnUpdate -= Update;
+        }
+        
+        public string Text
+        {
+            get => _text;
+            set => _text = value;
+        }
+
+        public Texture2D Texture => _texture;
+
+        public Rectangle Rectangle
+        {
+            get => _rectangle;
+            set => _rectangle = value;
         }
     }
 }

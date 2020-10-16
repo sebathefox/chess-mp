@@ -12,7 +12,7 @@ namespace Chess_MP
         public GameController(Game1 game)
         {
             _game = game;
-            _currentState = new InGameState(this);
+            _currentState = new PreGameState(this);
             _currentState.EnterState();
         }
 

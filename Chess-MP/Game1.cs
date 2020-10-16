@@ -44,6 +44,7 @@ namespace Chess_MP
             // Misc
             _assetManager.LoadTexture("board", "board");
             _assetManager.LoadTexture("hover", "hover_field");
+            _assetManager.LoadTexture("button", "button");
             
             // White
             _assetManager.LoadTexture("white-pawn", "white_pawn");
@@ -61,6 +62,7 @@ namespace Chess_MP
             _assetManager.LoadTexture("black-king", "black_king");
             _assetManager.LoadTexture("black-queen", "black_queen");
 
+            Font = Content.Load<SpriteFont>("font");
             
             _gameController = new GameController(this);
             
@@ -103,5 +105,7 @@ namespace Chess_MP
          * @date 13-10-2020
          */
         public AssetManager AssetManager => _assetManager;
+
+        public SpriteFont Font { get; set; }
     }
 }

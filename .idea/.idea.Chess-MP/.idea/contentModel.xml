@@ -10,9 +10,13 @@
           <e p="Board.cs" t="Include" />
           <e p="Field.cs" t="Include" />
         </e>
+        <e p="Button.cs" t="Include" />
         <e p="Chess-MP.csproj" t="IncludeRecursive" />
         <e p="Content" t="Include">
           <e p="Content.mgcb" t="Include" />
+          <e p="background" t="Include">
+            <e p="grey_BG.jpg" t="Include" />
+          </e>
           <e p="bin" t="Include">
             <e p="DesktopGL" t="Include">
               <e p="Content" t="Include">
@@ -23,6 +27,8 @@
                 <e p="black_pawn.xnb" t="Include" />
                 <e p="black_queen.xnb" t="Include" />
                 <e p="board.xnb" t="Include" />
+                <e p="button.xnb" t="Include" />
+                <e p="font.xnb" t="Include" />
                 <e p="hover_field.xnb" t="Include" />
                 <e p="white_bishop.xnb" t="Include" />
                 <e p="white_castle.xnb" t="Include" />
@@ -38,6 +44,8 @@
               <e p="black_pawn.xnb" t="Include" />
               <e p="black_queen.xnb" t="Include" />
               <e p="board.xnb" t="Include" />
+              <e p="button.xnb" t="Include" />
+              <e p="font.xnb" t="Include" />
               <e p="hover_field.xnb" t="Include" />
               <e p="white_bishop.xnb" t="Include" />
               <e p="white_castle.xnb" t="Include" />
@@ -54,6 +62,8 @@
           <e p="black_pawn.png" t="Include" />
           <e p="black_queen.png" t="Include" />
           <e p="board.png" t="Include" />
+          <e p="button.png" t="Include" />
+          <e p="font.spritefont" t="Include" />
           <e p="hover_field.png" t="Include" />
           <e p="obj" t="Include">
             <e p="DesktopGL" t="Include">
@@ -69,6 +79,8 @@
                 <e p="black_pawn.mgcontent" t="Include" />
                 <e p="black_queen.mgcontent" t="Include" />
                 <e p="board.mgcontent" t="Include" />
+                <e p="button.mgcontent" t="Include" />
+                <e p="font.mgcontent" t="Include" />
                 <e p="hover_field.mgcontent" t="Include" />
                 <e p="white_bishop.mgcontent" t="Include" />
                 <e p="white_castle.mgcontent" t="Include" />
@@ -84,6 +96,8 @@
               <e p="black_pawn.mgcontent" t="Include" />
               <e p="black_queen.mgcontent" t="Include" />
               <e p="board.mgcontent" t="Include" />
+              <e p="button.mgcontent" t="Include" />
+              <e p="font.mgcontent" t="Include" />
               <e p="hover_field.mgcontent" t="Include" />
               <e p="white_bishop.mgcontent" t="Include" />
               <e p="white_castle.mgcontent" t="Include" />
@@ -109,6 +123,9 @@
         <e p="Icon.ico" t="Include" />
         <e p="Image.cs" t="Include" />
         <e p="LayoutManager.cs" t="Include" />
+        <e p="MainMenu" t="Include">
+          <e p="Screen.cs" t="Include" />
+        </e>
         <e p="Microsoft.Xna.Framework.Content.ContentTypeReader" t="Include" />
         <e p="MouseStateMachine.cs" t="Include" />
         <e p="PieceManager.cs" t="Include" />

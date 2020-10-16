@@ -24,6 +24,7 @@ namespace Chess_MP
             if (color == GameColor.Black)
             {
                 pieces.Add(new King(gameController, color, new Vector2(4, 0)));
+                state[new Vector2(4, 0)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(4, 0)));
 
                 for (int i = 0; i < 8; i++)
                 {
@@ -35,6 +36,7 @@ namespace Chess_MP
             else if (color == GameColor.White)
             {
                 pieces.Add(new King(gameController, color, new Vector2(4, 7)));
+                state[new Vector2(4, 7)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(4, 7)));
 
                 for (int i = 0; i < 8; i++)
                 {
