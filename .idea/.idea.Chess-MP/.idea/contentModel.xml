@@ -14,12 +14,14 @@
         <e p="Chess-MP.csproj" t="IncludeRecursive" />
         <e p="Content" t="Include">
           <e p="Content.mgcb" t="Include" />
+          <e p="Icon.ico" t="Include" />
           <e p="background" t="Include">
             <e p="grey_BG.jpg" t="Include" />
           </e>
           <e p="bin" t="Include">
             <e p="DesktopGL" t="Include">
               <e p="Content" t="Include">
+                <e p="Icon.xnb" t="Include" />
                 <e p="black_bishop.xnb" t="Include" />
                 <e p="black_castle.xnb" t="Include" />
                 <e p="black_king.xnb" t="Include" />
@@ -37,6 +39,7 @@
                 <e p="white_pawn.xnb" t="Include" />
                 <e p="white_queen.xnb" t="Include" />
               </e>
+              <e p="Icon.xnb" t="Include" />
               <e p="black_bishop.xnb" t="Include" />
               <e p="black_castle.xnb" t="Include" />
               <e p="black_king.xnb" t="Include" />
@@ -72,6 +75,7 @@
               <e p="Content" t="Include">
                 <e p=".mgcontent" t="Include" />
                 <e p=".mgstats" t="Include" />
+                <e p="Icon.mgcontent" t="Include" />
                 <e p="black_bishop.mgcontent" t="Include" />
                 <e p="black_castle.mgcontent" t="Include" />
                 <e p="black_king.mgcontent" t="Include" />
@@ -89,6 +93,7 @@
                 <e p="white_pawn.mgcontent" t="Include" />
                 <e p="white_queen.mgcontent" t="Include" />
               </e>
+              <e p="Icon.mgcontent" t="Include" />
               <e p="black_bishop.mgcontent" t="Include" />
               <e p="black_castle.mgcontent" t="Include" />
               <e p="black_king.mgcontent" t="Include" />
