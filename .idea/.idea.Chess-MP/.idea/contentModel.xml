@@ -135,7 +135,9 @@
         <e p="MouseStateMachine.cs" t="Include" />
         <e p="PieceManager.cs" t="Include" />
         <e p="Pieces" t="Include">
+          <e p="Bishop.cs" t="Include" />
           <e p="King.cs" t="Include" />
+          <e p="Knight.cs" t="Include" />
           <e p="Pawn.cs" t="Include" />
           <e p="Piece.cs" t="Include" />
           <e p="Rook.cs" t="Include" />
