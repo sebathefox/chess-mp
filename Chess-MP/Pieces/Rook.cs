@@ -30,10 +30,10 @@ namespace Chess_MP.Pieces
 
             Vector2 pos = Position;
 
-            Vector2 right = new Vector2(pos.X + 1, pos.Y);
-            Vector2 left = new Vector2(pos.X - 1, pos.Y);
-            Vector2 down = new Vector2(pos.X, pos.Y + 1);
-            Vector2 up = new Vector2(pos.X, pos.Y - 1);
+            Vector2 right = state.PieceManager.OneRight(pos);
+            Vector2 left = state.PieceManager.OneLeft(pos);
+            Vector2 down = state.PieceManager.OneDown(pos);
+            Vector2 up = state.PieceManager.OneUp(pos);
             
             while (state[right] != null)
             {
@@ -50,7 +50,8 @@ namespace Chess_MP.Pieces
                 {
                     break;
                 }
-                right.X += 1;
+
+                right = state.PieceManager.OneRight(right);
             }
             
             while (state[left] != null)
@@ -68,7 +69,8 @@ namespace Chess_MP.Pieces
                 {
                     break;
                 }
-                left.X -= 1;
+
+                left = state.PieceManager.OneLeft(left);
             }
             
             while (state[down] != null)
@@ -86,7 +88,8 @@ namespace Chess_MP.Pieces
                 {
                     break;
                 }
-                down.Y += 1;
+
+                down = state.PieceManager.OneDown(down);
             }
             
             while (state[up] != null)
@@ -104,7 +107,8 @@ namespace Chess_MP.Pieces
                 {
                     break;
                 }
-                up.Y -= 1;
+
+                up = state.PieceManager.OneUp(up);
             }
 
             return hovers;
