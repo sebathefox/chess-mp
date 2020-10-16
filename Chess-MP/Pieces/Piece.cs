@@ -79,11 +79,19 @@ namespace Chess_MP.Pieces
                         hover.OnClicked -= OnHoverClicked;
                         hover.Disable();
                     }
-                    this.hovers.Clear();
+                    hovers.Clear();
                 }
                 
                 return;
             }
+            
+            if (!GameController.IsInState<InGameState>())
+            {
+                throw new NotSupportedException("You MUST be in the correct state to move a piece!");
+            }
+
+            InGameState state = GameController.State as InGameState;
+            
             
             // Updates the state.
             _mouse.Update(Mouse.GetState());
@@ -94,6 +102,8 @@ namespace Chess_MP.Pieces
 
                 if (_image.Rectangle.Contains(pos))
                 {
+                    state.PieceManager.CurrentPiece = this;
+                    
                     hovers = new List<Hover>(GetPossibleFields());
                     foreach (Hover hover in hovers)
                     {

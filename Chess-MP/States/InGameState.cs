@@ -11,7 +11,7 @@ namespace Chess_MP.States
         private Player[] _players;
         private List<Field> _fields;
         private PieceManager _pieceManager;
-        
+
         /// <inheritdoc />
         public InGameState(GameController gameController) : base(gameController)
         {

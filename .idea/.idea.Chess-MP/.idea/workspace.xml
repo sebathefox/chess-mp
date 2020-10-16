@@ -8,10 +8,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Gave the king a position on field.">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Fixed PieceManager.cs to make movement better.">
       <change beforePath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,6 @@
         <option value="$PROJECT_DIR$/Chess-MP/Player.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Board/Field.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/King.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Hover.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/GameController.cs" />
@@ -60,6 +59,7 @@
         <option value="$PROJECT_DIR$/Chess-MP/States/PreGameState.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Button.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/LayoutManager.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/PieceManager.cs" />
       </list>
@@ -343,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602835591993</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Fixed PieceManager.cs to make movement better.">
+      <created>1602836414093</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1602836414093</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -362,7 +369,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added dummy image." />
     <MESSAGE value="Added Doxyfile." />
     <MESSAGE value="Worked on abstract Piece.cs." />
     <MESSAGE value="Added more to Piece.cs." />
@@ -387,7 +393,8 @@
     <MESSAGE value="Updated King.cs to use the states." />
     <MESSAGE value="Added PieceManager.cs and migrated more of the code." />
     <MESSAGE value="Gave the king a position on field." />
-    <option name="LAST_COMMIT_MESSAGE" value="Gave the king a position on field." />
+    <MESSAGE value="Fixed PieceManager.cs to make movement better." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed PieceManager.cs to make movement better." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2506" y="180" width="427" height="855" key="#Code_Folding" timestamp="1602571087579">
@@ -498,11 +505,11 @@
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="2492" y="300" key="RiderGenerateDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602746622073" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602766984679">
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602836419211">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="480" y="184" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1602500295709" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602766984679" />
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602836419211" />
     <state x="411" y="310" width="1228" height="640" key="dock-window-1" timestamp="1602830068633">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
