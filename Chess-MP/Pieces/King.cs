@@ -19,85 +19,85 @@ namespace Chess_MP.Pieces
 
         protected override IEnumerable<Hover> GetPossibleFields()
         {
+
+            
+
             if (!GameController.IsInGame())
             {
                 throw new NotSupportedException("You MUST be in the correct state to move a piece!");
             }
             
             InGameState state = GameController.State as InGameState;
-            
+
+            Vector2 left = state.PieceManager.OneLeft(position);
+            Vector2 right = state.PieceManager.OneRight(position);
+            Vector2 up = state.PieceManager.OneUp(position);
+            Vector2 down = state.PieceManager.OneDown(position);
+            Vector2 upLeft = state.PieceManager.OneUpLeft(position);
+            Vector2 upRight = state.PieceManager.OneUpRight(position);
+            Vector2 downLeft = state.PieceManager.OneDownLeft(position);
+            Vector2 downRight = state.PieceManager.OneDownRight(position);
+
             List<Hover> hovers = new List<Hover>();
 
-            if (state.PieceManager.IsOnTop(this.position) && state.PieceManager.IsOnRight(this.position))
+            if (!(state.PieceManager.IsOnTop(this.position) && state.PieceManager.IsOnRight(this.position)))
             {
-                
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
+                if(state[upRight].Piece == null || state.PieceManager.IsEnemies(this, state[upRight].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
+                }   
+            }
+            if (!(state.PieceManager.IsOnTop(this.position) && state.PieceManager.IsOnLeft(this.position)))
+            {
+                if (state[upLeft].Piece == null || state.PieceManager.IsEnemies(this, state[upLeft].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
+                }
+            }
+            if (!(state.PieceManager.IsOnTop(this.position)))
+            {
+                if (state[up].Piece == null || state.PieceManager.IsEnemies(this, state[up].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
+                }
+            }
+            if (!(state.PieceManager.IsOnRight(this.position)))
+            {
+                if (state[right].Piece == null || state.PieceManager.IsEnemies(this, state[right].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
+                }
+            }
+            if (!(state.PieceManager.IsOnBottom(this.position) && state.PieceManager.IsOnRight(this.position)))
+            {
+                if (state[downRight].Piece == null || state.PieceManager.IsEnemies(this, state[downRight].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
+                }
+            }
+            if (!(state.PieceManager.IsOnBottom(this.position)))
+            {
+                if (state[down].Piece == null || state.PieceManager.IsEnemies(this, state[down].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
+                }
+            }
+            if (!(state.PieceManager.IsOnBottom(this.position) && state.PieceManager.IsOnLeft(this.position)))
+            {
+                if (state[downLeft].Piece == null || state.PieceManager.IsEnemies(this, state[downLeft].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
+                }
+            }
+            if (!(state.PieceManager.IsOnLeft(this.position)))
+            {
+                if (state[left].Piece == null || state.PieceManager.IsEnemies(this, state[left].Piece))
+                {
+                    hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
+                }
 
-                
             }
-            else if (state.PieceManager.IsOnTop(position) && state.PieceManager.IsOnLeft(position))
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
-            }
-            else if (state.PieceManager.IsOnBottom(position) && state.PieceManager.IsOnRight(position))
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
-            }
-            else if (state.PieceManager.IsOnBottom(position) && state.PieceManager.IsOnLeft(position))
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
-            }
-            else if (state.PieceManager.IsOnRight(position))
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
-            }
-            else if (state.PieceManager.IsOnLeft(position))
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
-            }
-            else if (state.PieceManager.IsOnTop(position))
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
-            }
-            else if (state.PieceManager.IsOnBottom(position))
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
-            }
-            else
-            {
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUp(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpLeft(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
-                hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownLeft(position)));
-            }
+
 
             return hovers;
         }

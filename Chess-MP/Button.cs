@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Chess-MP
+namespace Chess_MP
 {
     class Button
     {
@@ -27,8 +27,8 @@ namespace Chess-MP
 
         public Button(string name, Texture2D texture, int buttonX, int buttonY)
         {
-            this.Name = name;
-            this.Texture = texture;
+            //this.Name = name;
+            //this.Texture = texture;
             this.buttonX = buttonX;
             this.buttonY = buttonY;
         }
