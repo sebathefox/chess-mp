@@ -45,7 +45,8 @@ namespace Chess_MP
             _assetManager.LoadTexture("board", "board");
             _assetManager.LoadTexture("hover", "hover_field");
             _assetManager.LoadTexture("button", "button");
-            
+            _assetManager.LoadTexture("icon", "Icon");
+
             // White
             _assetManager.LoadTexture("white-pawn", "white_pawn");
             _assetManager.LoadTexture("white-knight", "white_knight");

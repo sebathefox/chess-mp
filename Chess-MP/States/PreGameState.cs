@@ -23,10 +23,14 @@ namespace Chess_MP.States
             
             _buttons = new List<Button>()
             {
-                new Button(_gameController, "Play", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(center.X - 64, center.Y - 32, 128, 64))
+                new Button(_gameController, "Play", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(0, 0, 128, 64)),
+                new Button(_gameController, "Exit", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(128, 0, 128, 64))
             };
 
-            _buttons[0].OnClick += OnPlayPressed;
+            foreach (Button button in _buttons)
+            {
+                button.OnClick += OnKeyPressed;
+            }
         }
 
         /// <inheritdoc />
@@ -35,10 +39,21 @@ namespace Chess_MP.States
             
         }
 
-        private void OnPlayPressed(object sender, EventArgs args)
+        private void OnKeyPressed(object sender, EventArgs args)
         {
+            Button btn = sender as Button;
+
+            if (btn.Text.ToLower().Equals("exit"))
+            {
+                _gameController.Game.Exit();
+            }
+            
             ExitState();
-            _buttons[0].Disable();
+
+            foreach (Button button in _buttons)
+            {
+                button.Disable();
+            }
             
             _gameController.State = new InGameState(_gameController);
             _gameController.State.EnterState();

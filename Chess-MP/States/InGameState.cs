@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,14 +47,22 @@ namespace Chess_MP.States
         {
             throw new System.NotImplementedException();
         }
-        
+
         /**
          * Gets the field in the specific position.
          * @returns The specified Piece.
          * @author Sebastian Davaris
          * @date 13-10-2020
          */
-        public Field this[Vector2 position] => _fields.First(field => field.Id == position);
+        public Field? this[Vector2 position]
+        {
+            get
+            {
+                if (!_fields.Exists(field => field.Id == position))
+                    return null;
+                return  _fields.First(field => field.Id == position);
+            }
+        }
         
         /**
          * Returns the list of Fields as readonly.
