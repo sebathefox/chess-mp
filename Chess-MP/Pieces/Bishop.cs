@@ -9,7 +9,7 @@ namespace Chess_MP.Pieces
     public class Bishop : Piece
     {
         /// <inheritdoc />
-        public Bishop(GameController gameController, GameColor color, Vector2 position) : base(gameController, color, gameController.Game.AssetManager.GetTexture(color.ToString() + "-bishop"), position)
+        public Bishop(GameController gameController, GameColor color, Vector2 position) : base(gameController, color, gameController.Game.AssetManager.GetTexture(color.ToString().ToLower() + "-bishop"), position)
         {
         }
 

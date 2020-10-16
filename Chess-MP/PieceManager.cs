@@ -112,64 +112,64 @@ namespace Chess_MP
         
         public Vector2 OneLeft(Vector2 @base)
         {
-            if (@base.X < 1)
-                return @base;
+            // if (@base.X < 1)
+            //     return @base;
             
             return new Vector2(@base.X - 1, @base.Y);
         }
         
         public Vector2 OneRight(Vector2 @base)
         {
-            if (@base.X >= 7)
-                return @base;
+            // if (@base.X >= 7)
+            //     return @base;
             
             return new Vector2(@base.X + 1, @base.Y);
         }
         
         public Vector2 OneUp(Vector2 @base)
         {
-            if (@base.Y < 1)
-                return @base;
+            // if (@base.Y < 1)
+            //     return @base;
         
             return new Vector2(@base.X, @base.Y - 1);
         }
         
         public Vector2 OneDown(Vector2 @base)
         {
-            if (@base.Y >= 7)
-                return @base;
+            // if (@base.Y >= 7)
+            //     return @base;
         
             return new Vector2(@base.X, @base.Y + 1);
         }
         
         public Vector2 OneUpLeft(Vector2 @base)
         {
-            if (@base.Y < 1 || @base.X < 1)
-                return @base;
+            // if (@base.Y < 1 || @base.X < 1)
+            //     return @base;
         
             return new Vector2(@base.X - 1, @base.Y - 1);
         }
         
         public Vector2 OneUpRight(Vector2 @base)
         {
-            if (@base.Y < 1 || @base.X >= 7)
-                return @base;
+            // if (@base.Y < 1 || @base.X >= 7)
+            //     return @base;
         
             return new Vector2(@base.X + 1, @base.Y - 1);
         }
         
         public Vector2 OneDownLeft(Vector2 @base)
         {
-            if (@base.Y >= 7 || @base.X < 1)
-                return @base;
+            // if (@base.Y >= 7 || @base.X < 1)
+            //     return @base;
         
             return new Vector2(@base.X - 1, @base.Y + 1);
         }
         
         public Vector2 OneDownRight(Vector2 @base)
         {
-            if (@base.Y >= 7 || @base.X >= 7)
-                return @base;
+            // if (@base.Y >= 7 || @base.X >= 7)
+            //     return @base;
         
             return new Vector2(@base.X + 1, @base.Y + 1);
         }

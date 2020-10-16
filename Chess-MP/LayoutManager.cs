@@ -38,7 +38,12 @@ namespace Chess_MP
                 pieces.Add(new Knight(gameController, color, new Vector2(6, 0)));
                 state[new Vector2(6, 0)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(6, 0)));
 
-
+                pieces.Add(new Bishop(gameController, color, new Vector2(5, 0)));
+                state[new Vector2(5, 0)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(5, 0)));
+                
+                pieces.Add(new Bishop(gameController, color, new Vector2(2, 0)));
+                state[new Vector2(2, 0)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(2, 0)));
+                
 
                 for (int i = 0; i < 8; i++)
                 {
@@ -63,6 +68,12 @@ namespace Chess_MP
                 
                 pieces.Add(new Rook(gameController, color, new Vector2(7, 7)));
                 state[new Vector2(7, 7)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(7, 7)));
+                
+                pieces.Add(new Bishop(gameController, color, new Vector2(2, 7)));
+                state[new Vector2(2, 7)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(2, 7)));
+                
+                pieces.Add(new Bishop(gameController, color, new Vector2(5, 7)));
+                state[new Vector2(5, 7)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(5, 7)));
                 
                 for (int i = 0; i < 8; i++)
                 {

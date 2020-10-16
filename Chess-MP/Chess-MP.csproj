@@ -10,13 +10,7 @@
         <ApplicationIcon>Icon.ico</ApplicationIcon>
     </PropertyGroup>
     <ItemGroup>
-      <None Remove="Icon.bmp" />
-      <None Remove="Icon.ico" />
-    </ItemGroup>
-    <ItemGroup>
         <MonoGameContentReference Include="Content\Content.mgcb" />
-        <EmbeddedResource Include="Icon.bmp" />
-        <EmbeddedResource Include="Icon.ico" />
     </ItemGroup>
     <ItemGroup>
         <TrimmerRootAssembly Include="Microsoft.Xna.Framework.Content.ContentTypeReader" Visible="false" />
