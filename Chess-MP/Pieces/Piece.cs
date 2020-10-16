@@ -26,7 +26,7 @@ namespace Chess_MP.Pieces
 
         private bool _shouldUpdate;
 
-        
+
         /**
          * Constructor
          * @param game The Game reference.
@@ -40,7 +40,7 @@ namespace Chess_MP.Pieces
         {
             this.GameController = gameController;
 
-
+            hovers = new List<Hover>();
 
             _color = color;
             
@@ -72,6 +72,16 @@ namespace Chess_MP.Pieces
         {
             if (!_shouldUpdate)
             {
+                if (hovers.Count > 0)
+                {
+                    foreach (Hover hover in hovers)
+                    {
+                        hover.OnClicked -= OnHoverClicked;
+                        hover.Disable();
+                    }
+                    this.hovers.Clear();
+                }
+                
                 return;
             }
             
@@ -88,6 +98,29 @@ namespace Chess_MP.Pieces
                     foreach (Hover hover in hovers)
                     {
                         hover.OnClicked += OnHoverClicked;
+                    }
+                }
+                else
+                {
+                    if (hovers.Count > 0)
+                    {
+                        bool anyClicked = true;
+                        
+                        foreach (Hover hover in hovers)
+                        {
+                            if (!hover.Rect.Contains(pos))
+                            {
+                                hover.OnClicked -= OnHoverClicked;
+                                hover.Disable();
+                            }
+                            else
+                            {
+                                anyClicked = false;
+                            }
+                        }
+                        
+                        if(!anyClicked)
+                            hovers.Clear();
                     }
                 }
             }
@@ -229,6 +262,10 @@ namespace Chess_MP.Pieces
             
             _image.SetPosition(new Vector2(pos.X * 64, pos.Y * 64));
 
+            Hover obj = sender as Hover;
+            
+            obj.Disable();
+            
             foreach (Hover hover in hovers)
             {
                 hover.OnClicked -= OnHoverClicked;
@@ -237,6 +274,12 @@ namespace Chess_MP.Pieces
             this.hovers.Clear();
 
             // state[pos].SetPiece(this);
+        }
+
+        public void Disable()
+        {
+            _shouldUpdate = false;
+            _image.Disable();
         }
         
         public int Id { get; protected set; }
