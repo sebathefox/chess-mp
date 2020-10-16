@@ -13,6 +13,8 @@ namespace Chess_MP
         private GameController _gameController;
         private Dictionary<GameColor, List<Piece>> _playerPieces;
 
+        private Piece _currentPiece;
+        
         public PieceManager(GameController controller)
         {
             _gameController = controller;
@@ -20,6 +22,8 @@ namespace Chess_MP
             _playerPieces = new Dictionary<GameColor, List<Piece>>();
             _playerPieces.Add(GameColor.White, new List<Piece>(LayoutManager.Generate(controller, GameColor.White)));
             _playerPieces.Add(GameColor.Black, new List<Piece>(LayoutManager.Generate(controller, GameColor.Black)));
+
+            _currentPiece = null;
         }
 
         public void MovePiece(Piece piece, Vector2 targetPosition)
@@ -67,7 +71,18 @@ namespace Chess_MP
 
             return state[position].Piece;
         }
-        
+
+        public Piece CurrentPiece
+        {
+            get => _currentPiece;
+            set
+            {
+                if(_currentPiece != null || _currentPiece == value)
+                   _currentPiece.ClearHovers();
+                _currentPiece = value;
+            }
+        }
+
         #region Stuff
         
         /**
