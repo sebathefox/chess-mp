@@ -97,7 +97,6 @@ namespace Chess_MP.Pieces
                 }
             }
 
-
             return hovers;
         }
     }
