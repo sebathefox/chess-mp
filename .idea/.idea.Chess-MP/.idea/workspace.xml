@@ -8,14 +8,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Added new font and added turns.">
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="TODO: Fix movement.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Image.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Image.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/King.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/King.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,10 +64,10 @@
         <option value="$PROJECT_DIR$/Chess-MP/Content/font.spritefont" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/King.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Image.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/PieceManager.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Piece.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/States/InGameState.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/PieceManager.cs" />
       </list>
     </option>
   </component>
@@ -123,7 +118,7 @@
       <workItem from="1602741619739" duration="13978000" />
       <workItem from="1602828350868" duration="1537000" />
       <workItem from="1602948898483" duration="1007000" />
-      <workItem from="1603087884549" duration="5432000" />
+      <workItem from="1603087884549" duration="8498000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit.">
       <created>1602497096820</created>
@@ -419,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603089774959</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="TODO: Fix movement.">
+      <created>1603097194420</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1603097194420</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -438,7 +440,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Board functionality (Thanks to Grøn)." />
     <MESSAGE value="Documented Game1.cs" />
     <MESSAGE value="Documented Hover.cs" />
     <MESSAGE value="Updated Piece.cs." />
@@ -463,7 +464,8 @@
     <MESSAGE value="Added Bishop.cs." />
     <MESSAGE value="Fixed movement." />
     <MESSAGE value="Added new font and added turns." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new font and added turns." />
+    <MESSAGE value="TODO: Fix movement." />
+    <option name="LAST_COMMIT_MESSAGE" value="TODO: Fix movement." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2506" y="180" width="427" height="855" key="#Code_Folding" timestamp="1602571087579">
@@ -595,11 +597,11 @@
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="2492" y="300" key="RiderGenerateDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602847913436" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603089786153">
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603097205803">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="480" y="184" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1602500295709" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1603089786153" />
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1603097205803" />
     <state x="411" y="310" width="1228" height="640" key="dock-window-1" timestamp="1602830068633">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>

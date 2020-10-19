@@ -108,101 +108,109 @@ namespace Chess_MP
             
             return first.Color != other.Color;
         }
+
+        public List<Vector2> CanMoveUntil(Vector2 direction, Vector2 normal)
+        {
+            List<Vector2> list = new List<Vector2>();
+            
+            while (normal.X < 8 &&
+                   normal.X >= 0 &&
+                   normal.Y < 8 &&
+                   normal.Y >= 0)
+            {
+                if (GetPieceOnPosition(normal) == null)
+                {
+                    list.Add(normal);
+                    normal += direction;
+                }
+            }
+
+            return list;
+        }
         
-        // protected Vector2 OneFront(Vector2 @base)
+        // public Vector2 OneLeft(Vector2 @base)
         // {
-        //     switch (direction)
-        //     {
-        //         case Direction.Down:
-        //             return new Vector2(@base.X, @base.Y + 1);
-        //         default:
-        //             return new Vector2(@base.X, @base.Y - 1);
-        //     }
+        //     // if (@base.X < 1)
+        //     //     return @base;
+        //     
+        //     return new Vector2(@base.X - 1, @base.Y);
         // }
-        
-        public Vector2 OneLeft(Vector2 @base)
-        {
-            // if (@base.X < 1)
-            //     return @base;
-            
-            return new Vector2(@base.X - 1, @base.Y);
-        }
-        
-        public Vector2 OneRight(Vector2 @base)
-        {
-            // if (@base.X >= 7)
-            //     return @base;
-            
-            return new Vector2(@base.X + 1, @base.Y);
-        }
-        
-        public Vector2 OneUp(Vector2 @base)
-        {
-            // if (@base.Y < 1)
-            //     return @base;
-        
-            return new Vector2(@base.X, @base.Y - 1);
-        }
-        
-        public Vector2 OneDown(Vector2 @base)
-        {
-            // if (@base.Y >= 7)
-            //     return @base;
-        
-            return new Vector2(@base.X, @base.Y + 1);
-        }
-        
-        public Vector2 OneUpLeft(Vector2 @base)
-        {
-            // if (@base.Y < 1 || @base.X < 1)
-            //     return @base;
-        
-            return new Vector2(@base.X - 1, @base.Y - 1);
-        }
-        
-        public Vector2 OneUpRight(Vector2 @base)
-        {
-            // if (@base.Y < 1 || @base.X >= 7)
-            //     return @base;
-        
-            return new Vector2(@base.X + 1, @base.Y - 1);
-        }
-        
-        public Vector2 OneDownLeft(Vector2 @base)
-        {
-            // if (@base.Y >= 7 || @base.X < 1)
-            //     return @base;
-        
-            return new Vector2(@base.X - 1, @base.Y + 1);
-        }
-        
-        public Vector2 OneDownRight(Vector2 @base)
-        {
-            // if (@base.Y >= 7 || @base.X >= 7)
-            //     return @base;
-        
-            return new Vector2(@base.X + 1, @base.Y + 1);
-        }
-        
-        public bool IsOnLeft(Vector2 position, int offset = 0)
-        {
-            return position.X - offset <= 0;
-        }
-        
-        public bool IsOnRight(Vector2 position, int offset = 0)
-        {
-            return position.X + offset >= 7;
-        }
-        
-        public bool IsOnTop(Vector2 position, int offset = 0)
-        {
-            return position.Y - offset <= 0;
-        }
-        
-        public bool IsOnBottom(Vector2 position, int offset = 0)
-        {
-            return position.Y + offset >= 7;
-        }
+        //
+        // public Vector2 OneRight(Vector2 @base)
+        // {
+        //     // if (@base.X >= 7)
+        //     //     return @base;
+        //     
+        //     return new Vector2(@base.X + 1, @base.Y);
+        // }
+        //
+        // public Vector2 OneUp(Vector2 @base)
+        // {
+        //     // if (@base.Y < 1)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X, @base.Y - 1);
+        // }
+        //
+        // public Vector2 OneDown(Vector2 @base)
+        // {
+        //     // if (@base.Y >= 7)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X, @base.Y + 1);
+        // }
+        //
+        // public Vector2 OneUpLeft(Vector2 @base)
+        // {
+        //     // if (@base.Y < 1 || @base.X < 1)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X - 1, @base.Y - 1);
+        // }
+        //
+        // public Vector2 OneUpRight(Vector2 @base)
+        // {
+        //     // if (@base.Y < 1 || @base.X >= 7)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X + 1, @base.Y - 1);
+        // }
+        //
+        // public Vector2 OneDownLeft(Vector2 @base)
+        // {
+        //     // if (@base.Y >= 7 || @base.X < 1)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X - 1, @base.Y + 1);
+        // }
+        //
+        // public Vector2 OneDownRight(Vector2 @base)
+        // {
+        //     // if (@base.Y >= 7 || @base.X >= 7)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X + 1, @base.Y + 1);
+        // }
+        //
+        // public bool IsOnLeft(Vector2 position, int offset = 0)
+        // {
+        //     return position.X - offset <= 0;
+        // }
+        //
+        // public bool IsOnRight(Vector2 position, int offset = 0)
+        // {
+        //     return position.X + offset >= 7;
+        // }
+        //
+        // public bool IsOnTop(Vector2 position, int offset = 0)
+        // {
+        //     return position.Y - offset <= 0;
+        // }
+        //
+        // public bool IsOnBottom(Vector2 position, int offset = 0)
+        // {
+        //     return position.Y + offset >= 7;
+        // }
 
         public Vector2 KnUpLeft(Vector2 @base)
         {
