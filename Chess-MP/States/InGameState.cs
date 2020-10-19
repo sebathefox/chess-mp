@@ -13,6 +13,9 @@ namespace Chess_MP.States
         private List<Field> _fields;
         private PieceManager _pieceManager;
 
+        private Player _currentPlayer;
+        private int _playerIndex;
+        
         /// <inheritdoc />
         public InGameState(GameController gameController) : base(gameController)
         {
@@ -39,13 +42,30 @@ namespace Chess_MP.States
             
             _pieceManager = new PieceManager(_gameController);
 
-            Console.WriteLine("TEST");
+            _currentPlayer = _players.First(player => player.Color == GameColor.White);
+            _playerIndex = 1;
         }
 
         /// <inheritdoc />
         public override void ExitState()
         {
-            throw new System.NotImplementedException();
+            
+        }
+
+        public void ChangeTurn()
+        {
+            if (++_playerIndex > _players.Length - 1)
+            {
+                _playerIndex = 0;
+            }
+            
+            _currentPlayer = _players[_playerIndex];
+        }
+
+        public void GameEnded()
+        {
+            _gameController.State = new PreGameState(_gameController);
+            _gameController.State.EnterState();
         }
 
         /**
@@ -75,5 +95,7 @@ namespace Chess_MP.States
         public Player[] Players => _players;
 
         public PieceManager PieceManager => _pieceManager;
+
+        public Player CurrentPlayer => _currentPlayer;
     }
 }

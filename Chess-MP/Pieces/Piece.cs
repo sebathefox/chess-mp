@@ -98,6 +98,9 @@ namespace Chess_MP.Pieces
 
             if (_mouse.LeftClicked())
             {
+                if(state.CurrentPlayer.Color != Color)
+                    return;
+                
                 Point pos = _mouse.GetPosition();
 
                 if (_image.Rectangle.Contains(pos))
@@ -167,6 +170,9 @@ namespace Chess_MP.Pieces
             
             // Removes all hovers / Resets the state.
             ClearHovers();
+            
+            // Changes turns duh...
+            state.ChangeTurn();
         }
 
         public void Disable()
