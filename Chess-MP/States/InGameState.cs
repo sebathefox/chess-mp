@@ -69,9 +69,9 @@ namespace Chess_MP.States
         public void GameEnded()
         {
             ExitState();
-            _gameController.State = new PreGameState(_gameController);
+            _gameController.State = new EndGameState(_gameController, _currentPlayer.Color);
             _gameController.State.EnterState();
-            
+                        
             _gameController = null;
         }
 
