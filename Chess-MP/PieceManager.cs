@@ -30,7 +30,8 @@ namespace Chess_MP
         {
             if (!_gameController.IsInGame())
             {
-                throw new NotSupportedException("You MUST be in the correct state to move a piece!");
+                return;
+                // throw new NotSupportedException("You MUST be in the correct state to move a piece!");
             }
             
             InGameState state = _gameController.State as InGameState;
@@ -48,23 +49,32 @@ namespace Chess_MP
         {
             if (!_gameController.IsInGame())
             {
-                throw new NotSupportedException("You MUST be in the correct state to move a piece!");
+                return;
+                // throw new NotSupportedException("You MUST be in the correct state to move a piece!");
             }
             
             InGameState state = _gameController.State as InGameState;
 
+            
+            
             _playerPieces[piece.Color].Remove(piece);
             piece.ClearHovers();
             piece.Disable();
             
             state[piece.Position].SetPiece(null);
+            
+            if (piece is King)
+            {
+                state.GameEnded();
+            }
         }
         
         public Piece GetPieceOnPosition(Vector2 position)
         {
             if (!_gameController.IsInGame())
             {
-                throw new NotSupportedException("You MUST be in the correct state to move a piece!");
+                return null;
+                // throw new NotSupportedException("You MUST be in the correct state to move a piece!");
             }
             
             InGameState state = _gameController.State as InGameState;
@@ -257,6 +267,20 @@ namespace Chess_MP
                 return @base;
 
             return new Vector2(@base.X + 2, @base.Y + 1);
+        }
+
+        public void Clear()
+        {
+            foreach (KeyValuePair<GameColor,List<Piece>> pair in _playerPieces)
+            {
+                foreach (Piece piece in pair.Value)
+                {
+                    piece.Delete();
+                }
+            }
+            
+            _currentPiece = null;
+            _playerPieces = null;
         }
 
         #endregion

@@ -37,7 +37,7 @@ namespace Chess_MP.States
             _players = new Player[]
             {
                 new Player(_gameController, 1, "Sebastian", GameColor.Black),
-                new Player(_gameController, 1, "Grøn", GameColor.White)
+                new Player(_gameController, 2, "Grøn", GameColor.White)
             };
             
             _pieceManager = new PieceManager(_gameController);
@@ -49,11 +49,15 @@ namespace Chess_MP.States
         /// <inheritdoc />
         public override void ExitState()
         {
-            
+            _playerIndex = 0;
+            _players = new Player[2];
+            _fields.Clear();
+            _pieceManager.Clear();
         }
 
         public void ChangeTurn()
         {
+            
             if (++_playerIndex > _players.Length - 1)
             {
                 _playerIndex = 0;
@@ -64,8 +68,11 @@ namespace Chess_MP.States
 
         public void GameEnded()
         {
+            ExitState();
             _gameController.State = new PreGameState(_gameController);
             _gameController.State.EnterState();
+            
+            _gameController = null;
         }
 
         /**

@@ -76,5 +76,14 @@ namespace Chess_MP
             spriteBatch.Draw(_texture, _targetPosition, Color.White);
             spriteBatch.End();
         }
+
+        public void Delete()
+        {
+            _texture = null;
+
+            _game.OnDraw -= Draw;
+            
+            _game = null;
+        }
     }
 }

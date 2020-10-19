@@ -40,14 +40,14 @@ namespace Chess_MP.Pieces
 
             List<Hover> hovers = new List<Hover>();
 
-            if (!(state.PieceManager.IsOnTop(this.position) && state.PieceManager.IsOnRight(this.position)))
+            if (!state.PieceManager.IsOnTop(this.position) && !state.PieceManager.IsOnRight(this.position))
             {
                 if(state[upRight].Piece == null || state.PieceManager.IsEnemies(this, state[upRight].Piece))
                 {
                     hovers.Add(new Hover(GameController.Game, state.PieceManager.OneUpRight(position)));
                 }   
             }
-            if (!(state.PieceManager.IsOnTop(this.position) && state.PieceManager.IsOnLeft(this.position)))
+            if (!state.PieceManager.IsOnTop(this.position) && !state.PieceManager.IsOnLeft(this.position))
             {
                 if (state[upLeft].Piece == null || state.PieceManager.IsEnemies(this, state[upLeft].Piece))
                 {
@@ -68,21 +68,21 @@ namespace Chess_MP.Pieces
                     hovers.Add(new Hover(GameController.Game, state.PieceManager.OneRight(position)));
                 }
             }
-            if (!(state.PieceManager.IsOnBottom(this.position) && state.PieceManager.IsOnRight(this.position)))
+            if (!state.PieceManager.IsOnBottom(this.position) && !state.PieceManager.IsOnRight(this.position))
             {
                 if (state[downRight].Piece == null || state.PieceManager.IsEnemies(this, state[downRight].Piece))
                 {
                     hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDownRight(position)));
                 }
             }
-            if (!(state.PieceManager.IsOnBottom(this.position)))
+            if (!state.PieceManager.IsOnBottom(this.position))
             {
                 if (state[down].Piece == null || state.PieceManager.IsEnemies(this, state[down].Piece))
                 {
                     hovers.Add(new Hover(GameController.Game, state.PieceManager.OneDown(position)));
                 }
             }
-            if (!(state.PieceManager.IsOnBottom(this.position) && state.PieceManager.IsOnLeft(this.position)))
+            if (!state.PieceManager.IsOnBottom(this.position) && !state.PieceManager.IsOnLeft(this.position))
             {
                 if (state[downLeft].Piece == null || state.PieceManager.IsEnemies(this, state[downLeft].Piece))
                 {

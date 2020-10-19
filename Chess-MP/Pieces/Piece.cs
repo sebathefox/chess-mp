@@ -81,13 +81,13 @@ namespace Chess_MP.Pieces
                     }
                     hovers.Clear();
                 }
-                
                 return;
             }
             
             if (!GameController.IsInState<InGameState>())
             {
-                throw new NotSupportedException("You MUST be in the correct state to move a piece!");
+                return;
+                // throw new NotSupportedException("You MUST be in the correct state to move a piece!");
             }
 
             InGameState state = GameController.State as InGameState;
@@ -189,6 +189,16 @@ namespace Chess_MP.Pieces
                 hover.Disable();
             }
             this.hovers.Clear();
+        }
+
+        public void Delete()
+        {
+            ClearHovers();
+            _image.Delete();
+            _mouse = null;
+            GameController.Game.OnUpdate -= Update;
+
+            GameController = null;
         }
         
         public int Id { get; protected set; }

@@ -73,7 +73,6 @@ namespace Chess_MP.Pieces
                 hovers.Add(new Hover(GameController.Game, left));
             }
 
-            Console.WriteLine(state[right].Piece);
             if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnRight(this.position) && state[right].Piece != null && state.PieceManager.IsEnemies(this, state[right].Piece))
             {
                 hovers.Add(new Hover(GameController.Game, right));
