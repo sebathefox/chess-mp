@@ -109,7 +109,7 @@ namespace Chess_MP
             return first.Color != other.Color;
         }
 
-        public List<Vector2> CanMoveUntil(Vector2 direction, Vector2 normal)
+        public List<Vector2> CanMoveUntil(Vector2 direction, Vector2 normal, Vector2 max)
         {
             List<Vector2> list = new List<Vector2>();
             
@@ -118,10 +118,23 @@ namespace Chess_MP
                    normal.Y < 8 &&
                    normal.Y >= 0)
             {
+
+                Console.WriteLine("Y1TE");
+                if (normal.X == max.X &&
+                    normal.Y == max.Y)
+                {
+                    break;
+                }
+
+                Console.WriteLine("Y2TE");
+                
+                normal += direction;
+
+                
                 if (GetPieceOnPosition(normal) == null)
                 {
+                    Console.WriteLine("YOTE");
                     list.Add(normal);
-                    normal += direction;
                 }
             }
 
