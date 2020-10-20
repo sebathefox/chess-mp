@@ -139,11 +139,18 @@ namespace Chess_MP
         {
             position += direction;
 
-            if ((GetPieceOnPosition(position) == null && !needEnemy) ||
-                (needEnemy && GetPieceOnPosition(position) != null && GetPieceOnPosition(position).Color != _currentPiece.Color))
+            if(position.X < 8 &&
+                   position.X >= 0 &&
+                   position.Y < 8 &&
+                   position.Y >= 0)
             {
-                return new Hover(_gameController.Game, position);
+                if ((GetPieceOnPosition(position) == null && !needEnemy) ||
+                (needEnemy && GetPieceOnPosition(position) != null && GetPieceOnPosition(position).Color != _currentPiece.Color))
+                {
+                    return new Hover(_gameController.Game, position);
+                }
             }
+                
 
             return null;
         }

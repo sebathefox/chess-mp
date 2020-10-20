@@ -19,9 +19,7 @@ namespace Chess_MP.Pieces
 
         protected override IEnumerable<Hover> GetPossibleFields()
         {
-
-            
-
+            List<Hover> hovers = new List<Hover>();
             if (!GameController.IsInGame())
             {
                 throw new NotSupportedException("You MUST be in the correct state to move a piece!");
@@ -96,9 +94,32 @@ namespace Chess_MP.Pieces
                 {
                     hovers.Add(new Hover(GameController.Game, state.PieceManager.OneLeft(position)));
                 }
-            */
+            
             }
+            */
+            if(state.PieceManager.CanMove(state.PieceManager.Up, position) != null) 
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Up, position));
 
+            if (state.PieceManager.CanMove(state.PieceManager.UpLeft, position) != null)
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.UpLeft, position));
+
+            if (state.PieceManager.CanMove(state.PieceManager.Left, position) != null)
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Left, position));
+
+            if (state.PieceManager.CanMove(state.PieceManager.DownLeft, position) != null)
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.DownLeft, position));
+
+            if (state.PieceManager.CanMove(state.PieceManager.Down, position) != null)
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Down, position));
+
+            if (state.PieceManager.CanMove(state.PieceManager.DownRight, position) != null)
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.DownRight, position));
+
+            if (state.PieceManager.CanMove(state.PieceManager.Right, position) != null)
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Right, position));
+
+            if (state.PieceManager.CanMove(state.PieceManager.UpRight, position) != null)
+                hovers.Add(state.PieceManager.CanMove(state.PieceManager.UpRight, position));
 
             return hovers;
         }
