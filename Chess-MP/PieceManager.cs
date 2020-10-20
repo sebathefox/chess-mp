@@ -118,22 +118,18 @@ namespace Chess_MP
                    normal.Y < 8 &&
                    normal.Y >= 0)
             {
-
-                Console.WriteLine("Y1TE");
-                if (normal.X == max.X &&
-                    normal.Y == max.Y)
+                
+                normal += direction;
+                
+                if ((normal.X == max.X &&
+                     normal.Y == max.Y) ||
+                    GetPieceOnPosition(normal) != null)
                 {
                     break;
                 }
 
-                Console.WriteLine("Y2TE");
-                
-                normal += direction;
-
-                
                 if (GetPieceOnPosition(normal) == null)
                 {
-                    Console.WriteLine("YOTE");
                     list.Add(normal);
                 }
             }
