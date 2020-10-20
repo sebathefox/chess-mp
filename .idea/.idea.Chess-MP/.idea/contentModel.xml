@@ -128,6 +128,7 @@
         <e p="Icon.bmp" t="Include" />
         <e p="Icon.ico" t="Include" />
         <e p="Image.cs" t="Include" />
+        <e p="Label.cs" t="Include" />
         <e p="LayoutManager.cs" t="Include" />
         <e p="MainMenu" t="Include">
           <e p="Screen.cs" t="Include" />
@@ -147,6 +148,7 @@
         <e p="Player.cs" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="States" t="Include">
+          <e p="EndGameState.cs" t="Include" />
           <e p="InGameState.cs" t="Include" />
           <e p="PreGameState.cs" t="Include" />
           <e p="State.cs" t="Include" />
