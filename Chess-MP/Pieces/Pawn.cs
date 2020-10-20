@@ -97,13 +97,16 @@ namespace Chess_MP.Pieces
             //     i++;
             // }
 
-            hovers.Add(state.PieceManager.CanMove(front, position));
-            hovers.Add(state.PieceManager.CanMove(frontPlus, position));
-            
             Hover hover;
+            
+            if((hover = state.PieceManager.CanMove(front, position)) != null)
+                hovers.Add(hover);
+            if(!_hasMoved && (hover = state.PieceManager.CanMove(frontPlus, position)) != null)
+                hovers.Add(hover);
+            
             if((hover = state.PieceManager.CanMove(new Vector2(-1, 0), position + front, true)) != null)
             {
-                hovers.Add(hover);                
+                hovers.Add(hover);
             }
             
             if((hover = state.PieceManager.CanMove(new Vector2(1, 0), position + front, true)) != null)

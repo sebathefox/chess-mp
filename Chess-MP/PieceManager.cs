@@ -113,30 +113,33 @@ namespace Chess_MP
         {
             List<Vector2> list = new List<Vector2>();
             
+            normal += direction;
+            
             while (normal.X < 8 &&
                    normal.X >= 0 &&
                    normal.Y < 8 &&
                    normal.Y >= 0)
             {
-                
-                normal += direction;
+
+                if (GetPieceOnPosition(normal) == null)
+                {
+                    list.Add(normal);
+                }
                 
                 if (GetPieceOnPosition(normal) != null && GetPieceOnPosition(normal).Color != _currentPiece.Color)
                 {
                     list.Add(normal);
                     break;
                 }
-                else
+                else if (GetPieceOnPosition(normal) != null && GetPieceOnPosition(normal).Color == _currentPiece.Color)
                 {
                     break;
                 }
 
-                if (GetPieceOnPosition(normal) == null)
-                {
-                    list.Add(normal);
-                }
+                
+                normal += direction;
             }
-
+            
             return list;
         }
 
