@@ -136,6 +136,19 @@ namespace Chess_MP
 
             return list;
         }
+
+        public Hover CanMove(Vector2 direction, Vector2 position, bool needEnemy = false)
+        {
+            position += direction;
+
+            if ((GetPieceOnPosition(position) == null && !needEnemy) ||
+                (needEnemy && GetPieceOnPosition(position) != null && GetPieceOnPosition(position).Color != _currentPiece.Color))
+            {
+                return new Hover(_gameController.Game, position);
+            }
+
+            return null;
+        }
         
         // public Vector2 OneLeft(Vector2 @base)
         // {

@@ -33,6 +33,9 @@ namespace Chess_MP.Pieces
 
             Vector2 front = position;
             Vector2 max = front;
+
+            Vector2 left = position;
+            Vector2 right = position;
             
             switch (Color)
             {
@@ -40,11 +43,15 @@ namespace Chess_MP.Pieces
                     front = new Vector2(0, 1);
                     max = position;
                     max.Y += 2;
+                    if(!_hasMoved)
+                        max.Y += 1;
                     break;
                 case GameColor.White:
                     front = new Vector2(0, -1);
                     max = position;
                     max.Y -= 2;
+                    if(!_hasMoved)
+                        max.Y -= 1;
                     break;
             }
 
@@ -86,21 +93,21 @@ namespace Chess_MP.Pieces
             //     hovers.Add(new Hover(GameController.Game, right));
             // }
 
-            if (!_hasMoved)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(front, position, max))
             {
-                foreach (Vector2 vector in state.PieceManager.CanMoveUntil(front, position, max))
-                {
-                    Console.WriteLine(vector);
-                    hovers.Add(new Hover(GameController.Game, vector));
-                }
+                Console.WriteLine(vector);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
-            else
+
+            Hover hover;
+            if((hover = state.PieceManager.CanMove(new Vector2(-1, 0), position + front, true)) != null)
             {
-                foreach (Vector2 vector in state.PieceManager.CanMoveUntil(front, position, max))
-                {
-                    Console.WriteLine(vector);
-                    hovers.Add(new Hover(GameController.Game, vector));
-                }
+                hovers.Add(hover);                
+            }
+            
+            if((hover = state.PieceManager.CanMove(new Vector2(1, 0), position + front, true)) != null)
+            {
+                hovers.Add(hover);                
             }
             
             return hovers;

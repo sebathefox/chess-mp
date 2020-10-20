@@ -111,6 +111,14 @@ namespace Chess_MP.Pieces
             //     up = state.PieceManager.OneUp(up);
             // }
 
+
+            Vector2 pos = position;
+
+            foreach (var VARIABLE in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position, Vector2.Zero))
+            {
+                
+            }
+            
             return hovers;
         }
     }
