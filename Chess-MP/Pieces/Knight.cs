@@ -14,7 +14,7 @@ namespace Chess_MP.Pieces
 
         protected override IEnumerable<Hover> GetPossibleFields()
         {
-
+            List<Hover> hovers = new List<Hover>();
             if (!GameController.IsInGame())
             {
                 throw new NotSupportedException("You MUST be in the correct state to move a piece!");
@@ -96,6 +96,48 @@ namespace Chess_MP.Pieces
             //         hovers.Add(new Hover(GameController.Game, state.PieceManager.KnLeftUp(position)));
             //     }
             // }
+
+
+            Hover hover;
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnUpLeft, position)) != null)
+            {
+                hovers.Add(hover);
+            }
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnUpRight, position)) != null)
+            {
+                hovers.Add(hover);
+            }
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnLeftUp, position)) != null)
+            {
+                hovers.Add(hover);
+            }
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnLeftDown, position)) != null)
+            {
+                hovers.Add(hover);
+            }
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnDownRight, position)) != null)
+            {
+                hovers.Add(hover);
+            }
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnDownLeft, position)) != null)
+            {
+                hovers.Add(hover);
+            }
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnRightDown, position)) != null)
+            {
+                hovers.Add(hover);
+            }
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.KnRightUp, position)) != null)
+            {
+                hovers.Add(hover);
+            }
 
             return hovers;
         }
