@@ -114,9 +114,14 @@ namespace Chess_MP.Pieces
 
             Vector2 pos = position;
 
-            foreach (var VARIABLE in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position))
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position))
             {
-                
+                hovers.Add(new Hover(GameController.Game, vector));
+            }
+            
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position))
+            {
+                hovers.Add(new Hover(GameController.Game, vector));
             }
             
             return hovers;

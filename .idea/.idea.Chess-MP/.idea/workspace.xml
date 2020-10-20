@@ -8,10 +8,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Fixed CanMoveUntil method #2">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess-MP/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/PieceManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" afterDir="false" />
+    <list default="true" id="d3972a99-2612-4885-afa0-5c2199dbcc1a" name="Default Changelist" comment="Fixed Pawn.cs Movement.">
       <change beforePath="$PROJECT_DIR$/Chess-MP/Pieces/Rook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess-MP/Pieces/Rook.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,9 +34,12 @@
     <setting file="file://$PROJECT_DIR$/Chess-MP/Game1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess-MP/PieceManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess-MP/GameController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/sebastian/RiderProjects/Chess-MP/Chess-MP/PieceManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess-MP/AssetManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess-MP/States/State.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess-MP/Image.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/sebastian/RiderProjects/Chess-MP/Chess-MP/Pieces/Pawn.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/sebastian/RiderProjects/Chess-MP/Chess-MP/Pieces/Rook.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -69,8 +69,8 @@
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Bishop.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Knight.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Queen.cs" />
-        <option value="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/PieceManager.cs" />
+        <option value="$PROJECT_DIR$/Chess-MP/Pieces/Pawn.cs" />
         <option value="$PROJECT_DIR$/Chess-MP/Pieces/Rook.cs" />
       </list>
     </option>
@@ -123,7 +123,7 @@
       <workItem from="1602828350868" duration="1537000" />
       <workItem from="1602948898483" duration="1007000" />
       <workItem from="1603087884549" duration="9935000" />
-      <workItem from="1603173305400" duration="2653000" />
+      <workItem from="1603173305400" duration="3079000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit.">
       <created>1602497096820</created>
@@ -447,7 +447,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603174626654</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Fixed Pawn.cs.">
+      <created>1603175970960</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1603175970960</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Fixed Pawn.cs Movement.">
+      <created>1603176341621</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1603176341622</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -466,8 +480,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Added Pawn.cs." />
-    <MESSAGE value="Fixed Pawn.cs" />
     <MESSAGE value="Made pawn Initial movement work." />
     <MESSAGE value="Fixed pawn movement." />
     <MESSAGE value="Fixed Grøn #1 in Piece.cs." />
@@ -491,7 +503,9 @@
     <MESSAGE value="Movement Branch Add." />
     <MESSAGE value="Fixed CanMoveUntil method." />
     <MESSAGE value="Fixed CanMoveUntil method #2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed CanMoveUntil method #2" />
+    <MESSAGE value="Fixed Pawn.cs." />
+    <MESSAGE value="Fixed Pawn.cs Movement." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Pawn.cs Movement." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2506" y="180" width="427" height="855" key="#Code_Folding" timestamp="1602571087579">
@@ -623,11 +637,11 @@
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="2492" y="300" key="RiderGenerateDialog/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1602847913436" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603174632321">
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603176384510">
       <screen x="1920" y="180" width="1600" height="900" />
     </state>
     <state x="480" y="184" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@0.0.1920.1035" timestamp="1602500295709" />
-    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1603174632321" />
+    <state x="2320" y="340" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.180.1600.900/0.0.1920.1035@1920.180.1600.900" timestamp="1603176384510" />
     <state x="64" y="0" width="1251" height="642" maximized="true" key="dock-window-1" timestamp="1603173646326">
       <screen x="0" y="0" width="1920" height="1035" />
     </state>
