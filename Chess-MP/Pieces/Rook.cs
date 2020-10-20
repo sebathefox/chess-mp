@@ -112,14 +112,24 @@ namespace Chess_MP.Pieces
             // }
 
 
-            Vector2 pos = position;
+            // Vector2 pos = position;
 
-            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position))
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Down, position))
             {
                 hovers.Add(new Hover(GameController.Game, vector));
             }
             
-            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position))
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Left, position))
+            {
+                hovers.Add(new Hover(GameController.Game, vector));
+            }
+            
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Up, position))
+            {
+                hovers.Add(new Hover(GameController.Game, vector));
+            }
+            
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Right, position))
             {
                 hovers.Add(new Hover(GameController.Game, vector));
             }

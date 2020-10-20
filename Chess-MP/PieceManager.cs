@@ -121,7 +121,12 @@ namespace Chess_MP
                 
                 normal += direction;
                 
-                if (GetPieceOnPosition(normal) != null)
+                if (GetPieceOnPosition(normal) != null && GetPieceOnPosition(normal).Color != _currentPiece.Color)
+                {
+                    list.Add(normal);
+                    break;
+                }
+                else
                 {
                     break;
                 }
