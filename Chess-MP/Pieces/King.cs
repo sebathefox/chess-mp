@@ -97,29 +97,31 @@ namespace Chess_MP.Pieces
             
             }
             */
-            if(state.PieceManager.CanMove(state.PieceManager.Up, position) != null) 
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Up, position));
 
-            if (state.PieceManager.CanMove(state.PieceManager.UpLeft, position) != null)
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.UpLeft, position));
+            Hover hover;
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.Up, position)) != null)
+                hovers.Add(hover);
 
-            if (state.PieceManager.CanMove(state.PieceManager.Left, position) != null)
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Left, position));
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.UpLeft, position)) != null)
+                hovers.Add(hover);
 
-            if (state.PieceManager.CanMove(state.PieceManager.DownLeft, position) != null)
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.DownLeft, position));
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.Left, position)) != null)
+                hovers.Add(hover);
 
-            if (state.PieceManager.CanMove(state.PieceManager.Down, position) != null)
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Down, position));
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.DownLeft, position)) != null)
+                hovers.Add(hover);
 
-            if (state.PieceManager.CanMove(state.PieceManager.DownRight, position) != null)
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.DownRight, position));
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.Down, position)) != null)
+                hovers.Add(hover);
 
-            if (state.PieceManager.CanMove(state.PieceManager.Right, position) != null)
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.Right, position));
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.DownRight, position)) != null)
+                hovers.Add(hover);
 
-            if (state.PieceManager.CanMove(state.PieceManager.UpRight, position) != null)
-                hovers.Add(state.PieceManager.CanMove(state.PieceManager.UpRight, position));
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.Right, position)) != null)
+                hovers.Add(hover);
+
+            if ((hover = state.PieceManager.CanMove(state.PieceManager.UpRight, position)) != null)
+                hovers.Add(hover);
 
             return hovers;
         }
