@@ -109,7 +109,7 @@ namespace Chess_MP
             return first.Color != other.Color;
         }
 
-        public List<Vector2> CanMoveUntil(Vector2 direction, Vector2 normal, Vector2 max)
+        public List<Vector2> CanMoveUntil(Vector2 direction, Vector2 normal)
         {
             List<Vector2> list = new List<Vector2>();
             
@@ -121,9 +121,7 @@ namespace Chess_MP
                 
                 normal += direction;
                 
-                if ((normal.X == max.X &&
-                     normal.Y == max.Y) ||
-                    GetPieceOnPosition(normal) != null)
+                if (GetPieceOnPosition(normal) != null)
                 {
                     break;
                 }
@@ -150,15 +148,6 @@ namespace Chess_MP
             return null;
         }
         
-        public Vector2 Up = new Vector2(0, 1);
-        public Vector2 UpLeft = new Vector2(1, 1);
-        public Vector2 Left = new Vector2(1, 0);
-        public Vector2 DownLeft = new Vector2(-1, 1);
-        public Vector2 Down = new Vector2(-1, 0);
-        public Vector2 DownRight = new Vector2(-1, -1);
-        public Vector2 Right = new Vector2(0, -1);
-        public Vector2 UpRight = new Vector2(1, -1);
-
         // public Vector2 OneLeft(Vector2 @base)
         // {
         //     // if (@base.X < 1)

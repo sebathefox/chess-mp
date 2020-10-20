@@ -32,30 +32,19 @@ namespace Chess_MP.Pieces
             // Vector2 front = state.PieceManager.OneFront(position);
 
             Vector2 front = position;
-            Vector2 max = front;
+            Vector2 frontPlus = front;
 
-            Vector2 left = position;
-            Vector2 right = position;
-            
             switch (Color)
             {
                 case GameColor.Black:
                     front = new Vector2(0, 1);
-                    max = position;
-                    max.Y += 2;
-                    if(!_hasMoved)
-                        max.Y += 1;
+                    frontPlus = new Vector2(0, 2);
                     break;
                 case GameColor.White:
                     front = new Vector2(0, -1);
-                    max = position;
-                    max.Y -= 2;
-                    if(!_hasMoved)
-                        max.Y -= 1;
+                    frontPlus = new Vector2(0, -2);
                     break;
             }
-
-            max.X = position.X;
 
             //
             // Vector2 left = state.PieceManager.OneLeft(front);
@@ -93,12 +82,24 @@ namespace Chess_MP.Pieces
             //     hovers.Add(new Hover(GameController.Game, right));
             // }
 
-            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(front, position, max))
-            {
-                Console.WriteLine(vector);
-                hovers.Add(new Hover(GameController.Game, vector));
-            }
 
+            // int i = 0;
+            // foreach (Vector2 vector in state.PieceManager.CanMoveUntil(front, position))
+            // {
+            //     Console.WriteLine(vector);
+            //     hovers.Add(new Hover(GameController.Game, vector));
+            //
+            //     if (i >= 2)
+            //     {
+            //         break;
+            //     }
+            //     
+            //     i++;
+            // }
+
+            hovers.Add(state.PieceManager.CanMove(front, position));
+            hovers.Add(state.PieceManager.CanMove(frontPlus, position));
+            
             Hover hover;
             if((hover = state.PieceManager.CanMove(new Vector2(-1, 0), position + front, true)) != null)
             {

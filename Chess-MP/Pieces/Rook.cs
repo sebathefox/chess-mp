@@ -114,7 +114,7 @@ namespace Chess_MP.Pieces
 
             Vector2 pos = position;
 
-            foreach (var VARIABLE in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position, Vector2.Zero))
+            foreach (var VARIABLE in state.PieceManager.CanMoveUntil(new Vector2(0, 1), position))
             {
                 
             }
