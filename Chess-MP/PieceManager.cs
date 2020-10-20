@@ -166,7 +166,7 @@ namespace Chess_MP
         public Vector2 Up = new Vector2(0, -1);
         public Vector2 UpLeft = new Vector2(-1, -1);
         public Vector2 Left = new Vector2(-1, 0);
-        public Vector2 DownLeft = new Vector2(1, -1);
+        public Vector2 DownLeft = new Vector2(-1, 1);
         public Vector2 Down = new Vector2(1, 0);
         public Vector2 DownRight = new Vector2(1, 1);
         public Vector2 Right = new Vector2(0, 1);
