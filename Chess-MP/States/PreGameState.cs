@@ -23,8 +23,8 @@ namespace Chess_MP.States
             
             _buttons = new List<Button>()
             {
-                new Button(_gameController, "Play", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(0, 0, 128, 64)),
-                new Button(_gameController, "Exit", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(128, 0, 128, 64))
+                new Button(_gameController, "Play", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(191, 128, 130, 64)),
+                new Button(_gameController, "Exit", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(191, 384, 130, 64))
             };
 
             foreach (Button button in _buttons)
