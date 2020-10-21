@@ -105,7 +105,28 @@ namespace Chess_MP.Pieces
             //     }
             //     leftDown = man.OneDownLeft(leftDown);
             // }
-            
+
+
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.DownLeft, position))
+            {
+                hovers.Add(new Hover(GameController.Game, vector));
+            }
+
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.UpLeft, position))
+            {
+                hovers.Add(new Hover(GameController.Game, vector));
+            }
+
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.UpRight, position))
+            {
+                hovers.Add(new Hover(GameController.Game, vector));
+            }
+
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.DownRight, position))
+            {
+                hovers.Add(new Hover(GameController.Game, vector));
+            }
+
             return hovers;
         }
     }

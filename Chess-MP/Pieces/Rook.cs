@@ -136,5 +136,11 @@ namespace Chess_MP.Pieces
             
             return hovers;
         }
+
+        protected override void OnHoverClicked(object sender, Vector2 pos)
+        {
+            base.OnHoverClicked(sender, pos);
+            _hasMoved = true;
+        }
     }
 }
