@@ -64,7 +64,9 @@ namespace Chess_MP.States
             {
                 _playerIndex = 0;
             }
-            
+
+            Console.WriteLine(DataFormatter.ObjectToString(PieceManager.CurrentPiece));
+
             _currentPlayer = _players[_playerIndex];
         }
 

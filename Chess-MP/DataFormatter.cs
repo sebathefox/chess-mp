@@ -13,6 +13,7 @@ namespace Chess_MP
             using (MemoryStream ms = new MemoryStream())
             {
                 new BinaryFormatter().Serialize(ms, obj);
+                ms.Position = 0;
                 return Convert.ToBase64String(ms.ToArray());
             }
         }

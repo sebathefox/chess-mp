@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Chess_MP.Board;
 using Chess_MP.States;
 using Microsoft.Xna.Framework;
@@ -13,7 +14,8 @@ namespace Chess_MP.Pieces
      * @author Sebastian Davaris
      * @date 13-10-2020
      */
-    public abstract class Piece
+    [Serializable]
+    public abstract class Piece : ISerializable
     {
         protected GameController GameController;
         // private readonly Player _player;
@@ -211,5 +213,11 @@ namespace Chess_MP.Pieces
         public GameColor Color => _color;
         
         public Vector2 Position => position;
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("position.x", (int)Position.X, typeof(int));
+            info.AddValue("position.y", (int)Position.Y, typeof(int));
+        }
     }
 }

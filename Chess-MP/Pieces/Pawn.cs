@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using Chess_MP.States;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Chess_MP.Pieces
 {
-    public class Pawn : Piece
+    [Serializable]
+    public class Pawn : Piece, ISerializable
     {
         private bool _hasMoved;
         
