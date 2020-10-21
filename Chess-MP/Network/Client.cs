@@ -14,6 +14,7 @@ namespace Chess_MP.Network
             _client = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             
             _client.Connect(IPAddress.Parse("10.142.116.15"), 50166);
+            _client.Send(Encoding.UTF8.GetBytes("Yeet"));
         }
         
         public void Receive()
