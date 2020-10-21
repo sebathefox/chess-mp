@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Chess_MP.Board;
+using Chess_MP.Pieces;
 using Microsoft.Xna.Framework;
 
 namespace Chess_MP.States
@@ -56,7 +57,9 @@ namespace Chess_MP.States
 
         public void ChangeTurn()
         {
-            
+            // King whiteKing = _pieceManager.GetPiecesWithColor(GameColor.White).First(piece => piece is King) as King ?? throw new InvalidOperationException();
+            // King blackKing = _pieceManager.GetPiecesWithColor(GameColor.Black).First(piece => piece is King) as King ?? throw new InvalidOperationException();
+
             if (++_playerIndex > _players.Length - 1)
             {
                 _playerIndex = 0;

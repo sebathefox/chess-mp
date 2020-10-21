@@ -349,5 +349,10 @@ namespace Chess_MP
         //}
 
         #endregion
+
+        public List<Piece> GetPiecesWithColor(GameColor color)
+        {
+            return _playerPieces[color];
+        }
     }
 }
