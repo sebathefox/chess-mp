@@ -108,180 +108,245 @@ namespace Chess_MP
             
             return first.Color != other.Color;
         }
-        
-        // protected Vector2 OneFront(Vector2 @base)
-        // {
-        //     switch (direction)
-        //     {
-        //         case Direction.Down:
-        //             return new Vector2(@base.X, @base.Y + 1);
-        //         default:
-        //             return new Vector2(@base.X, @base.Y - 1);
-        //     }
-        // }
-        
-        public Vector2 OneLeft(Vector2 @base)
+
+        public List<Vector2> CanMoveUntil(Vector2 direction, Vector2 normal)
         {
-            // if (@base.X < 1)
-            //     return @base;
+            List<Vector2> list = new List<Vector2>();
             
-            return new Vector2(@base.X - 1, @base.Y);
-        }
-        
-        public Vector2 OneRight(Vector2 @base)
-        {
-            // if (@base.X >= 7)
-            //     return @base;
+            normal += direction;
             
-            return new Vector2(@base.X + 1, @base.Y);
-        }
-        
-        public Vector2 OneUp(Vector2 @base)
-        {
-            // if (@base.Y < 1)
-            //     return @base;
-        
-            return new Vector2(@base.X, @base.Y - 1);
-        }
-        
-        public Vector2 OneDown(Vector2 @base)
-        {
-            // if (@base.Y >= 7)
-            //     return @base;
-        
-            return new Vector2(@base.X, @base.Y + 1);
-        }
-        
-        public Vector2 OneUpLeft(Vector2 @base)
-        {
-            // if (@base.Y < 1 || @base.X < 1)
-            //     return @base;
-        
-            return new Vector2(@base.X - 1, @base.Y - 1);
-        }
-        
-        public Vector2 OneUpRight(Vector2 @base)
-        {
-            // if (@base.Y < 1 || @base.X >= 7)
-            //     return @base;
-        
-            return new Vector2(@base.X + 1, @base.Y - 1);
-        }
-        
-        public Vector2 OneDownLeft(Vector2 @base)
-        {
-            // if (@base.Y >= 7 || @base.X < 1)
-            //     return @base;
-        
-            return new Vector2(@base.X - 1, @base.Y + 1);
-        }
-        
-        public Vector2 OneDownRight(Vector2 @base)
-        {
-            // if (@base.Y >= 7 || @base.X >= 7)
-            //     return @base;
-        
-            return new Vector2(@base.X + 1, @base.Y + 1);
-        }
-        
-        public bool IsOnLeft(Vector2 position, int offset = 0)
-        {
-            return position.X - offset <= 0;
-        }
-        
-        public bool IsOnRight(Vector2 position, int offset = 0)
-        {
-            return position.X + offset >= 7;
-        }
-        
-        public bool IsOnTop(Vector2 position, int offset = 0)
-        {
-            return position.Y - offset <= 0;
-        }
-        
-        public bool IsOnBottom(Vector2 position, int offset = 0)
-        {
-            return position.Y + offset >= 7;
-        }
-
-        public Vector2 KnUpLeft(Vector2 @base)
-        {
-            if (@base.Y < 2 || @base.X < 1)
-                return @base;
-
-            return new Vector2(@base.X - 1, @base.Y - 2);
-        }
-
-        public Vector2 KnUpRight(Vector2 @base)
-        {
-            if (@base.Y < 2 || @base.X >= 7)
-                return @base;
-
-            return new Vector2(@base.X + 1, @base.Y - 2);
-        }
-
-        public Vector2 KnDownRight(Vector2 @base)
-        {
-            if (@base.Y >= 6 || @base.X >= 7)
-                return @base;
-
-            return new Vector2(@base.X + 1, @base.Y + 2);
-        }
-
-        public Vector2 KnDownLeft(Vector2 @base)
-        {
-            if (@base.Y >= 6 || @base.X < 1)
-                return @base;
-
-            return new Vector2(@base.X - 1, @base.Y + 2);
-        }
-
-        public Vector2 KnLeftDown(Vector2 @base)
-        {
-            if (@base.Y >= 7 || @base.X < 2)
-                return @base;
-
-            return new Vector2(@base.X - 2, @base.Y + 1);
-        }
-
-        public Vector2 KnLeftUp(Vector2 @base)
-        {
-            if (@base.Y < 1 || @base.X < 2)
-                return @base;
-
-            return new Vector2(@base.X - 2, @base.Y - 1);
-        }
-
-
-        public Vector2 KnRightUp(Vector2 @base)
-        {
-            if (@base.Y < 1 || @base.X >= 6)
-                return @base;
-
-            return new Vector2(@base.X + 2, @base.Y - 1);
-        }
-
-        public Vector2 KnRightDown(Vector2 @base)
-        {
-            if (@base.Y >= 7 || @base.X >= 6)
-                return @base;
-
-            return new Vector2(@base.X + 2, @base.Y + 1);
-        }
-
-        public void Clear()
-        {
-            foreach (KeyValuePair<GameColor,List<Piece>> pair in _playerPieces)
+            while (normal.X < 8 &&
+                   normal.X >= 0 &&
+                   normal.Y < 8 &&
+                   normal.Y >= 0)
             {
-                foreach (Piece piece in pair.Value)
+
+                if (GetPieceOnPosition(normal) == null)
                 {
-                    piece.Delete();
+                    list.Add(normal);
                 }
+                
+                if (GetPieceOnPosition(normal) != null && GetPieceOnPosition(normal).Color != _currentPiece.Color)
+                {
+                    list.Add(normal);
+                    break;
+                }
+                else if (GetPieceOnPosition(normal) != null && GetPieceOnPosition(normal).Color == _currentPiece.Color)
+                {
+                    break;
+                }
+
+                
+                normal += direction;
             }
             
-            _currentPiece = null;
-            _playerPieces = null;
+            return list;
         }
+
+        public Hover CanMove(Vector2 direction, Vector2 position, bool needEnemy = false)
+        {
+            position += direction;
+
+            if(position.X < 8 &&
+                   position.X >= 0 &&
+                   position.Y < 8 &&
+                   position.Y >= 0)
+            {
+                if ((GetPieceOnPosition(position) == null && !needEnemy) ||
+                (needEnemy && GetPieceOnPosition(position) != null && GetPieceOnPosition(position).Color != _currentPiece.Color))
+                {
+                    return new Hover(_gameController.Game, position);
+                }
+                else if(GetPieceOnPosition(position) != null && GetPieceOnPosition(position).Color != _currentPiece.Color)
+                {
+                    return new Hover(_gameController.Game, position);
+                }
+            }
+                
+
+            return null;
+        }
+
+        public Vector2 Up = new Vector2(0, -1);
+        public Vector2 UpLeft = new Vector2(-1, -1);
+        public Vector2 Left = new Vector2(-1, 0);
+        public Vector2 DownLeft = new Vector2(-1, 1);
+        public Vector2 Down = new Vector2(1, 0);
+        public Vector2 DownRight = new Vector2(1, 1);
+        public Vector2 Right = new Vector2(0, 1);
+        public Vector2 UpRight = new Vector2(1, -1);
+
+        public Vector2 KnUpRight = new Vector2(1, -2);
+        public Vector2 KnUpLeft = new Vector2(-1, -2);
+        public Vector2 KnLeftUp = new Vector2(-2, -1);
+        public Vector2 KnLeftDown = new Vector2(-2, 1);
+        public Vector2 KnDownLeft = new Vector2(-1, 2);
+        public Vector2 KnDownRight = new Vector2(1, 2);
+        public Vector2 KnRightDown = new Vector2(2, 1);
+        public Vector2 KnRightUp = new Vector2(2, -1);
+
+        // public Vector2 OneLeft(Vector2 @base)
+        // {
+        //     // if (@base.X < 1)
+        //     //     return @base;
+        //     
+        //     return new Vector2(@base.X - 1, @base.Y);
+        // }
+        //
+        // public Vector2 OneRight(Vector2 @base)
+        // {
+        //     // if (@base.X >= 7)
+        //     //     return @base;
+        //     
+        //     return new Vector2(@base.X + 1, @base.Y);
+        // }
+        //
+        // public Vector2 OneUp(Vector2 @base)
+        // {
+        //     // if (@base.Y < 1)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X, @base.Y - 1);
+        // }
+        //
+        // public Vector2 OneDown(Vector2 @base)
+        // {
+        //     // if (@base.Y >= 7)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X, @base.Y + 1);
+        // }
+        //
+        // public Vector2 OneUpLeft(Vector2 @base)
+        // {
+        //     // if (@base.Y < 1 || @base.X < 1)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X - 1, @base.Y - 1);
+        // }
+        //
+        // public Vector2 OneUpRight(Vector2 @base)
+        // {
+        //     // if (@base.Y < 1 || @base.X >= 7)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X + 1, @base.Y - 1);
+        // }
+        //
+        // public Vector2 OneDownLeft(Vector2 @base)
+        // {
+        //     // if (@base.Y >= 7 || @base.X < 1)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X - 1, @base.Y + 1);
+        // }
+        //
+        // public Vector2 OneDownRight(Vector2 @base)
+        // {
+        //     // if (@base.Y >= 7 || @base.X >= 7)
+        //     //     return @base;
+        //
+        //     return new Vector2(@base.X + 1, @base.Y + 1);
+        // }
+        //
+        // public bool IsOnLeft(Vector2 position, int offset = 0)
+        // {
+        //     return position.X - offset <= 0;
+        // }
+        //
+        // public bool IsOnRight(Vector2 position, int offset = 0)
+        // {
+        //     return position.X + offset >= 7;
+        // }
+        //
+        // public bool IsOnTop(Vector2 position, int offset = 0)
+        // {
+        //     return position.Y - offset <= 0;
+        // }
+        //
+        // public bool IsOnBottom(Vector2 position, int offset = 0)
+        // {
+        //     return position.Y + offset >= 7;
+        // }
+
+        //public Vector2 KnUpLeft(Vector2 @base)
+        //{
+        //    if (@base.Y < 2 || @base.X < 1)
+        //        return @base;
+
+        //    return new Vector2(@base.X - 1, @base.Y - 2);
+        //}
+
+        //public Vector2 KnUpRight(Vector2 @base)
+        //{
+        //    if (@base.Y < 2 || @base.X >= 7)
+        //        return @base;
+
+        //    return new Vector2(@base.X + 1, @base.Y - 2);
+        //}
+
+        //public Vector2 KnDownRight(Vector2 @base)
+        //{
+        //    if (@base.Y >= 6 || @base.X >= 7)
+        //        return @base;
+
+        //    return new Vector2(@base.X + 1, @base.Y + 2);
+        //}
+
+        //public Vector2 KnDownLeft(Vector2 @base)
+        //{
+        //    if (@base.Y >= 6 || @base.X < 1)
+        //        return @base;
+
+        //    return new Vector2(@base.X - 1, @base.Y + 2);
+        //}
+
+        //public Vector2 KnLeftDown(Vector2 @base)
+        //{
+        //    if (@base.Y >= 7 || @base.X < 2)
+        //        return @base;
+
+        //    return new Vector2(@base.X - 2, @base.Y + 1);
+        //}
+
+        //public Vector2 KnLeftUp(Vector2 @base)
+        //{
+        //    if (@base.Y < 1 || @base.X < 2)
+        //        return @base;
+
+        //    return new Vector2(@base.X - 2, @base.Y - 1);
+        //}
+
+
+        //public Vector2 KnRightUp(Vector2 @base)
+        //{
+        //    if (@base.Y < 1 || @base.X >= 6)
+        //        return @base;
+
+        //    return new Vector2(@base.X + 2, @base.Y - 1);
+        //}
+
+        //public Vector2 KnRightDown(Vector2 @base)
+        //{
+        //    if (@base.Y >= 7 || @base.X >= 6)
+        //        return @base;
+
+        //    return new Vector2(@base.X + 2, @base.Y + 1);
+        //}
+
+        //public void Clear()
+        //{
+        //    foreach (KeyValuePair<GameColor,List<Piece>> pair in _playerPieces)
+        //    {
+        //        foreach (Piece piece in pair.Value)
+        //        {
+        //            piece.Delete();
+        //        }
+        //    }
+
+        //    _currentPiece = null;
+        //    _playerPieces = null;
+        //}
 
         #endregion
     }

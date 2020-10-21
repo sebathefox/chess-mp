@@ -14,6 +14,8 @@ namespace Chess_MP.Pieces
         protected override IEnumerable<Hover> GetPossibleFields()
         {
 
+            List<Hover> hovers = new List<Hover>();
+
             if (!GameController.IsInGame())
             {
                 throw new NotSupportedException("You MUST be in the correct state to move a piece!");
@@ -21,157 +23,197 @@ namespace Chess_MP.Pieces
 
             InGameState state = GameController.State as InGameState;
 
-            Vector2 upLeft = state.PieceManager.OneUpLeft(position);
-            Vector2 upRight = state.PieceManager.OneUpRight(position);
-            Vector2 right = state.PieceManager.OneRight(position);
-            Vector2 down = state.PieceManager.OneDown(position);
-            Vector2 left = state.PieceManager.OneLeft(position);
-            Vector2 up = state.PieceManager.OneUp(position);
-            Vector2 downLeft = state.PieceManager.OneDownLeft(position);
-            Vector2 downRight = state.PieceManager.OneDownRight(position);
+            // Vector2 upLeft = state.PieceManager.OneUpLeft(position);
+            // Vector2 upRight = state.PieceManager.OneUpRight(position);
+            // Vector2 right = state.PieceManager.OneRight(position);
+            // Vector2 down = state.PieceManager.OneDown(position);
+            // Vector2 left = state.PieceManager.OneLeft(position);
+            // Vector2 up = state.PieceManager.OneUp(position);
+            // Vector2 downLeft = state.PieceManager.OneDownLeft(position);
+            // Vector2 downRight = state.PieceManager.OneDownRight(position);
+            //
+            // while (state[right] != null)
+            // {
+            //     if (state[right].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, right));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[right].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, right));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     right = state.PieceManager.OneRight(right);
+            // }
+            //
+            // while (state[left] != null)
+            // {
+            //     if (state[left].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, left));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[left].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, left));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     left = state.PieceManager.OneLeft(left);
+            // }
+            //
+            // while (state[up] != null)
+            // {
+            //     if (state[up].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, up));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[up].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, up));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     up = state.PieceManager.OneUp(up);
+            // }
+            //
+            // while (state[down] != null)
+            // {
+            //     if (state[down].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, down));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[down].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, down));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     down = state.PieceManager.OneDown(down);
+            // }
+            //
+            // while (state[upLeft] != null)
+            // {
+            //     if (state[upLeft].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, upLeft));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[upLeft].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, upLeft));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     upLeft = state.PieceManager.OneUpLeft(upLeft);
+            // }
+            //
+            // while (state[upRight] != null)
+            // {
+            //     if (state[upRight].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, upRight));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[upRight].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, upRight));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     upRight = state.PieceManager.OneUpRight(upRight);
+            // }
+            //
+            // while (state[downLeft] != null)
+            // {
+            //     if (state[downLeft].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, downLeft));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[downLeft].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, downLeft));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     downLeft = state.PieceManager.OneDownLeft(downLeft);
+            // }
+            //
+            // while (state[downRight] != null)
+            // {
+            //     if (state[downRight].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, downRight));
+            //     }
+            //     else if (state.PieceManager.IsEnemies(this, state[downRight].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, downRight));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     downRight = state.PieceManager.OneDownRight(downRight);
+            // }
 
-            while (state[right] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Down, position))
             {
-                if (state[right].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, right));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[right].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, right));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                right = state.PieceManager.OneRight(right);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
-            while (state[left] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Left, position))
             {
-                if (state[left].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, left));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[left].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, left));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                left = state.PieceManager.OneLeft(left);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
-            while (state[up] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Up, position))
             {
-                if (state[up].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, up));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[up].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, up));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                up = state.PieceManager.OneUp(up);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
-            while (state[down] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.Right, position))
             {
-                if (state[down].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, down));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[down].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, down));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                down = state.PieceManager.OneDown(down);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
-            while (state[upLeft] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.DownLeft, position))
             {
-                if (state[upLeft].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, upLeft));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[upLeft].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, upLeft));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                upLeft = state.PieceManager.OneUpLeft(upLeft);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
-            while (state[upRight] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.UpLeft, position))
             {
-                if (state[upRight].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, upRight));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[upRight].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, upRight));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                upRight = state.PieceManager.OneUpRight(upRight);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
-            while (state[downLeft] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.UpRight, position))
             {
-                if (state[downLeft].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, downLeft));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[downLeft].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, downLeft));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                downLeft = state.PieceManager.OneDownLeft(downLeft);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
-            while (state[downRight] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.DownRight, position))
             {
-                if (state[downRight].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, downRight));
-                }
-                else if (state.PieceManager.IsEnemies(this, state[downRight].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, downRight));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                downRight = state.PieceManager.OneDownRight(downRight);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
 
             return hovers;

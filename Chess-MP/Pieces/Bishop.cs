@@ -25,87 +25,108 @@ namespace Chess_MP.Pieces
             
             InGameState state = GameController.State as InGameState;
 
-            Vector2 pos = Position;
-            
-            PieceManager man = state.PieceManager;
+            // Vector2 pos = Position;
+            //
+            // PieceManager man = state.PieceManager;
+            //
+            // Vector2 rightUp = man.OneUpRight(pos);
+            // Vector2 leftUp = man.OneUpLeft(pos);
+            // Vector2 rightDown = man.OneDownRight(pos);
+            // Vector2 leftDown = man.OneDownLeft(pos);
+            //
+            // while (state[rightUp] != null)
+            // {
+            //     if (state[rightUp].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, rightUp));
+            //     }
+            //     else if (man.IsEnemies(this, state[rightUp].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, rightUp));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     rightUp = man.OneUpRight(rightUp);
+            // }
+            //
+            // while (state[leftUp] != null)
+            // {
+            //     if (state[leftUp].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, leftUp));
+            //     }
+            //     else if (man.IsEnemies(this, state[leftUp].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, leftUp));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     leftUp = man.OneUpLeft(leftUp);
+            // }
+            //
+            // while (state[rightDown] != null)
+            // {
+            //     if (state[rightDown].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, rightDown));
+            //     }
+            //     else if (man.IsEnemies(this, state[rightDown].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, rightDown));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     rightDown = man.OneDownRight(rightDown);
+            // }
+            //
+            // while (state[leftDown] != null)
+            // {
+            //     if (state[leftDown].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, leftDown));
+            //     }
+            //     else if (man.IsEnemies(this, state[leftDown].Piece))
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, leftDown));
+            //         break;
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            //     leftDown = man.OneDownLeft(leftDown);
+            // }
 
-            Vector2 rightUp = man.OneUpRight(pos);
-            Vector2 leftUp = man.OneUpLeft(pos);
-            Vector2 rightDown = man.OneDownRight(pos);
-            Vector2 leftDown = man.OneDownLeft(pos);
 
-            while (state[rightUp] != null)
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.DownLeft, position))
             {
-                if (state[rightUp].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, rightUp));
-                }
-                else if (man.IsEnemies(this, state[rightUp].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, rightUp));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                rightUp = man.OneUpRight(rightUp);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
-            
-            while (state[leftUp] != null)
+
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.UpLeft, position))
             {
-                if (state[leftUp].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, leftUp));
-                }
-                else if (man.IsEnemies(this, state[leftUp].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, leftUp));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                leftUp = man.OneUpLeft(leftUp);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
-            
-            while (state[rightDown] != null)
+
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.UpRight, position))
             {
-                if (state[rightDown].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, rightDown));
-                }
-                else if (man.IsEnemies(this, state[rightDown].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, rightDown));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                rightDown = man.OneDownRight(rightDown);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
-            
-            while (state[leftDown] != null)
+
+            foreach (Vector2 vector in state.PieceManager.CanMoveUntil(state.PieceManager.DownRight, position))
             {
-                if (state[leftDown].Piece == null)
-                {
-                    hovers.Add(new Hover(GameController.Game, leftDown));
-                }
-                else if (man.IsEnemies(this, state[leftDown].Piece))
-                {
-                    hovers.Add(new Hover(GameController.Game, leftDown));
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-                leftDown = man.OneDownLeft(leftDown);
+                hovers.Add(new Hover(GameController.Game, vector));
             }
-            
+
             return hovers;
         }
     }

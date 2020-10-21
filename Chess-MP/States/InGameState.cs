@@ -52,7 +52,6 @@ namespace Chess_MP.States
             _playerIndex = 0;
             _players = new Player[2];
             _fields.Clear();
-            _pieceManager.Clear();
         }
 
         public void ChangeTurn()

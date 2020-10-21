@@ -32,50 +32,101 @@ namespace Chess_MP.Pieces
             // Vector2 front = state.PieceManager.OneFront(position);
 
             Vector2 front = position;
+            Vector2 frontPlus = front;
 
             switch (Color)
             {
                 case GameColor.Black:
-                    front = new Vector2(position.X, position.Y + 1);
+                    front = new Vector2(0, 1);
+                    frontPlus = new Vector2(0, 2);
                     break;
                 case GameColor.White:
-                    front = new Vector2(position.X, position.Y - 1);
+                    front = new Vector2(0, -1);
+                    frontPlus = new Vector2(0, -2);
                     break;
             }
 
-            Vector2 left = state.PieceManager.OneLeft(front);
-            Vector2 right = state.PieceManager.OneRight(front);
+            //
+            // Vector2 left = state.PieceManager.OneLeft(front);
+            // Vector2 right = state.PieceManager.OneRight(front);
+            //
+            // // Console.WriteLine(front.ToString());
+            //
+            // if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && state[front].Piece == null)
+            // {
+            //     hovers.Add(new Hover(GameController.Game, front));
+            //
+            //     switch (Color)
+            //     {
+            //         case GameColor.Black:
+            //             front = new Vector2(front.X, front.Y + 1);
+            //             break;
+            //         case GameColor.White:
+            //             front = new Vector2(front.X, front.Y - 1);
+            //             break;
+            //     }
+            //
+            //     if (!_hasMoved  && state[front].Piece == null)
+            //     {
+            //         hovers.Add(new Hover(GameController.Game, front));
+            //     }
+            // }
+            //
+            // if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnLeft(this.position) && state[left].Piece != null && state.PieceManager.IsEnemies(this, state[left].Piece))
+            // {
+            //     hovers.Add(new Hover(GameController.Game, left));
+            // }
+            //
+            // if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnRight(this.position) && state[right].Piece != null && state.PieceManager.IsEnemies(this, state[right].Piece))
+            // {
+            //     hovers.Add(new Hover(GameController.Game, right));
+            // }
 
-            // Console.WriteLine(front.ToString());
 
-            if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && state[front].Piece == null)
+            // int i = 0;
+            // foreach (Vector2 vector in state.PieceManager.CanMoveUntil(front, position))
+            // {
+            //     Console.WriteLine(vector);
+            //     hovers.Add(new Hover(GameController.Game, vector));
+            //
+            //     if (i >= 2)
+            //     {
+            //         break;
+            //     }
+            //     
+            //     i++;
+            // }
+
+            
+            
+            Hover hover;
+            if (state.Fields.First(field => field.Id == position + front).Piece == null)
             {
-                hovers.Add(new Hover(GameController.Game, front));
-
-                switch (Color)
+                if ((hover = state.PieceManager.CanMove(front, position)) != null)
                 {
-                    case GameColor.Black:
-                        front = new Vector2(front.X, front.Y + 1);
-                        break;
-                    case GameColor.White:
-                        front = new Vector2(front.X, front.Y - 1);
-                        break;
+                    hovers.Add(hover);
                 }
 
-                if (!_hasMoved  && state[front].Piece == null)
+                if (!_hasMoved && state.Fields.First(field => field.Id == position + frontPlus).Piece == null)
                 {
-                    hovers.Add(new Hover(GameController.Game, front));
+                    if ((hover = state.PieceManager.CanMove(frontPlus, position)) != null)
+                    {
+                        hovers.Add(hover);
+                    }
                 }
             }
 
-            if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnLeft(this.position) && state[left].Piece != null && state.PieceManager.IsEnemies(this, state[left].Piece))
-            {
-                hovers.Add(new Hover(GameController.Game, left));
-            }
+            
 
-            if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnRight(this.position) && state[right].Piece != null && state.PieceManager.IsEnemies(this, state[right].Piece))
+
+            if ((hover = state.PieceManager.CanMove(new Vector2(-1, 0), position + front, true)) != null)
             {
-                hovers.Add(new Hover(GameController.Game, right));
+                hovers.Add(hover);                
+            }
+            
+            if((hover = state.PieceManager.CanMove(new Vector2(1, 0), position + front, true)) != null)
+            {
+                hovers.Add(hover);                
             }
             
             return hovers;
