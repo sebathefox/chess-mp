@@ -10,10 +10,10 @@ namespace Chess_MP.States
 {
     public class InGameState : State
     {
+
         private Player[] _players;
         private List<Field> _fields;
         private PieceManager _pieceManager;
-
         private Player _currentPlayer;
         private int _playerIndex;
         
