@@ -48,9 +48,10 @@ namespace Chess_MP.Network
             while (_client.Receive(state.buffer) > 0)
             {
                 state.sb.Append(Encoding.UTF8.GetString(state.buffer));
+                Console.WriteLine(state.sb.ToString());
             }
 
-            Console.WriteLine(state.sb.ToString());
+            
         }
 
         private void ReadCallBack(IAsyncResult ar)

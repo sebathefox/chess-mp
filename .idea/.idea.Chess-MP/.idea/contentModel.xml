@@ -120,6 +120,7 @@
           <e p="white_pawn.png" t="Include" />
           <e p="white_queen.png" t="Include" />
         </e>
+        <e p="DataFormatter.cs" t="Include" />
         <e p="Doxyfile" t="Include" />
         <e p="Game1.cs" t="Include" />
         <e p="GameColor.cs" t="Include" />

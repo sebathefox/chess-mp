@@ -1,4 +1,5 @@
 ﻿using System;
+using Chess_MP.Network;
 
 namespace Chess_MP
 {
@@ -7,8 +8,19 @@ namespace Chess_MP
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            Host host = new Host();
+
+
+            while (true)
+            {
+                host.Receive();
+
+            }
+            
+            
+            
+            // using (var game = new Game1())
+            //     game.Run();
         }
     }
 }
