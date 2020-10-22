@@ -53,6 +53,14 @@ namespace Chess_MP.States
             _playerIndex = 0;
             _players = new Player[2];
             _fields.Clear();
+            foreach (Piece piece in _pieceManager.GetPiecesWithColor(GameColor.Black))
+            {
+                piece.Delete();
+            }
+            foreach (Piece piece in _pieceManager.GetPiecesWithColor(GameColor.White))
+            {
+                piece.Delete();
+            }
         }
 
         public void ChangeTurn()
@@ -65,8 +73,12 @@ namespace Chess_MP.States
                 _playerIndex = 0;
             }
 
-            Console.WriteLine(DataFormatter.ObjectToString(PieceManager.CurrentPiece));
+            // string derp = DataFormatter.ObjectToString(PieceManager.CurrentPiece);
+            
+            // Console.WriteLine(derp);
 
+            // Console.WriteLine(DataFormatter.StringToObject(derp));
+            
             _currentPlayer = _players[_playerIndex];
         }
 

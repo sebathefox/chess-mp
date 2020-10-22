@@ -32,6 +32,20 @@
                 <e p="button.xnb" t="Include" />
                 <e p="font.xnb" t="Include" />
                 <e p="hover_field.xnb" t="Include" />
+                <e p="meme" t="Include">
+                  <e p="black_bishop.xnb" t="Include" />
+                  <e p="black_castle.xnb" t="Include" />
+                  <e p="black_king.xnb" t="Include" />
+                  <e p="black_knight.xnb" t="Include" />
+                  <e p="black_pawn.xnb" t="Include" />
+                  <e p="black_queen.xnb" t="Include" />
+                  <e p="white_bishop.xnb" t="Include" />
+                  <e p="white_castle.xnb" t="Include" />
+                  <e p="white_king.xnb" t="Include" />
+                  <e p="white_knight.xnb" t="Include" />
+                  <e p="white_pawn.xnb" t="Include" />
+                  <e p="white_queen.xnb" t="Include" />
+                </e>
                 <e p="white_bishop.xnb" t="Include" />
                 <e p="white_castle.xnb" t="Include" />
                 <e p="white_king.xnb" t="Include" />
@@ -50,6 +64,20 @@
               <e p="button.xnb" t="Include" />
               <e p="font.xnb" t="Include" />
               <e p="hover_field.xnb" t="Include" />
+              <e p="meme" t="Include">
+                <e p="black_bishop.xnb" t="Include" />
+                <e p="black_castle.xnb" t="Include" />
+                <e p="black_king.xnb" t="Include" />
+                <e p="black_knight.xnb" t="Include" />
+                <e p="black_pawn.xnb" t="Include" />
+                <e p="black_queen.xnb" t="Include" />
+                <e p="white_bishop.xnb" t="Include" />
+                <e p="white_castle.xnb" t="Include" />
+                <e p="white_king.xnb" t="Include" />
+                <e p="white_knight.xnb" t="Include" />
+                <e p="white_pawn.xnb" t="Include" />
+                <e p="white_queen.xnb" t="Include" />
+              </e>
               <e p="white_bishop.xnb" t="Include" />
               <e p="white_castle.xnb" t="Include" />
               <e p="white_king.xnb" t="Include" />
@@ -69,6 +97,20 @@
           <e p="font.spritefont" t="Include" />
           <e p="hover_field.png" t="Include" />
           <e p="kenvector_future_thin.ttf" t="Include" />
+          <e p="meme" t="Include">
+            <e p="boris.jpg" t="Include" />
+            <e p="rsz_566971fd60aaeb94da759e3aa84c0e7b.png" t="Include" />
+            <e p="rsz_annette.jpg" t="Include" />
+            <e p="rsz_carst.jpg" t="Include" />
+            <e p="rsz_icon.jpg" t="Include" />
+            <e p="rsz_images.jpg" t="Include" />
+            <e p="rsz_p_20201022_090935_vhdr_auto.jpg" t="Include" />
+            <e p="rsz_pme.jpg" t="Include" />
+            <e p="rsz_preb.jpg" t="Include" />
+            <e p="rsz_rada.jpg" t="Include" />
+            <e p="rsz_yeet.jpg" t="Include" />
+            <e p="zbigniew.jpg" t="Include" />
+          </e>
           <e p="obj" t="Include">
             <e p="DesktopGL" t="Include">
               <e p=".mgcontent" t="Include" />
@@ -87,6 +129,20 @@
                 <e p="button.mgcontent" t="Include" />
                 <e p="font.mgcontent" t="Include" />
                 <e p="hover_field.mgcontent" t="Include" />
+                <e p="meme" t="Include">
+                  <e p="black_bishop.mgcontent" t="Include" />
+                  <e p="black_castle.mgcontent" t="Include" />
+                  <e p="black_king.mgcontent" t="Include" />
+                  <e p="black_knight.mgcontent" t="Include" />
+                  <e p="black_pawn.mgcontent" t="Include" />
+                  <e p="black_queen.mgcontent" t="Include" />
+                  <e p="white_bishop.mgcontent" t="Include" />
+                  <e p="white_castle.mgcontent" t="Include" />
+                  <e p="white_king.mgcontent" t="Include" />
+                  <e p="white_knight.mgcontent" t="Include" />
+                  <e p="white_pawn.mgcontent" t="Include" />
+                  <e p="white_queen.mgcontent" t="Include" />
+                </e>
                 <e p="white_bishop.mgcontent" t="Include" />
                 <e p="white_castle.mgcontent" t="Include" />
                 <e p="white_king.mgcontent" t="Include" />
@@ -105,6 +161,20 @@
               <e p="button.mgcontent" t="Include" />
               <e p="font.mgcontent" t="Include" />
               <e p="hover_field.mgcontent" t="Include" />
+              <e p="meme" t="Include">
+                <e p="black_bishop.mgcontent" t="Include" />
+                <e p="black_castle.mgcontent" t="Include" />
+                <e p="black_king.mgcontent" t="Include" />
+                <e p="black_knight.mgcontent" t="Include" />
+                <e p="black_pawn.mgcontent" t="Include" />
+                <e p="black_queen.mgcontent" t="Include" />
+                <e p="white_bishop.mgcontent" t="Include" />
+                <e p="white_castle.mgcontent" t="Include" />
+                <e p="white_king.mgcontent" t="Include" />
+                <e p="white_knight.mgcontent" t="Include" />
+                <e p="white_pawn.mgcontent" t="Include" />
+                <e p="white_queen.mgcontent" t="Include" />
+              </e>
               <e p="white_bishop.mgcontent" t="Include" />
               <e p="white_castle.mgcontent" t="Include" />
               <e p="white_king.mgcontent" t="Include" />
@@ -139,6 +209,7 @@
         <e p="Network" t="Include">
           <e p="Client.cs" t="Include" />
           <e p="Host.cs" t="Include" />
+          <e p="Packet.cs" t="Include" />
         </e>
         <e p="PieceManager.cs" t="Include" />
         <e p="Pieces" t="Include">

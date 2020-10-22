@@ -16,6 +16,8 @@ namespace Chess_MP
 
         public void LoadTexture(string key, string path)
         {
+            if (_textures.ContainsKey(key))
+                _textures.Remove(key);
             _textures.Add(key, _game.Content.Load<Texture2D>(path));
         }
 
