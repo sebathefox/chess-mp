@@ -14,7 +14,6 @@ namespace Chess_MP.Board
      */
     public class Field
     {
-
         private readonly GameController _gameController;
         private readonly Vector2 _id;
         private Piece _piece;
@@ -59,7 +58,6 @@ namespace Chess_MP.Board
         {
             if (_piece != null)
             {
-                // _piece.Player.KillPiece(_piece);
             }
             
             _piece = piece;

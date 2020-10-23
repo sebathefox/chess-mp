@@ -8,7 +8,6 @@ namespace Chess_MP
 {
     class Label
     {
-
         private GameController _gameController;
 
         private string _text;

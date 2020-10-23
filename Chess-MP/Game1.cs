@@ -47,26 +47,9 @@ namespace Chess_MP
             _assetManager.LoadTexture("button", "button");
             _assetManager.LoadTexture("icon", "Icon");
 
-            // // White
-            // _assetManager.LoadTexture("white-pawn", "white_pawn");
-            // _assetManager.LoadTexture("white-knight", "white_knight");
-            // _assetManager.LoadTexture("white-rook", "white_castle");
-            // _assetManager.LoadTexture("white-bishop", "white_bishop");
-            // _assetManager.LoadTexture("white-king", "white_king");
-            // _assetManager.LoadTexture("white-queen", "white_queen");
-            //
-            // // Black
-            // _assetManager.LoadTexture("black-pawn", "black_pawn");
-            // _assetManager.LoadTexture("black-knight", "black_knight");
-            // _assetManager.LoadTexture("black-rook", "black_castle");
-            // _assetManager.LoadTexture("black-bishop", "black_bishop");
-            // _assetManager.LoadTexture("black-king", "black_king");
-            // _assetManager.LoadTexture("black-queen", "black_queen");
-
             Font = Content.Load<SpriteFont>("font");
             
             _gameController = new GameController(this);
-            
         }
 
         protected override void Update(GameTime gameTime)

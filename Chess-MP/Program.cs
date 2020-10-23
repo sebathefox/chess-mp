@@ -8,13 +8,6 @@ namespace Chess_MP
         [STAThread]
         static void Main()
         {
-            //Client client = new Client();
-
-            //while (true)
-            //{
-
-            //}
-
             using (var game = new Game1())
                 game.Run();
         }

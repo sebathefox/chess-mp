@@ -6,13 +6,11 @@ using Microsoft.Xna.Framework;
 namespace Chess_MP.States
 {    
     public class EndGameState : State
-    {
-
+    { 
         private string _text;
         private List<Button> _buttons;
         private List<Label> _labels;
                 
-        // TODO: Implement the GUI.
         /// <inheritdoc />
         public EndGameState(GameController gameController, GameColor color) : base(gameController)
         {
@@ -22,7 +20,6 @@ namespace Chess_MP.States
         /// <inheritdoc />
         public override void EnterState()
         {           
-
             Point center = _gameController.Game.Window.ClientBounds.Center;
 
             _buttons = new List<Button>()
@@ -60,7 +57,6 @@ namespace Chess_MP.States
         private void OnKeyPressed(object sender, EventArgs args)
         {
             Button btn = sender as Button;
-
             
             if (btn.Text.ToLower().Equals("rematch"))
             {
@@ -82,8 +78,6 @@ namespace Chess_MP.States
             {
                 _gameController.Game.Exit();
             }
-
-
         }
     }
 }

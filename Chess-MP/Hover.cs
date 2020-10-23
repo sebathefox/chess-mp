@@ -61,7 +61,6 @@ namespace Chess_MP
 
                 if (_image.Rectangle.Contains(position))
                 {
-                    // Console.WriteLine("CLICKED: " + _position.ToString());
                     OnClicked?.Invoke(this, _position);
                 }
             }

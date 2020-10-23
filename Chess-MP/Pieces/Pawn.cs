@@ -31,8 +31,6 @@ namespace Chess_MP.Pieces
             
             InGameState state = GameController.State as InGameState;
 
-            // Vector2 front = state.PieceManager.OneFront(position);
-
             Vector2 front = position;
             Vector2 frontPlus = front;
 
@@ -47,59 +45,6 @@ namespace Chess_MP.Pieces
                     frontPlus = new Vector2(0, -2);
                     break;
             }
-
-            //
-            // Vector2 left = state.PieceManager.OneLeft(front);
-            // Vector2 right = state.PieceManager.OneRight(front);
-            //
-            // // Console.WriteLine(front.ToString());
-            //
-            // if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && state[front].Piece == null)
-            // {
-            //     hovers.Add(new Hover(GameController.Game, front));
-            //
-            //     switch (Color)
-            //     {
-            //         case GameColor.Black:
-            //             front = new Vector2(front.X, front.Y + 1);
-            //             break;
-            //         case GameColor.White:
-            //             front = new Vector2(front.X, front.Y - 1);
-            //             break;
-            //     }
-            //
-            //     if (!_hasMoved  && state[front].Piece == null)
-            //     {
-            //         hovers.Add(new Hover(GameController.Game, front));
-            //     }
-            // }
-            //
-            // if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnLeft(this.position) && state[left].Piece != null && state.PieceManager.IsEnemies(this, state[left].Piece))
-            // {
-            //     hovers.Add(new Hover(GameController.Game, left));
-            // }
-            //
-            // if (!(state.PieceManager.IsOnBottom(this.position) || state.PieceManager.IsOnTop(this.position)) && !state.PieceManager.IsOnRight(this.position) && state[right].Piece != null && state.PieceManager.IsEnemies(this, state[right].Piece))
-            // {
-            //     hovers.Add(new Hover(GameController.Game, right));
-            // }
-
-
-            // int i = 0;
-            // foreach (Vector2 vector in state.PieceManager.CanMoveUntil(front, position))
-            // {
-            //     Console.WriteLine(vector);
-            //     hovers.Add(new Hover(GameController.Game, vector));
-            //
-            //     if (i >= 2)
-            //     {
-            //         break;
-            //     }
-            //     
-            //     i++;
-            // }
-
-            
             
             Hover hover;
             if (state.Fields.First(field => field.Id == position + front).Piece == null)
@@ -117,9 +62,6 @@ namespace Chess_MP.Pieces
                     }
                 }
             }
-
-            
-
 
             if ((hover = state.PieceManager.CanMove(new Vector2(-1, 0), position + front, true)) != null)
             {

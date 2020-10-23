@@ -9,8 +9,6 @@ namespace Chess_MP.States
     {
         private List<Button> _buttons;
 
-        
-        // TODO: Implement the GUI.
         /// <inheritdoc />
         public PreGameState(GameController gameController) : base(gameController)
         {
@@ -24,9 +22,8 @@ namespace Chess_MP.States
             _buttons = new List<Button>()
             {
                 new Button(_gameController, "Play", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(191, 128, 130, 64)),
-                new Button(_gameController, "Exit", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(191, 384, 130, 64)),
-                new Button(_gameController, "Normal", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(191, 192, 130, 64)),
-                new Button(_gameController, "Special Funny xD", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(191, 256, 130, 64))
+                new Button(_gameController, "Fun Version", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(136, 256, 240, 64)),
+                new Button(_gameController, "Exit", _gameController.Game.AssetManager.GetTexture("button"), new Rectangle(191, 384, 130, 64))
             };
 
             foreach (Button button in _buttons)
@@ -38,7 +35,6 @@ namespace Chess_MP.States
         /// <inheritdoc />
         public override void ExitState()
         {
-            
         }
 
         private void OnKeyPressed(object sender, EventArgs args)
@@ -50,25 +46,25 @@ namespace Chess_MP.States
                 _gameController.Game.Exit();
             }
 
-            if (btn.Text.ToLower().Equals("normal"))
+            if (btn.Text.ToLower().Equals("play"))
             {
                 // White
-                _gameController.Game.AssetManager.LoadTexture("white-pawn", "white_pawn");
-                _gameController.Game.AssetManager.LoadTexture("white-knight", "white_knight");
-                _gameController.Game.AssetManager.LoadTexture("white-rook", "white_castle");
-                _gameController.Game.AssetManager.LoadTexture("white-bishop", "white_bishop");
-                _gameController.Game.AssetManager.LoadTexture("white-king", "white_king");
-                _gameController.Game.AssetManager.LoadTexture("white-queen", "white_queen");
+                _gameController.Game.AssetManager.LoadTexture("white-pawn", "normal/white_pawn");
+                _gameController.Game.AssetManager.LoadTexture("white-knight", "normal/white_knight");
+                _gameController.Game.AssetManager.LoadTexture("white-rook", "normal/white_castle");
+                _gameController.Game.AssetManager.LoadTexture("white-bishop", "normal/white_bishop");
+                _gameController.Game.AssetManager.LoadTexture("white-king", "normal/white_king");
+                _gameController.Game.AssetManager.LoadTexture("white-queen", "normal/white_queen");
 
                 // Black
-                _gameController.Game.AssetManager.LoadTexture("black-pawn", "black_pawn");
-                _gameController.Game.AssetManager.LoadTexture("black-knight", "black_knight");
-                _gameController.Game.AssetManager.LoadTexture("black-rook", "black_castle");
-                _gameController.Game.AssetManager.LoadTexture("black-bishop", "black_bishop");
-                _gameController.Game.AssetManager.LoadTexture("black-king", "black_king");
-                _gameController.Game.AssetManager.LoadTexture("black-queen", "black_queen");
+                _gameController.Game.AssetManager.LoadTexture("black-pawn", "normal/black_pawn");
+                _gameController.Game.AssetManager.LoadTexture("black-knight", "normal/black_knight");
+                _gameController.Game.AssetManager.LoadTexture("black-rook", "normal/black_castle");
+                _gameController.Game.AssetManager.LoadTexture("black-bishop", "normal/black_bishop");
+                _gameController.Game.AssetManager.LoadTexture("black-king", "normal/black_king");
+                _gameController.Game.AssetManager.LoadTexture("black-queen", "normal/black_queen");
             }
-            else if (btn.Text.ToLower().Equals("special funny xd"))
+            else if (btn.Text.ToLower().Equals("fun version"))
             {
                 // White
                 _gameController.Game.AssetManager.LoadTexture("white-pawn", "meme/white_pawn");

@@ -28,7 +28,6 @@ namespace Chess_MP.Pieces
 
         private bool _shouldUpdate;
 
-
         /**
          * Constructor
          * @param game The Game reference.
@@ -93,7 +92,6 @@ namespace Chess_MP.Pieces
             }
 
             InGameState state = GameController.State as InGameState;
-            
             
             // Updates the state.
             _mouse.Update(Mouse.GetState());
@@ -211,7 +209,7 @@ namespace Chess_MP.Pieces
          * @date 12-10-2020
          */
         public GameColor Color => _color;
-        
+
         public Vector2 Position => position;
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

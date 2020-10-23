@@ -47,7 +47,6 @@ namespace Chess_MP
                 pieces.Add(new Bishop(gameController, color, new Vector2(2, 0)));
                 state[new Vector2(2, 0)].SetPiece(pieces.Find(piece => piece.Position == new Vector2(2, 0)));
                 
-
                 for (int i = 0; i < 8; i++)
                 {
                     pieces.Add(new Pawn(gameController, color, new Vector2(i, 1)));

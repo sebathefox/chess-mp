@@ -16,23 +16,13 @@ namespace Chess_MP
         private readonly string _name;
         private readonly GameColor _color;
 
-        // private List<Piece> _pieces;
-
         public Player(GameController game, uint id, string name, GameColor color)
         {
             _game = game;
             _id = id;
             _name = name;
             _color = color;
-            // _pieces = new List<Piece>(LayoutManager.Generate(_game, this));
         }
-
-        // public void KillPiece(Piece piece)
-        // {
-            // Console.WriteLine("Killed Piece: " + piece);
-            
-            // _pieces.Remove(piece);
-        // }
 
         /**
          * Gets the player's ID.
@@ -53,14 +43,12 @@ namespace Chess_MP
          * @author Sebastian Davaris
          * @date 13-10-2020
          */
-        // public Piece this[int index] => _pieces[index];
         
         /**
          * Gets the player's Pieces.
          * @author Sebastian Davaris
          * @date 13-10-2020
          */
-        // public List<Piece> Pieces => _pieces;
 
         public GameColor Color => _color;
     }

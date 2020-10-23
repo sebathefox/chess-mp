@@ -10,7 +10,6 @@ namespace Chess_MP.States
 {
     public class InGameState : State
     {
-
         private Player[] _players;
         private List<Field> _fields;
         private PieceManager _pieceManager;
@@ -65,20 +64,11 @@ namespace Chess_MP.States
 
         public void ChangeTurn()
         {
-            // King whiteKing = _pieceManager.GetPiecesWithColor(GameColor.White).First(piece => piece is King) as King ?? throw new InvalidOperationException();
-            // King blackKing = _pieceManager.GetPiecesWithColor(GameColor.Black).First(piece => piece is King) as King ?? throw new InvalidOperationException();
-
             if (++_playerIndex > _players.Length - 1)
             {
                 _playerIndex = 0;
             }
 
-            // string derp = DataFormatter.ObjectToString(PieceManager.CurrentPiece);
-            
-            // Console.WriteLine(derp);
-
-            // Console.WriteLine(DataFormatter.StringToObject(derp));
-            
             _currentPlayer = _players[_playerIndex];
         }
 

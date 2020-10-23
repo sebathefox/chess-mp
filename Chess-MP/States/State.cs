@@ -7,9 +7,7 @@ namespace Chess_MP.States
      */
     public abstract class State
     {
-        protected GameController _gameController;
-
-        
+        protected GameController _gameController;     
         
         public State(GameController gameController)
         {
@@ -29,7 +27,6 @@ namespace Chess_MP.States
          * @date 15-10-2020
          */
         public abstract void ExitState();
-
-        
+               
     }
 }

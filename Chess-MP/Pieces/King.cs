@@ -9,15 +9,12 @@ namespace Chess_MP.Pieces
 {
     public class King : Piece, ISerializable
     {
-
         private bool _hasMoved;
 
         public King(GameController gameController, GameColor color, Vector2 position) : base(gameController, color, gameController.Game.AssetManager.GetTexture(color.ToString().ToLower() + "-king"), position)
         {
             _hasMoved = false;
-        }
-
-        
+        }    
 
         protected override IEnumerable<Hover> GetPossibleFields()
         {
@@ -28,7 +25,6 @@ namespace Chess_MP.Pieces
             }
             
             InGameState state = GameController.State as InGameState;
-
 
             Hover hover;
             if ((hover = state.PieceManager.CanMove(state.PieceManager.Up, position)) != null)
@@ -57,8 +53,6 @@ namespace Chess_MP.Pieces
 
             return hovers;
         }
-
-       
 
         protected override void OnHoverClicked(object sender, Vector2 pos)
         {
